@@ -1,0 +1,122 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.moneymanager.ui.regularPayments.RegularPaymentFragment">
+
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/nameRegularPaymentTextView"-->
+<!--                style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/name_regular_payment"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/amountTextView"-->
+<!--                style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/amount"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/nameRegularPaymentTextView" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/typeTextView"-->
+<!--                style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/type"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/amountTextView" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/accountTextView"-->
+<!--                style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/account"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/typeTextView" />-->
+
+<!--            <GridLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/category"-->
+<!--                android:columnCount="2"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/accountTextView">-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/profileImageView"-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:src="@drawable/ic_plus_40"-->
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/categoryNameView"-->
+<!--                    style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/category"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/accountTextView" />-->
+
+<!--            </GridLayout>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/startDateTextView"-->
+<!--                style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/reminder_start_date"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/category" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/endDateTextView"-->
+<!--                style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/reminder_end_date"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/startDateTextView" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/frequencyTextView"-->
+<!--                style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/reminder_frequency"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/endDateTextView" />-->
+
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--    </androidx.core.widget.NestedScrollView>-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
