@@ -11,28 +11,28 @@ import com.example.moneymanager.model.CategoryModel
 import com.example.sp_v2.R
 
 class CategoryCardsAdapter(
-    courseModelArrayList: ArrayList<CategoryModel>
+    categoryModelArrayList: ArrayList<CategoryModel>
 ) :
     RecyclerView.Adapter<CategoryCardsAdapter.ViewHolder>() {
-    private val courseModelArrayList: ArrayList<CategoryModel>
+    private val categoryModelArrayList: ArrayList<CategoryModel>
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-                .inflate(R.layout.category_card_fragment, parent, false)
+            .inflate(R.layout.category_card_fragment, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val model: CategoryModel = courseModelArrayList[position]
+        val model: CategoryModel = categoryModelArrayList[position]
         holder.categoryName.text = model.name
         holder.categoryIcon.setImageResource(model.icon)
         holder.categoryCard.setBackgroundColor(Color.parseColor(model.color))
     }
 
     override fun getItemCount(): Int {
-        return courseModelArrayList.size
+        return categoryModelArrayList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -48,6 +48,6 @@ class CategoryCardsAdapter(
     }
 
     init {
-        this.courseModelArrayList = courseModelArrayList
+        this.categoryModelArrayList = categoryModelArrayList
     }
 }

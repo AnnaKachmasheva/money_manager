@@ -1,5 +1,6 @@
 package com.example.moneymanager.ui.aboutUs
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ class AboutUsFragment : Fragment() {
     private var _binding: FragmentAboutUsBinding? = null
     private val binding get() = _binding!!
 
+    @SuppressLint("CommitTransaction")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,9 +31,15 @@ class AboutUsFragment : Fragment() {
 
         val button = binding.contactUsButton
 
+        val contactUsFragment = ContactUsFragment()
+
         button.setOnClickListener() {
-            Navigation.findNavController(view)
-                .navigate(R.id.contactUsFragment)
+
+            //todo -> contact us
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.nav_about_us, contactUsFragment)?.commit()
+//            Navigation.findNavController(view)
+//                .navigate(R.id.contactUsFragment)
         }
 
 

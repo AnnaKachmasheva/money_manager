@@ -52,7 +52,11 @@
         android:id="@+id/nav_regular_payments"
         android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentsFragment"
         android:label="@string/menu_regular_payments"
-        tools:layout="@layout/fragment_regular_payments" />
+        tools:layout="@layout/fragment_regular_payments" >
+        <action
+            android:id="@+id/action_nav_regular_payments_to_createRegularPaymentFragment"
+            app:destination="@id/createRegularPaymentFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_privacy_policy"
@@ -104,5 +108,10 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.moneymanager.ui.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/createRegularPaymentFragment"
+        android:name="com.example.moneymanager.ui.regularPayments.CreateRegularPaymentFragment"
+        android:label="fragment_create_regular_payment"
+        tools:layout="@layout/fragment_create_regular_payment" />
 
 </navigation>

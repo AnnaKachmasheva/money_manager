@@ -11,11 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sp_v2"
         tools:targetApi="31" >
-        <activity
-            android:name=".TabNavigationActivity"
-            android:exported="false"
-            android:label="@string/title_activity_tab_navigation"
-            android:theme="@style/Theme.Sp_v2.NoActionBar" />
+
         <activity
             android:name="com.example.moneymanager.ui.categories.CategoriesActivity"
             android:exported="false" />
@@ -24,9 +20,6 @@
             android:exported="false" />
         <activity
             android:name="com.example.moneymanager.currency.SelectCurrencyActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.moneymanager.ui.aboutUs.ContactUsFragment"
             android:exported="false" />
         <activity
             android:name="com.example.moneymanager.ui.NavigationActivity"

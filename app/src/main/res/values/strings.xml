@@ -83,6 +83,14 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="create_transaction">Create transaction</string>
+    <string name="name_regular_payment">Payment name</string>
+    <string name="amount">Amount</string>
+    <string name="type">Type</string>
+    <string name="account">Account</string>
+    <string name="reminder_start_date">Reminder start date</string>
+    <string name="reminder_end_date">Reminder end date</string>
+    <string name="reminder_frequency">Reminder frequency</string>
+    <string name="category">Category</string>
 
 
 </resources>
