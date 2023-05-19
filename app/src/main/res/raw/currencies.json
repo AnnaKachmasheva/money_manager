@@ -1,0 +1,178 @@
+[
+  {
+    "code": "USD",
+    "symbol": "$",
+    "name": "US Dollar"
+  },
+  {
+    "code": "EUR",
+    "symbol": "€",
+    "name": "Euro"
+  },
+  {
+    "code": "AZN",
+    "symbol": "man.",
+    "name": "Azerbaijani Manat"
+  },
+  {
+    "code": "BAM",
+    "symbol": "KM",
+    "name": "Bosnia-Herzegovina Convertible Mark"
+  },
+  {
+    "code": "BDT",
+    "symbol": "Tk",
+    "name": "Bangladeshi Taka"
+  },
+  {
+    "code": "BGN",
+    "symbol": "BGN",
+    "name": "Bulgarian Lev"
+  },
+  {
+    "code": "BRL",
+    "symbol": "R$",
+    "name": "Brazilian Real"
+  },
+  {
+    "code": "CNY",
+    "symbol": "CN¥",
+    "name": "Chinese Yuan"
+  },
+  {
+    "code": "CRC",
+    "symbol": "₡",
+    "name": "Costa Rican Colón"
+  },
+  {
+    "code": "CZK",
+    "symbol": "Kč",
+    "name": "Czech Republic Koruna"
+  },
+  {
+    "code": "DKK",
+    "symbol": "Dkr",
+    "name": "Danish Krone"
+  },
+  {
+    "code": "DZD",
+    "symbol": "DA",
+    "name": "Algerian Dinar"
+  },
+  {
+    "code": "EEK",
+    "symbol": "Ekr",
+    "name": "Estonian Kroon"
+  },
+  {
+    "code": "EGP",
+    "symbol": "EGP",
+    "name": "Egyptian Pound"
+  },
+  {
+    "code": "GBP",
+    "symbol": "£",
+    "name": "British Pound Sterling"
+  },
+  {
+    "code": "GEL",
+    "symbol": "GEL",
+    "name": "Georgian Lari"
+  },
+  {
+    "code": "GNF",
+    "symbol": "FG",
+    "name": "Guinean Franc"
+  },
+  {
+    "code": "HKD",
+    "symbol": "HK$",
+    "name": "Hong Kong Dollar"
+  },
+  {
+    "code": "HNL",
+    "symbol": "HNL",
+    "name": "Honduran Lempira"
+  },
+  {
+  {
+    "code": "ILS",
+    "symbol": "₪",
+    "name": "Israeli New Sheqel"
+  },
+  {
+    "code": "INR",
+    "symbol": "Rs",
+    "name": "Indian Rupee"
+  },
+  {
+    "code": "JMD",
+    "symbol": "J$",
+    "name": "Jamaican Dollar"
+  },
+  {
+    "code": "JPY",
+    "symbol": "¥",
+    "name": "Japanese Yen"
+  },
+  {
+    "code": "KRW",
+    "symbol": "₩",
+    "name": "South Korean Won"
+  },
+  {
+    "code": "KZT",
+    "symbol": "KZT",
+    "name": "Kazakhstani Tenge"
+  },
+  {
+    "code": "LKR",
+    "symbol": "SLRs",
+    "name": "Sri Lankan Rupee"
+  },
+  {
+    "code": "MDL",
+    "symbol": "MDL",
+    "name": "Moldovan Leu"
+  },
+  {
+    "code": "MKD",
+    "symbol": "MKD",
+    "name": "Macedonian Denar"
+  },
+  {
+    "code": "MXN",
+    "symbol": "MX$",
+    "name": "Mexican Peso"
+  },
+  {
+    "code": "NGN",
+    "symbol": "₦",
+    "name": "Nigerian Naira"
+  },
+  {
+    "code": "NIO",
+    "symbol": "C$",
+    "name": "Nicaraguan Córdoba"
+  },
+  {
+    "code": "NOK",
+    "symbol": "Nkr",
+    "name": "Norwegian Krone"
+  },
+  {
+    "code": "SEK",
+    "symbol": "Skr",
+    "name": "Swedish Krona"
+  },
+  {
+    "code": "SEK",
+    "symbol": "S$",
+    "name": "Singapore Dollar"
+  },
+  {
+    "code": "VND",
+    "symbol": "₫",
+    "name": "Vietnamese Dong"
+  }
+]

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.moneymanager.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.moneymanager.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_expensesFragment"
+            app:destination="@id/expensesFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_incomeFragment"
+            app:destination="@id/incomeFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_transfersFragment"
+            app:destination="@id/transfersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_charts"
+        android:name="com.example.moneymanager.ui.charts.ChartsFragment"
+        android:label="@string/menu_charts"
+        tools:layout="@layout/fragment_charts" />
+
+    <fragment
+        android:id="@+id/nav_accounts"
+        android:name="com.example.moneymanager.ui.accounts.AccountsFragment"
+        android:label="@string/menu_accounts"
+        tools:layout="@layout/fragment_accounts" />
+
+    <fragment
+        android:id="@+id/nav_categories"
+        android:name="com.example.moneymanager.ui.categories.CategoriesFragment"
+        android:label="@string/menu_categories"
+        tools:layout="@layout/fragment_categories" />
+
+    <fragment
+        android:id="@+id/nav_regular_payments"
+        android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentsFragment"
+        android:label="@string/menu_regular_payments"
+        tools:layout="@layout/fragment_regular_payments" />
+
+    <fragment
+        android:id="@+id/nav_privacy_policy"
+        android:name="com.example.moneymanager.ui.privacyPolicy.PrivacyPolicyFragment"
+        android:label="@string/menu_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" />
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.example.moneymanager.ui.aboutUs.AboutUsFragment"
+        android:label="@string/menu_about_us"
+        tools:layout="@layout/fragment_about_us">
+        <action
+            android:id="@+id/action_nav_about_us_to_contactUsActivity"
+            app:destination="@id/contactUsActivity"
+            app:popUpTo="@+id/contactUsActivity"
+            app:popUpToInclusive="true"
+            app:popUpToSaveState="true" />
+    </fragment>
+    <activity
+        android:id="@+id/contactUsActivity"
+        android:name="com.example.moneymanager.ui.aboutUs.ContactUsActivity"
+        android:label="activity_contact_us"
+        tools:layout="@layout/activity_contact_us" />
+    <fragment
+        android:id="@+id/expensesFragment"
+        android:name="com.example.moneymanager.ui.home.ExpensesFragment"
+        android:label="fragment_expences"
+        tools:layout="@layout/fragment_expences" />
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="com.example.moneymanager.ui.home.IncomeFragment"
+        android:label="fragment_income"
+        tools:layout="@layout/fragment_income" />
+    <fragment
+        android:id="@+id/transfersFragment"
+        android:name="com.example.moneymanager.ui.home.TransfersFragment"
+        android:label="fragment_transfers"
+        tools:layout="@layout/fragment_transfers" />
+</navigation>

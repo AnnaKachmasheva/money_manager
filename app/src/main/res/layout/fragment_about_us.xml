@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.moneymanager.ui.aboutUs.AboutUsViewModel"
+    android:orientation="vertical">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/contact_us_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin_16"
+        android:layout_marginTop="580dp"
+        android:layout_marginEnd="@dimen/text_margin_16"
+        android:gravity="center"
+        android:paddingStart="36dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="36dp"
+        android:paddingBottom="14dp"
+        android:text="@string/contact_us"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:iconGravity="textEnd" />
+
+</LinearLayout>

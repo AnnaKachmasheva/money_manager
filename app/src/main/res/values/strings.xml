@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">Money Manager</string>
+    <string name="app_name_caps">MONEY MANAGER</string>
+
+    <!-- Strings used for buttons -->
+    <string name="start">Start</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="contact_us">Contact us</string>
+    <string name="send">Send</string>
+
+
+    <!-- Strings used for headers -->
+    <string name="select_default_currency">Select default currency</string>
+    <string name="add_balance_on_the_main_account">Enter the balance on the main account</string>
+    <string name="add_balance_on_the_main_description">You can add other accounts later in the account section</string>
+
+
+    <string name="flag">flag</string>
+
+    <!--    for inputs    -->
+    <string name="search">Search...</string>
+    <string name="subject">Subject</string>
+    <string name="message_text">Message text</string>
+    <string name="email">Email</string>
+    <string name="select_default_account">Select default account</string>
+    <string name="format_number">Format number</string>
+    <string name="reminders">Reminders</string>
+    <string name="delete_all_data">Delete all data</string>
+
+
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_charts">Charts</string>
+    <string name="menu_accounts">Accounts</string>
+    <string name="menu_categories">Categories</string>
+    <string name="menu_regular_payments">Regular payments</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_privacy_policy">Privacy Policy</string>
+    <string name="menu_about_us">About us</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="submit">submit</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="pref_uploads">0, 1</string>
+    <string name="icon_category">Category icon</string>
+    <string name="create">Create</string>
+    <string name="title_activity_tab_navigation">TabNavigationActivity</string>
+
+    <string name="expenses">Expenses</string>
+    <string name="income">Income</string>
+    <string name="transfers">Transfers</string>
+
+
+</resources>
