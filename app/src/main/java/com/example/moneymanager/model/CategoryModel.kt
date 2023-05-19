@@ -1,7 +1,10 @@
 package com.example.moneymanager.model
 
+import android.graphics.Color
+
 data class CategoryModel(
-    val name: String,
-    val icon: Int
+    var name: String,
+    var color: String,
+    var icon: Int
 ) {
 }

@@ -1,5 +1,6 @@
 package com.example.moneymanager.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +19,8 @@ class CategoryCardsAdapter(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val view: View =
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.fragment_categories, parent, false)
+        val view: View = LayoutInflater.from(parent.context)
+                .inflate(R.layout.category_card_fragment, parent, false)
         return ViewHolder(view)
     }
 
@@ -28,6 +28,7 @@ class CategoryCardsAdapter(
         val model: CategoryModel = courseModelArrayList[position]
         holder.categoryName.text = model.name
         holder.categoryIcon.setImageResource(model.icon)
+        holder.categoryCard.setBackgroundColor(Color.parseColor(model.color))
     }
 
     override fun getItemCount(): Int {
@@ -37,10 +38,12 @@ class CategoryCardsAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryName: TextView
         val categoryIcon: ImageView
+        val categoryCard: View
 
         init {
             categoryName = itemView.findViewById(R.id.nameCategory)
             categoryIcon = itemView.findViewById(R.id.iconCategory)
+            categoryCard = itemView.findViewById(R.id.categoriesView)
         }
     }
 

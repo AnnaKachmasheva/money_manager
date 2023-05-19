@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_nav_home_to_transfersFragment"
             app:destination="@id/transfersFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_createTransactionFragment"
+            app:destination="@id/createTransactionFragment" />
     </fragment>
 
     <fragment
@@ -63,30 +66,43 @@
         android:label="@string/menu_about_us"
         tools:layout="@layout/fragment_about_us">
         <action
-            android:id="@+id/action_nav_about_us_to_contactUsActivity"
-            app:destination="@id/contactUsActivity"
-            app:popUpTo="@+id/contactUsActivity"
-            app:popUpToInclusive="true"
-            app:popUpToSaveState="true" />
+            android:id="@+id/action_nav_about_us_to_contactUsFragment2"
+            app:destination="@id/contactUsFragment" />
     </fragment>
-    <activity
-        android:id="@+id/contactUsActivity"
-        android:name="com.example.moneymanager.ui.aboutUs.ContactUsActivity"
-        android:label="activity_contact_us"
-        tools:layout="@layout/activity_contact_us" />
+
     <fragment
         android:id="@+id/expensesFragment"
         android:name="com.example.moneymanager.ui.home.ExpensesFragment"
         android:label="fragment_expences"
         tools:layout="@layout/fragment_expences" />
+
     <fragment
         android:id="@+id/incomeFragment"
         android:name="com.example.moneymanager.ui.home.IncomeFragment"
         android:label="fragment_income"
         tools:layout="@layout/fragment_income" />
+
     <fragment
         android:id="@+id/transfersFragment"
         android:name="com.example.moneymanager.ui.home.TransfersFragment"
         android:label="fragment_transfers"
         tools:layout="@layout/fragment_transfers" />
+
+    <fragment
+        android:id="@+id/createTransactionFragment"
+        android:name="com.example.moneymanager.ui.home.CreateTransactionFragment"
+        android:label="@string/create_transaction"
+        tools:layout="@layout/fragment_create_transaction" />
+
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.example.moneymanager.ui.aboutUs.ContactUsFragment"
+        android:label="@string/contact_us"
+        tools:layout="@layout/fragment_contact_us" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.moneymanager.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+
 </navigation>

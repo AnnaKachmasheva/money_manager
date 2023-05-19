@@ -21,15 +21,15 @@ class CategoriesActivity : AppCompatActivity() {
 
         val categories = CategoriesItems.CategoriesItems
 
-        val adapter = CategoryCardsAdapter(categories)
-        val layoutManager = LinearLayoutManager(this, GridLayoutManager.VERTICAL, false)
+        val recycleView = findViewById<RecyclerView>(R.id.categories)
 
-        val recycleView = findViewById<RecyclerView>(R.id.currenciesList)
+        val layoutManager = GridLayoutManager(applicationContext, 2)
+        val adapter = CategoryCardsAdapter(categories)
+
         recycleView.layoutManager = layoutManager
         recycleView.adapter = adapter
 
-        val buttonCreateCategory = binding.nextButton
-        
+        val buttonCreateCategory = binding.addButton
         //todo add clickListener
     }
 

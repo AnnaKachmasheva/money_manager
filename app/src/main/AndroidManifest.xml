@@ -26,7 +26,7 @@
             android:name="com.example.moneymanager.currency.SelectCurrencyActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.moneymanager.ui.aboutUs.ContactUsActivity"
+            android:name="com.example.moneymanager.ui.aboutUs.ContactUsFragment"
             android:exported="false" />
         <activity
             android:name="com.example.moneymanager.ui.NavigationActivity"

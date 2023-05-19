@@ -6,6 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.moneymanager.adapter.CategoryCardsAdapter
+import com.example.moneymanager.utils.CategoriesItems
+import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentCategoriesBinding
 
 class CategoriesFragment : Fragment() {
@@ -27,11 +32,23 @@ class CategoriesFragment : Fragment() {
         _binding = FragmentCategoriesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textCategories
-//        accountsViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+//        val categories = CategoriesItems.CategoriesItems
+//        val view = inflater.inflate(R.layout.fragment_categories, container, false)
+//        val buttonCreateCategory = binding.addButton
+
+        inflater.inflate(R.layout.fragment_categories, container, false)
+
         return root
+    }
+
+
+    override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(itemView, savedInstanceState)
+        _binding?.categories?.apply {
+
+            layoutManager = GridLayoutManager(activity, 3)
+            adapter = CategoryCardsAdapter(CategoriesItems.CategoriesItems)
+        }
     }
 
     override fun onDestroyView() {
