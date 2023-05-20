@@ -94,7 +94,7 @@
                     android:id="@+id/categories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/category_small_card_fragment" />
+                    tools:listitem="@layout/category_small_card_item" />
 
 
                 <LinearLayout
@@ -154,7 +154,7 @@
                     android:id="@+id/days"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/date_card_fragment" />
+                    tools:listitem="@layout/date_item" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/openDatePicker"

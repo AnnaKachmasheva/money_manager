@@ -1,0 +1,108 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.moneymanager.ui.home.EditTransactionFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameTextInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="30dp"
+                android:hint="@string/category_name"
+                android:paddingLeft="@dimen/text_margin_16"
+                android:paddingRight="@dimen/text_margin_16">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/amountText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/textLabelForIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/icon"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginEnd="@dimen/text_margin_16">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/icons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/icon_item" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textLabelForColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/color"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginEnd="@dimen/text_margin_16">>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/colors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/color_item" />
+
+            </FrameLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/createButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="@dimen/text_margin_16"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:paddingStart="36dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="36dp"
+                android:paddingBottom="14dp"
+                android:text="@string/create"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moneymanager.adapter.CategorySmallCardsAdapter
 import com.example.moneymanager.adapter.DateCardsAdapter
@@ -45,7 +46,8 @@ class EditTransactionFragment : Fragment() {
 
         val addCategoryButton = binding.addCategory
         addCategoryButton.setOnClickListener() {
-            //todo open dialog for selecting category
+            Navigation.findNavController(view)
+                .navigate(R.id.editCategoryFragment)
         }
 
         val datePickerButton = binding.openDatePicker
@@ -107,6 +109,7 @@ class EditTransactionFragment : Fragment() {
                 )
         }
     }
+
 
 
 }

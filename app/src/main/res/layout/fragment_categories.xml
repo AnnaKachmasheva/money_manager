@@ -14,7 +14,7 @@
             android:id="@+id/categories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/category_card_fragment" />
+            tools:listitem="@layout/category_card_item" />
 
         <!--    todo: check style button-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton

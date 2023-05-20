@@ -22,13 +22,12 @@ class DateCardsAdapter(
     private val greyColor: String = "#808080"
     private val whiteColor: String = "#FFFFFF"
 
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.date_card_fragment, parent, false)
+            .inflate(R.layout.date_item, parent, false)
         return ViewHolder(view)
     }
 

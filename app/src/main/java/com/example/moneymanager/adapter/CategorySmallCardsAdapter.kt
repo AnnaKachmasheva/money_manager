@@ -26,7 +26,7 @@ class CategorySmallCardsAdapter(
         viewType: Int
     ): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.category_small_card_fragment, parent, false)
+            .inflate(R.layout.category_small_card_item, parent, false)
         return ViewHolder(view)
     }
 

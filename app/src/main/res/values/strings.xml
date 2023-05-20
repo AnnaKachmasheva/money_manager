@@ -101,6 +101,9 @@
     <string name="photo">Photo</string>
     <string name="today">Today</string>
     <string name="others">Others</string>
+    <string name="category_name">Category name</string>
+    <string name="icon">Icon</string>
+    <string name="color">Color</string>
 
 
 </resources>

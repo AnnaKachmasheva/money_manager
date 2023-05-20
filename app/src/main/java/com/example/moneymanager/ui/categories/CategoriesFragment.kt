@@ -32,16 +32,24 @@ class CategoriesFragment : Fragment() {
 
         inflater.inflate(R.layout.fragment_categories, container, false)
 
+        val createButton = binding.addButton
+        createButton.setOnClickListener() {
+            Navigation.findNavController(view)
+                .navigate(R.id.editCategoryFragment)
+        }
+
         return view
     }
 
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
-        _binding?.categories?.apply {
+        binding.categories.apply {
             layoutManager = GridLayoutManager(activity, 3)
             adapter = CategoryCardsAdapter(CategoriesItems.CategoriesItems)
         }
+
+
     }
 
     override fun onDestroyView() {
