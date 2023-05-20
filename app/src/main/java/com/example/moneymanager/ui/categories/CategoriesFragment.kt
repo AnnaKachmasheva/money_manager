@@ -33,7 +33,6 @@ class CategoriesFragment : Fragment() {
         inflater.inflate(R.layout.fragment_categories, container, false)
 
         return view
-
     }
 
 

@@ -35,7 +35,6 @@ class HomeFragment : Fragment() {
 
 
         val button = binding.addButton
-
         button.setOnClickListener() {
             Navigation.findNavController(view)
                 .navigate(R.id.createTransactionFragment)

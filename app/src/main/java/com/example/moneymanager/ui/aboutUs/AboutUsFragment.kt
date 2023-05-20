@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentAboutUsBinding
 
@@ -28,22 +29,17 @@ class AboutUsFragment : Fragment() {
         _binding = FragmentAboutUsBinding.inflate(inflater, container, false)
         val view: View = binding.root
 
-
-        val button = binding.contactUsButton
-
-        val contactUsFragment = ContactUsFragment()
-
-        button.setOnClickListener() {
-
-            //todo -> contact us
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.nav_about_us, contactUsFragment)?.commit()
-//            Navigation.findNavController(view)
-//                .navigate(R.id.contactUsFragment)
-        }
-
-
         return view
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val buttonContactUs = binding.contactUsButton
+        buttonContactUs.setOnClickListener() {  view ->
+            view.findNavController().navigate(R.id.contactUsFragment)
+        }
     }
 
     override fun onDestroyView() {

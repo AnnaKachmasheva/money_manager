@@ -40,7 +40,11 @@
         android:id="@+id/nav_accounts"
         android:name="com.example.moneymanager.ui.accounts.AccountsFragment"
         android:label="@string/menu_accounts"
-        tools:layout="@layout/fragment_accounts" />
+        tools:layout="@layout/fragment_accounts" >
+        <action
+            android:id="@+id/action_nav_accounts_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_categories"
@@ -65,16 +69,6 @@
         tools:layout="@layout/fragment_privacy_policy" />
 
     <fragment
-        android:id="@+id/nav_about_us"
-        android:name="com.example.moneymanager.ui.aboutUs.AboutUsFragment"
-        android:label="@string/menu_about_us"
-        tools:layout="@layout/fragment_about_us">
-        <action
-            android:id="@+id/action_nav_about_us_to_contactUsFragment2"
-            app:destination="@id/contactUsFragment" />
-    </fragment>
-
-    <fragment
         android:id="@+id/expensesFragment"
         android:name="com.example.moneymanager.ui.home.ExpensesFragment"
         android:label="fragment_expences"
@@ -94,9 +88,20 @@
 
     <fragment
         android:id="@+id/createTransactionFragment"
-        android:name="com.example.moneymanager.ui.home.CreateTransactionFragment"
+        android:name="com.example.moneymanager.ui.home.EditTransactionFragment"
         android:label="@string/create_transaction"
-        tools:layout="@layout/fragment_create_transaction" />
+        tools:layout="@layout/fragment_edit_transaction" />
+
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.example.moneymanager.ui.aboutUs.AboutUsFragment"
+        android:label="@string/menu_about_us"
+        tools:layout="@layout/fragment_about_us">
+        <action
+            android:id="@+id/action_nav_about_us_to_contactUsFragment"
+            app:destination="@id/contactUsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/contactUsFragment"
@@ -113,5 +118,9 @@
         android:name="com.example.moneymanager.ui.regularPayments.CreateRegularPaymentFragment"
         android:label="fragment_create_regular_payment"
         tools:layout="@layout/fragment_create_regular_payment" />
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.example.moneymanager.ui.accounts.EditMoneyAccountFragment"
+        android:label="Create Account" />
 
 </navigation>

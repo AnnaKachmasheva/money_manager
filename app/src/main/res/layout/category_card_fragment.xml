@@ -12,7 +12,7 @@
     app:cardUseCompatPadding="true">
 
     <GridLayout
-        android:id="@+id/categoriesView"
+        android:id="@+id/category"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:columnCount="1">

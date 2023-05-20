@@ -91,6 +91,16 @@
     <string name="reminder_end_date">Reminder end date</string>
     <string name="reminder_frequency">Reminder frequency</string>
     <string name="category">Category</string>
+    <string name="note">Note</string>
+    <string name="name">Name</string>
+    <string name="do_not_include_in_total_balance">Do not include in total balance</string>
+    <string name="edit_entity_cancel_dialog_message">Exit without saving?</string>
+    <string name="discard_label">Discard</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="date">Date</string>
+    <string name="photo">Photo</string>
+    <string name="today">Today</string>
+    <string name="others">Others</string>
 
 
 </resources>
