@@ -4,13 +4,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.moneymanager.ui.home.ExpensesFragment
-import com.example.moneymanager.ui.home.IncomeFragment
-import com.example.moneymanager.ui.home.TransfersFragment
+import com.example.moneymanager.ui.home.ExpensesEditFragment
+import com.example.moneymanager.ui.home.IncomeEditFragment
+import com.example.moneymanager.ui.home.TransferEditFragment
 
-const val NUM_TABS = 3
-
-class HomeViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+class TransactionEditViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
@@ -19,9 +17,9 @@ class HomeViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycl
 
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0 -> return ExpensesFragment()
-            1 -> return IncomeFragment()
+            0 -> return ExpensesEditFragment()
+            1 -> return IncomeEditFragment()
         }
-        return TransfersFragment()
+        return TransferEditFragment()
     }
 }

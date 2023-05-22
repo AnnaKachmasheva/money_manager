@@ -1,5 +1,6 @@
 package com.example.moneymanager.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,8 @@ class IconsAdapter(
     private val iconArrayList: ArrayList<Int>
 
     private var selectedItemPosition: Int = 0
+    private val greyColor: String = "#808080"
+    private val whiteColor: String = "#FFFFFF"
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -35,9 +38,9 @@ class IconsAdapter(
         }
 
         if (selectedItemPosition == position) {
-            holder.iconView.setBackgroundColor(Color.parseColor(selectedColor))
+            holder.iconView.setBackgroundColor(Color.parseColor(greyColor))
         } else {
-            holder.iconView.setBackgroundColor(Color.parseColor("#000000"))
+            holder.iconView.setBackgroundColor(Color.parseColor(whiteColor))
         }
     }
 
@@ -50,7 +53,6 @@ class IconsAdapter(
 
         init {
             iconView = itemView.findViewById(R.id.icon)
-
         }
     }
 

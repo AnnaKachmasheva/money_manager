@@ -7,7 +7,7 @@
     tools:context="com.example.moneymanager.ui.home.HomeFragment">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/tabLayoutHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/purple_700"
@@ -17,7 +17,7 @@
         app:tabTextColor="@color/white" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+        android:id="@+id/viewPagerHome"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />

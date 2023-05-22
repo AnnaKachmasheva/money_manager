@@ -3,10 +3,11 @@ package com.example.moneymanager.currency
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moneymanager.ui.NavigationActivity
 import com.example.moneymanager.adapter.CurrenciesListAdapter
 import com.example.moneymanager.model.CurrencyModel
+import com.example.moneymanager.ui.NavigationActivity
 import com.example.moneymanager.utils.CurrencyUtils
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.ActivitySelectCurrencyBinding
@@ -38,8 +39,6 @@ class SelectCurrencyActivity : AppCompatActivity() {
         }
 
         val button = binding.nextButton
-//        val inputSearch = binding.searchText
-//        val recycleView = binding.currenciesList
 
         button.setOnClickListener {
             val intent = Intent(this, NavigationActivity::class.java)
@@ -49,8 +48,6 @@ class SelectCurrencyActivity : AppCompatActivity() {
     }
 
     private fun adapterOnClick(currencyModel: CurrencyModel) {
-//        val intent = Intent(this, FlowerDetailActivity()::class.java)
-//        intent.putExtra(FLOWER_ID, flower.id)
         startActivity(intent)
     }
 

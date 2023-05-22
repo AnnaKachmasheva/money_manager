@@ -20,7 +20,7 @@ class EditCategoryFragment : Fragment() {
 
     private lateinit var mName: String
     private lateinit var mIcon: String
-    private lateinit var mColor: Int
+//    private lateinit var mColor: Int
 
 
     override fun onCreateView(
@@ -29,7 +29,6 @@ class EditCategoryFragment : Fragment() {
     ): View? {
         _binding = FragmentEditCategoryBinding.inflate(inflater, container, false)
         val view: View = binding.root
-
 
         inflater.inflate(R.layout.fragment_edit_category, container, false)
 

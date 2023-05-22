@@ -39,7 +39,7 @@ class RegularPaymentsFragment : Fragment() {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
         _binding?.regularPayments?.apply {
-            layoutManager = GridLayoutManager(activity, 3)
+            layoutManager = GridLayoutManager(activity, 1)
             adapter = RegularPaymentsAdapter(RegularPaymentsItems.RegularPaymentsItems)
         }
     }

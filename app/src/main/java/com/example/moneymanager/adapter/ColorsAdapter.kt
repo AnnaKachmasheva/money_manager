@@ -18,7 +18,6 @@ class ColorsAdapter(
     private val dateModelArrayList: ArrayList<String>
     private var selectedItemPosition: Int = 0
 
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -43,7 +42,6 @@ class ColorsAdapter(
             holder.colorView.setImageResource(R.drawable.ic_check)
         } else {
             holder.colorView.setImageResource(0)
-
         }
     }
 

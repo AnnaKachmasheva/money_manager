@@ -104,6 +104,8 @@
     <string name="category_name">Category name</string>
     <string name="icon">Icon</string>
     <string name="color">Color</string>
+    <string name="transfer_from_account">Transfer from account</string>
+    <string name="transfer_fo_account">Transfer fo account</string>
 
 
 </resources>
