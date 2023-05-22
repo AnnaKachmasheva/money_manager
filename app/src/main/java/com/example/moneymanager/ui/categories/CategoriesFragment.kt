@@ -48,8 +48,6 @@ class CategoriesFragment : Fragment() {
             layoutManager = GridLayoutManager(activity, 3)
             adapter = CategoryCardsAdapter(CategoriesItems.CategoriesItems)
         }
-
-
     }
 
     override fun onDestroyView() {

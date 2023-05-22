@@ -11,10 +11,13 @@ import com.example.moneymanager.model.RegularPaymentModel
 import com.example.sp_v2.R
 
 class RegularPaymentsAdapter(
-    regularPaymentsModelArrayList: ArrayList<RegularPaymentModel>
+    regularPaymentsModelArrayList: ArrayList<RegularPaymentModel>,
+    private val listener: (RegularPaymentModel) -> Unit
 ) :
     RecyclerView.Adapter<RegularPaymentsAdapter.ViewHolder>() {
+
     private val modelArrayList: ArrayList<RegularPaymentModel>
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -28,13 +31,19 @@ class RegularPaymentsAdapter(
         val model: RegularPaymentModel = modelArrayList[position]
         holder.regularPaymentName.text = model.name
         val isActive = model.isActive
-
         holder.swith.isChecked = isActive
+
+        holder.regularPaymentName.setOnClickListener {
+            listener(modelArrayList[position])
+        }
     }
 
-    override fun getItemCount(): Int {
-        return modelArrayList.size
+    class OnClickListener(val clickListener: (model: RegularPaymentModel) -> Unit) {
+        fun onClick(model: RegularPaymentModel) = clickListener(model)
     }
+
+    override fun getItemCount() = modelArrayList.size
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val regularPaymentName: TextView

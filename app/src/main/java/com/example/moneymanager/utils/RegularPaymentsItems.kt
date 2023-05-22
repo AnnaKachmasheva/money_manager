@@ -31,7 +31,7 @@ object RegularPaymentsItems {
             CategoriesItems.CategoriesItems[1],
             LocalDate.of(2022, 1, 4),
             LocalDate.of(2024, 2, 14),
-            FrequencyRegularPayment.YEARLY,
+            FrequencyRegularPayment.EVERY_YEAR,
             false
         )
 

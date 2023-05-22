@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moneymanager.adapter.RegularPaymentsAdapter
 import com.example.moneymanager.utils.RegularPaymentsItems
@@ -32,17 +34,29 @@ class RegularPaymentsFragment : Fragment() {
 
         inflater.inflate(R.layout.fragment_regular_payments, container, false)
 
+        val button = binding.addButton
+        button.setOnClickListener() {
+            Navigation.findNavController(view)
+                .navigate(R.id.editRegularPaymentFragment)
+        }
+
         return view
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(itemView, savedInstanceState)
-        _binding?.regularPayments?.apply {
-            layoutManager = GridLayoutManager(activity, 1)
-            adapter = RegularPaymentsAdapter(RegularPaymentsItems.RegularPaymentsItems)
-        }
-    }
+//    @RequiresApi(Build.VERSION_CODES.O)
+//    override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(itemView, savedInstanceState)
+//
+//        _binding?.regularPayments?.apply {
+//            layoutManager = GridLayoutManager(activity, 1)
+//            adapter = RegularPaymentsAdapter(
+//                RegularPaymentsItems.RegularPaymentsItems
+//            ) { regularPayment  ->
+//                Navigation.findNavController(binding.root)
+//                    .navigate(R.id.regularPaymentFragment)
+//            }
+//        }
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

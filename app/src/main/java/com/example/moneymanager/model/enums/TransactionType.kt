@@ -1,7 +1,7 @@
 package com.example.moneymanager.model.enums
 
-enum class TransactionType {
-    EXPENSES,
-    INCOME,
-    TRANSFER
+enum class TransactionType(val type: String) {
+    EXPENSES("Expenses"),
+    INCOME("Income"),
+    TRANSFER("Transfer")
 }

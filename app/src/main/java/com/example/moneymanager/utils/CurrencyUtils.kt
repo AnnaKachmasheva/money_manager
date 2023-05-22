@@ -12,7 +12,7 @@ import java.io.InputStream
 object CurrencyUtils {
     private var mapper: ObjectMapper = jacksonObjectMapper()
 
-    val CurrenciesList: MutableList<CurrencyModel> = mutableListOf()
+    val CurrenciesList: ArrayList<CurrencyModel> = ArrayList()
 
     fun loadInitCurrencies(app: Application) {
         var tmpCurrencyList = mutableListOf<CurrencyModel>()

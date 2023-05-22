@@ -74,6 +74,7 @@ class IncomeEditFragment : Fragment() {
                                 )
                             )
                         )
+                        dateCardAdapter.selectedItemPosition = 2
                         dateCardAdapter.notifyDataSetChanged()
                     }
                 }

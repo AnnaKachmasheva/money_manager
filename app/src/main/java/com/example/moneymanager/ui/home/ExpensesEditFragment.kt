@@ -73,6 +73,7 @@ class ExpensesEditFragment : Fragment() {
                                 )
                             )
                         )
+                        dateCardAdapter.selectedItemPosition = 2
                         dateCardAdapter.notifyDataSetChanged()
                     }
                 }

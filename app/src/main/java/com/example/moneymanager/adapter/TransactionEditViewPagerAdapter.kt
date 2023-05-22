@@ -11,6 +11,8 @@ import com.example.moneymanager.ui.home.TransferEditFragment
 class TransactionEditViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
+    private val NUM_TABS = 3
+
     override fun getItemCount(): Int {
         return NUM_TABS
     }

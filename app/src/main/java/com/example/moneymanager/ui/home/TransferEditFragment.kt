@@ -52,6 +52,7 @@ class TransferEditFragment : Fragment() {
                                 )
                             )
                         )
+                        dateCardAdapter.selectedItemPosition = 2
                         dateCardAdapter.notifyDataSetChanged()
                     }
                 }

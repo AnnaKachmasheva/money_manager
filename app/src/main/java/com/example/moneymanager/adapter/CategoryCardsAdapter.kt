@@ -1,16 +1,18 @@
 package com.example.moneymanager.adapter
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.CategoryModel
 import com.example.sp_v2.R
-import com.google.android.material.card.MaterialCardView
 
 class CategoryCardsAdapter(
     categoryModelArrayList: ArrayList<CategoryModel>
@@ -18,7 +20,6 @@ class CategoryCardsAdapter(
     RecyclerView.Adapter<CategoryCardsAdapter.ViewHolder>() {
 
     private val categoryModelArrayList: ArrayList<CategoryModel>
-
     private var selectedItemPosition: Int = 0
 
     override fun onCreateViewHolder(
@@ -49,6 +50,17 @@ class CategoryCardsAdapter(
 //        }
     }
 
+    // todo change it
+    private fun showUpdateDialog(context: Context) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(categoryModelArrayList[selectedItemPosition].name)
+        val options = listOf("Update", "Delete")
+        builder.setPositiveButton(options[0], null)
+        builder.create()
+        builder.show()
+    }
+
+
     override fun getItemCount(): Int {
         return categoryModelArrayList.size
     }
@@ -56,7 +68,8 @@ class CategoryCardsAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryName: TextView
         val categoryIcon: ImageView
-//        val categoryCard: MaterialCardView
+
+        //        val categoryCard: MaterialCardView
         val categoryItem: View
 
 

@@ -18,7 +18,7 @@ class DateCardsAdapter(
     RecyclerView.Adapter<DateCardsAdapter.ViewHolder>() {
 
     private val dateModelArrayList: ArrayList<DateModel>
-    private var selectedItemPosition: Int = 0
+    var selectedItemPosition: Int = 0
     private val greyColor: String = "#808080"
     private val whiteColor: String = "#FFFFFF"
 
@@ -44,7 +44,6 @@ class DateCardsAdapter(
             notifyDataSetChanged()
         }
 
-
         if (selectedItemPosition == position) {
             holder.dateCard.setBackgroundColor(Color.parseColor(greyColor))
             holder.date.setTextColor(Color.parseColor(whiteColor))
@@ -62,7 +61,7 @@ class DateCardsAdapter(
     }
 
     fun addDate(model: DateModel) {
-        if (dateModelArrayList.size > 2 )
+        if (dateModelArrayList.size > 2)
             dateModelArrayList[2] = model
         else
             dateModelArrayList.add(model)

@@ -41,6 +41,7 @@ class NavigationActivity : AppCompatActivity() {
                 R.id.nav_about_us
             ), drawerLayout
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

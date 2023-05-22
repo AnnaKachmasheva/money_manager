@@ -3,10 +3,8 @@ package com.example.moneymanager.currency
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import com.example.moneymanager.ui.NavigationActivity
 import com.example.sp_v2.databinding.ActivityAddMainAccountBinding
-import com.example.sp_v2.databinding.ActivityNavigationBinding
 
 class AddMainBalanceActivity : AppCompatActivity() {
 

@@ -8,10 +8,10 @@ import com.example.moneymanager.ui.home.ExpensesFragment
 import com.example.moneymanager.ui.home.IncomeFragment
 import com.example.moneymanager.ui.home.TransfersFragment
 
-const val NUM_TABS = 3
-
 class HomeViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
+
+    private val NUM_TABS = 3
 
     override fun getItemCount(): Int {
         return NUM_TABS

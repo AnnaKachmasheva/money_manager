@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <GridLayout
+        android:id="@+id/rowCurrency"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -42,14 +43,6 @@
             android:layout_columnWeight="1"
             android:layout_margin="@dimen/text_margin_16"
             android:textAppearance="?attr/textAppearanceListItem" />
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_row="1"
-            android:layout_columnSpan="0"
-            android:layout_gravity="fill_horizontal"
-            android:background="@android:color/darker_gray" />
 
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

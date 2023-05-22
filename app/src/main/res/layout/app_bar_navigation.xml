@@ -24,6 +24,8 @@
         android:background="?attr/colorPrimary"
         app:layout_anchor="@+id/appBarLayout"
         app:layout_anchorGravity="center"
+        app:titleTextColor="@color/white"
+        app:subtitleTextColor="@color/white"
         app:popupTheme="@style/Theme.Sp_v2.PopupOverlay" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
