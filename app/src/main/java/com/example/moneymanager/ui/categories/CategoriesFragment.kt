@@ -44,6 +44,7 @@ class CategoriesFragment : Fragment() {
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
+
         binding.categories.apply {
             layoutManager = GridLayoutManager(activity, 3)
             adapter = CategoryCardsAdapter(CategoriesItems.CategoriesItems)
