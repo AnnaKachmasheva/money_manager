@@ -111,6 +111,9 @@
     <string name="payment_name">Payment name</string>
     <string name="total">Total</string>
     <string name="main">Main</string>
+    <string name="content_description_update">Update</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
 
 
 </resources>
