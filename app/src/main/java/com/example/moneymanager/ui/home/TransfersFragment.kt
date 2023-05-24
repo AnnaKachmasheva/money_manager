@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentTransfersBinding
 
 
@@ -18,6 +20,13 @@ class TransfersFragment : Fragment() {
     ): View? {
         _binding = FragmentTransfersBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        val button = binding.addButton
+        button.setOnClickListener() {
+            Navigation.findNavController(view)
+                .navigate(R.id.editTransactionFragment)
+        }
+
         return view
     }
 }

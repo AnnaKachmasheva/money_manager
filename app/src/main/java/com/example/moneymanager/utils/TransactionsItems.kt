@@ -44,7 +44,64 @@ object TransactionsItems {
             categoryModel = CategoriesItems.CategoriesItems[3],
             date = LocalDate.of(2023, 11, 4),
             note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
+            accountModel = AccountModel("main"),
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
+            accountModel = AccountModel("main"),
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 342f,
+            accountModel = AccountModel("main"),
+            categoryModel = CategoriesItems.CategoriesItems[1],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 121f,
+            accountModel = AccountModel("main"),
+            categoryModel = CategoriesItems.CategoriesItems[2],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
+            accountModel = AccountModel("main"),
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
+            accountModel = AccountModel("main"),
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
+            accountModel = AccountModel("main"),
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
         )
+
 
     )
 

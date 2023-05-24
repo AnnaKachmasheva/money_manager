@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:background="@color/purple_700"
         app:tabIconTint="@color/black"
-        app:tabIndicatorColor="@color/white"
+        app:tabBackground="@color/purple_500"
+        app:tabIndicatorColor="@color/purple_200"
         app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/white" />
+        app:tabTextColor="@color/white"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerEditTransaction"

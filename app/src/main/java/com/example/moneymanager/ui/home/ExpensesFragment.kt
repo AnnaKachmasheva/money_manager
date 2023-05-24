@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.TransactionsAdapter
 import com.example.moneymanager.utils.TransactionsItems
@@ -26,6 +27,12 @@ class ExpensesFragment : Fragment() {
         inflater.inflate(R.layout.fragment_expences, container, false)
 
         val view = binding.root
+
+        val button = binding.addButton
+        button.setOnClickListener() {
+            Navigation.findNavController(view)
+                .navigate(R.id.editTransactionFragment)
+        }
 
         return view
     }

@@ -5,14 +5,37 @@
     android:layout_height="match_parent"
     tools:context="com.example.moneymanager.ui.home.TransfersFragment">
 
-    <TextView
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+    <FrameLayout
+        android:id="@+id/mainView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:paddingTop="300dp"
-        android:text="@string/transfers"
-        android:textAlignment="center"
-        android:textColor="@color/grey"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/categoryAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin_16"
+            android:layout_marginBottom="@dimen/text_margin_16"
+            android:text="1000CZK"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="32sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/expencesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            tools:listitem="@layout/expense_or_income_item" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="540dp"
+            android:contentDescription="@string/submit"
+            android:src="@drawable/ic_plus_40" />
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

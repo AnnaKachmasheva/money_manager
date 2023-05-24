@@ -8,7 +8,7 @@ import com.example.moneymanager.ui.home.ExpensesFragment
 import com.example.moneymanager.ui.home.IncomeFragment
 import com.example.moneymanager.ui.home.TransfersFragment
 
-class HomeViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+class HomeTabPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     private val NUM_TABS = 3

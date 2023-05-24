@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import com.example.moneymanager.adapter.HomeViewPagerAdapter
-import com.example.sp_v2.R
+import com.example.moneymanager.adapter.HomeTabPagerAdapter
 import com.example.sp_v2.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -26,19 +24,15 @@ class HomeFragment : Fragment() {
 
         val view = binding.viewPagerHome
         val tabLayout = binding.tabLayoutHome
-        val adapter = HomeViewPagerAdapter(childFragmentManager, lifecycle)
+        val adapter = HomeTabPagerAdapter(childFragmentManager, lifecycle)
         view.adapter = adapter
+
+
+        val viewDate = binding.viewPagerHome
 
         TabLayoutMediator(tabLayout, view) { tab, position ->
             tab.text = operations[position]
         }.attach()
-
-
-        val button = binding.addButton
-        button.setOnClickListener() {
-            Navigation.findNavController(view)
-                .navigate(R.id.editTransactionFragment)
-        }
 
         return binding.root
     }
