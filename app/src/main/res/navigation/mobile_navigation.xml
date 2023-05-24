@@ -128,7 +128,7 @@
         tools:layout="@layout/fragment_edit_regular_payment" />
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.example.moneymanager.ui.accounts.EditMoneyAccountFragment"
+        android:name="com.example.moneymanager.ui.accounts.EditAccountFragment"
         android:label="Create Account" />
     <fragment
         android:id="@+id/editCategoryFragment"

@@ -107,6 +107,8 @@
     <string name="transfer_from_account">Transfer from account</string>
     <string name="transfer_fo_account">Transfer fo account</string>
     <string name="payment_name">Payment name</string>
+    <string name="total">Total</string>
+    <string name="main">Main</string>
 
 
 </resources>

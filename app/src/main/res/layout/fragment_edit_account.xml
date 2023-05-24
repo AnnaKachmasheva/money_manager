@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.moneymanager.ui.accounts.EditMoneyAccountFragment">
+    tools:context="com.example.moneymanager.ui.accounts.EditAccountFragment">
 
     <GridLayout
         android:layout_width="match_parent"
@@ -50,13 +50,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <Spinner
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="@dimen/text_margin_16"
-            android:layout_marginTop="@dimen/text_margin_40"
-            android:layout_marginRight="@dimen/text_margin_16" />
+<!--        <Spinner-->
+<!--            style="@style/Widget.AppCompat.Spinner.Underlined"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginLeft="@dimen/text_margin_16"-->
+<!--            android:layout_marginTop="@dimen/text_margin_40"-->
+<!--            android:layout_marginRight="@dimen/text_margin_16" />-->
 
 
         <LinearLayout
