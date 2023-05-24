@@ -11,12 +11,12 @@ import com.example.moneymanager.model.RegularPaymentModel
 import com.example.sp_v2.R
 
 class RegularPaymentsAdapter(
-    regularPaymentsModelArrayList: ArrayList<RegularPaymentModel>,
-    private val listener: (RegularPaymentModel) -> Unit
+    regularPaymentsModelArrayList: ArrayList<RegularPaymentModel>
 ) :
     RecyclerView.Adapter<RegularPaymentsAdapter.ViewHolder>() {
 
     private val modelArrayList: ArrayList<RegularPaymentModel>
+    private var onClickListener: OnClickListener? = null
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -24,6 +24,7 @@ class RegularPaymentsAdapter(
     ): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.regular_payment_item, parent, false)
+
         return ViewHolder(view)
     }
 
@@ -33,17 +34,20 @@ class RegularPaymentsAdapter(
         val isActive = model.isActive
         holder.swith.isChecked = isActive
 
-        holder.regularPaymentName.setOnClickListener {
-            listener(modelArrayList[position])
+        holder.itemView.setOnClickListener {
+            if (onClickListener != null) {
+                onClickListener!!.onClick(position, model)
+            }
         }
     }
 
-    class OnClickListener(val clickListener: (model: RegularPaymentModel) -> Unit) {
-        fun onClick(model: RegularPaymentModel) = clickListener(model)
+    public fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
     }
 
-    override fun getItemCount() = modelArrayList.size
-
+    interface OnClickListener {
+        fun onClick(position: Int, model: RegularPaymentModel)
+    }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val regularPaymentName: TextView
@@ -56,6 +60,8 @@ class RegularPaymentsAdapter(
             swith = itemView.findViewById(R.id.switchPayment)
         }
     }
+
+    override fun getItemCount() = modelArrayList.size
 
     init {
         this.modelArrayList = regularPaymentsModelArrayList

@@ -31,11 +31,26 @@ object AccountItems {
         ),
         AccountModel(
             name = "ggssdf",
-            amount = 10000000.5f
+            amount = 10000000.5f,
+            isIncludeInTotalBalance = false
         ),
         AccountModel(
             name = "d",
             amount = 0.5f
+        ),
+        AccountModel(
+            name = "Mddin",
+            amount = 400.5f,
+            isIncludeInTotalBalance = false
+        ),
+        AccountModel(
+            name = "ggssdf",
+            amount = 10000000.5f
+        ),
+        AccountModel(
+            name = "llll",
+            amount = 0.5f,
+            isIncludeInTotalBalance = false
         )
 
 

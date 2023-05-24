@@ -15,16 +15,20 @@
         <activity
             android:name="com.example.moneymanager.ui.categories.CategoriesActivity"
             android:exported="false" />
+
         <activity
             android:name="com.example.moneymanager.currency.AddMainBalanceActivity"
             android:exported="false" />
+
         <activity android:name="com.example.moneymanager.currency.SelectCurrencyActivity"
             android:exported="false"/>
+
         <activity
             android:name="com.example.moneymanager.ui.NavigationActivity"
             android:exported="false"
             android:label="@string/title_activity_navigation"
             android:theme="@style/Theme.Sp_v2.NoActionBar" />
+
         <activity
             android:name="com.example.moneymanager.main.MainSplashscreenActivity"
             android:exported="true">
@@ -34,6 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
