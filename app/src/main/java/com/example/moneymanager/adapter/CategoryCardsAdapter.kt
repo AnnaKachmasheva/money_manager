@@ -9,17 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.Navigation
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.CategoryModel
 import com.example.sp_v2.R
 
 class CategoryCardsAdapter(
-    categoryModelArrayList: ArrayList<CategoryModel>
+    categoryModelArrayList: LiveData<List<CategoryModel>>
 ) :
     RecyclerView.Adapter<CategoryCardsAdapter.ViewHolder>() {
 
-    private val categoryModelArrayList: ArrayList<CategoryModel>
+    private var categoryModelArrayList: List<CategoryModel> = ArrayList()
     private var selectedItemPosition: Int = 0
 
     override fun onCreateViewHolder(
@@ -82,6 +82,7 @@ class CategoryCardsAdapter(
     }
 
     init {
-        this.categoryModelArrayList = categoryModelArrayList
+        if (categoryModelArrayList.value != null)
+            this.categoryModelArrayList = categoryModelArrayList.value!!
     }
 }

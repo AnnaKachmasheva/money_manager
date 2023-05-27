@@ -42,7 +42,7 @@ class ExpensesFragment : Fragment() {
 
         binding.expencesList.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = TransactionsAdapter(TransactionsItems.TransactionsItems)
+//            adapter = TransactionsAdapter(TransactionsItems.TransactionsItems)
         }
     }
 
