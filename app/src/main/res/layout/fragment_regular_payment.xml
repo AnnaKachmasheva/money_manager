@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.moneymanager.ui.regularPayments.RegularPaymentFragment">
+    tools:context="com.example.moneymanager.ui.regularPayments.FragmentRegularPayment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -12,29 +12,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="20dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textLabelForPaymentName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/text_margin_16"
-                android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/payment_name"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textPaymentName"
-                style="@style/TextAppearance.MaterialComponents.Headline5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/text_margin_16"
-                android:text="-" />
-
-
-            <TextView
-                android:id="@+id/textLabelForPaymentType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
@@ -43,12 +24,12 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentType"
+                android:id="@+id/textPaymentName"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="-" />
+                android:text="@string/type" />
 
 
             <TextView
@@ -61,12 +42,12 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentAmount"
+                android:id="@+id/textPaymentAmont"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="--- CZK" />
+                android:text="100 CZK" />
 
 
             <TextView
@@ -84,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="---" />
+                android:text="Man" />
 
 
             <TextView
@@ -114,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="---" />
+                android:text="Home" />
 
         </LinearLayout>
 
@@ -128,12 +109,12 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentStartDate"
+                android:id="@+id/textPaymentSatrtDate"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="--.--.----" />
+                android:text="23.3.2023" />
 
             <TextView
                 android:id="@+id/textLabelForPaymentEndDate"
@@ -150,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="--.--.----" />
+                android:text="23.3.2024" />
 
             <TextView
                 android:id="@+id/textLabelForPaymentFreqiency"
@@ -167,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="-" />
+                android:text="Monthly" />
 
 
         </LinearLayout>

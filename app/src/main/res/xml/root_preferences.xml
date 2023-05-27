@@ -2,6 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory>
+
         <ListPreference
             app:icon="@drawable/ic_happy_face"
             android:defaultValue="1"
