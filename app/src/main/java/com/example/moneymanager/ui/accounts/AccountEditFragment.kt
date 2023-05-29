@@ -32,7 +32,7 @@ class AccountEditFragment : Fragment() {
         // if update
         binding.nameText.setText(args.accountModel.name)
         binding.amountText.setText(args.accountModel.amount.toString())
-        binding.switchPayment.isChecked = args.accountModel.isIncludeInTotalBalance
+        binding.switchPayment.isChecked = !args.accountModel.isIncludeInTotalBalance
 
         binding.editAccountButton.text = "Save"
 
