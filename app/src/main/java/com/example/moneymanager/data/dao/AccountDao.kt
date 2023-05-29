@@ -13,7 +13,7 @@ interface AccountDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(accountModel: AccountModel)
 
-    @Query("SELECT * FROM accounts_table ORDER BY id ASC")
+    @Query("SELECT * FROM accounts ORDER BY id ASC")
     fun readAllData(): LiveData<List<AccountModel>>
 
 //    @Query("SELECT * FROM accounts ORDER BY id ASC")

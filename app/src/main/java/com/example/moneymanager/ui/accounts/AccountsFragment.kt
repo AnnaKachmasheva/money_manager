@@ -2,6 +2,8 @@ package com.example.moneymanager.ui.accounts
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -30,9 +32,7 @@ class AccountsFragment : Fragment() {
     ): View {
         _binding = FragmentAccountsBinding.inflate(inflater, container, false)
         val view = binding.root
-//        val view = inflater.inflate(R.layout.fragment_accounts, container, false)
         mAccountViewModel = ViewModelProvider(this)[AccountsViewModel::class.java]
-
 
         val adapter = AccountsAdapter()
         val recyclerView = binding.accountList
@@ -56,15 +56,6 @@ class AccountsFragment : Fragment() {
 
         return view
     }
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        //set total amount
-//        val totalAmount = binding.totalAccounts
-//        totalAmount.text = mAccountViewModel.getTotalBalance()
-////        else totalAmount.text = "0"
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.NavAction
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.AccountModel
+import com.example.moneymanager.ui.accounts.AccountFragment
 import com.example.moneymanager.ui.accounts.AccountsFragment
+import com.example.moneymanager.ui.accounts.AccountsFragmentDirections
 import com.example.sp_v2.R
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
@@ -30,23 +33,15 @@ class AccountsAdapter:
         return ViewHolder(view)
     }
 
-    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model: AccountModel = accountList[position]
         holder.accountName.text = model.name
         holder.accountAmount.text = prepareAmount(model.amount)
 
         holder.itemView.setOnClickListener {
-            val action = AccountsFragmentD(model)
-//            holder.itemView.findNavController().navigate(action)
-//            selectedItemPosition = position
-//            notifyDataSetChanged()
+            val action = AccountsFragmentDirections.actionNavAccountsToAccountFragment(model)
+            holder.itemView.findNavController().navigate(action)
         }
-
-//        if (selectedItemPosition == position) {
-//          holder.categoryItem.se
-//        } else {
-//        }
     }
 
     private fun prepareAmount(amount: Double): String {

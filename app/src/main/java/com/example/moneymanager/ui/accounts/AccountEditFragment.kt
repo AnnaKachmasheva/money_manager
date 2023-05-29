@@ -27,7 +27,6 @@ class AccountEditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEditAccountBinding.inflate(inflater, container, false)
-//        val view = inflater.inflate(R.layout.fragment_edit_account, container, false)
         mAccountViewModel = ViewModelProvider(this)[AccountsViewModel::class.java]
         binding.editAccountButton.setOnClickListener {
             insertDataToDatabase()

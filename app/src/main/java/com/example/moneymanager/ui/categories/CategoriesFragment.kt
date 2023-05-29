@@ -20,12 +20,12 @@ class CategoriesFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
-
-    private val categoriesViewModel: CategoriesViewModel by viewModels {
-        CategoriesViewModel.CategoryViewModelFactory(
-            (requireActivity().applicationContext as MoneyManagerApp).repositoryCategory
-        )
-    }
+//
+//    private val categoriesViewModel: CategoriesViewModel by viewModels {
+//        CategoriesViewModel.CategoryViewModelFactory(
+//            (requireActivity().applicationContext as MoneyManagerApp).repositoryCategory
+//        )
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +44,7 @@ class CategoriesFragment : Fragment() {
 
         recyclerView = binding.categoriesRecycleView
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
-        val categoriesAdapter = CategoryCardsAdapter(categoriesViewModel.categoriesListLiveData)
+//        val categoriesAdapter = CategoryCardsAdapter(categoriesViewModel.categoriesListLiveData)
 
 
         // goto edit category fragment
