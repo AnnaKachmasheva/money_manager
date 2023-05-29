@@ -14,7 +14,7 @@ import com.example.sp_v2.R
 class ColorsAdapter() :
     RecyclerView.Adapter<ColorsAdapter.ViewHolder>() {
 
-    private val dateModelArrayList: ArrayList<String>
+    private val dateModelArrayList: ArrayList<String> = ColorItems.ColorItems
     private var selectedItemPosition: Int = 0
 
     override fun onCreateViewHolder(
@@ -52,6 +52,10 @@ class ColorsAdapter() :
         return dateModelArrayList[selectedItemPosition]
     }
 
+    fun setInitPosition(color: String) {
+        selectedItemPosition = dateModelArrayList.indexOf(color)
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val colorView: ImageView
 
@@ -60,7 +64,4 @@ class ColorsAdapter() :
         }
     }
 
-    init {
-        this.dateModelArrayList = ColorItems.ColorItems
-    }
 }

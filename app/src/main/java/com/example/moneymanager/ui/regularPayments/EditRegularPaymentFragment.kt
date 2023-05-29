@@ -130,7 +130,7 @@ class EditRegularPaymentFragment : Fragment() {
         val addCategoryButton = binding.addCategory
         addCategoryButton.setOnClickListener() {
             Navigation.findNavController(view)
-                .navigate(R.id.editCategoryFragment)
+                .navigate(R.id.createCategoryFragment)
         }
 
         return view

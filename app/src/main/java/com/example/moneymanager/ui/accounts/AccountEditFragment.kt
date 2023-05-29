@@ -29,7 +29,7 @@ class AccountEditFragment : Fragment() {
     ): View {
         _binding = FragmentEditAccountBinding.inflate(inflater, container, false)
 
-        // if update
+        // set old data
         binding.nameText.setText(args.accountModel.name)
         binding.amountText.setText(args.accountModel.amount.toString())
         binding.switchPayment.isChecked = !args.accountModel.isIncludeInTotalBalance

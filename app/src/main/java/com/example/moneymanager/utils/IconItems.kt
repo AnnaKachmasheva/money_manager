@@ -6,7 +6,6 @@ import com.example.sp_v2.R
 
 object IconItems {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     val IconItems = arrayListOf(
         R.drawable.ic_plus_in_circle,
         R.drawable.ic_categories,

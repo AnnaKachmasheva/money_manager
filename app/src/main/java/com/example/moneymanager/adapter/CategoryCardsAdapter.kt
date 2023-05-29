@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.CategoryModel
 import com.example.sp_v2.R
 
-class CategoryCardsAdapter :
+class CategoryCardsAdapter(private val onClickListener: (View, CategoryModel) -> Unit) :
     RecyclerView.Adapter<CategoryCardsAdapter.ViewHolder>() {
 
     private var categoryModelArrayList = emptyList<CategoryModel>()
@@ -34,10 +34,9 @@ class CategoryCardsAdapter :
         holder.categoryIcon.setImageResource(model.icon)
         holder.categoryItem.setBackgroundColor(Color.parseColor(model.color))
 
-//        holder.itemView.setOnClickListener {
-//            val action = AccountsFragmentDirections.actionNavAccountsToAccountFragment(model)
-//            holder.itemView.findNavController().navigate(action)
-//        }
+        holder.itemView.setOnClickListener { view ->
+            onClickListener.invoke(view, model)
+        }
     }
 
     // todo change it

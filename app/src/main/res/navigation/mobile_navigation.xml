@@ -96,8 +96,24 @@
         android:label="@string/menu_categories"
         tools:layout="@layout/fragment_categories">
         <action
-            android:id="@+id/action_nav_categories_to_editCategoryFragment"
-            app:destination="@id/editCategoryFragment" />
+            android:id="@+id/action_nav_categories_to_createCategoryFragment"
+            app:destination="@id/createCategoryFragment" />
+        <action
+            android:id="@+id/action_nav_categories_to_categoryEditFragment2"
+            app:destination="@id/categoryEditFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryEditFragment"
+        android:name="com.example.moneymanager.ui.categories.CategoryEditFragment"
+        tools:layout="@layout/fragment_edit_category"
+        android:label="Edit category" >
+        <action
+            android:id="@+id/action_categoryEditFragment_to_nav_categories"
+            app:destination="@id/nav_categories" />
+        <argument
+            android:name="categoryModel"
+            app:argType="com.example.moneymanager.model.CategoryModel" />
     </fragment>
 
     <fragment
@@ -141,7 +157,7 @@
         tools:layout="@layout/fragment_edit_transaction">
         <action
             android:id="@+id/action_editTransactionFragment_to_editCategoryFragment"
-            app:destination="@id/editCategoryFragment" />
+            app:destination="@id/createCategoryFragment" />
     </fragment>
 
 
@@ -170,15 +186,21 @@
         android:name="com.example.moneymanager.ui.regularPayments.EditRegularPaymentFragment"
         android:label="Regular payment"
         tools:layout="@layout/fragment_edit_regular_payment" />
-    <fragment
-        android:id="@+id/editCategoryFragment"
-        android:name="com.example.moneymanager.ui.categories.CreateCategoryFragment"
-        android:label="Create Category" />
+
     <fragment
         android:id="@+id/regularPaymentFragment"
         android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentFragment"
         android:label="Regular Payment">
     </fragment>
+    <fragment
+        android:id="@+id/createCategoryFragment"
+        android:name="com.example.moneymanager.ui.categories.CreateCategoryFragment"
+        android:label="Create category" >
+        <action
+            android:id="@+id/action_createCategoryFragment_to_nav_categories"
+            app:destination="@id/nav_categories" />
+    </fragment>
+
 
 
 </navigation>

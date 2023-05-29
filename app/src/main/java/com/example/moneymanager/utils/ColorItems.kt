@@ -1,11 +1,7 @@
 package com.example.moneymanager.utils
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-
 object ColorItems {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     val ColorItems = arrayListOf(
         "#DFFF00",
         "#FFBF00",

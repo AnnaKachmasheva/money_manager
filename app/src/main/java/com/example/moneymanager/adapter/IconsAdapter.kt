@@ -12,7 +12,7 @@ import com.example.sp_v2.R
 class IconsAdapter() :
     RecyclerView.Adapter<IconsAdapter.ViewHolder>() {
 
-    private val iconArrayList: ArrayList<Int>
+    private val iconArrayList: ArrayList<Int> = IconItems.IconItems
 
     private var selectedItemPosition: Int = 0
     private val greyColor: String = "#808080"
@@ -59,8 +59,8 @@ class IconsAdapter() :
         return iconArrayList[selectedItemPosition]
     }
 
-    init {
-        this.iconArrayList = IconItems.IconItems
+    fun setInitPosition(icon: Int) {
+        selectedItemPosition = iconArrayList.indexOf(icon)
     }
 
 }
