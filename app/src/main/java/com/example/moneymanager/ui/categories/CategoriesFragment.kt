@@ -57,7 +57,6 @@ class CategoriesFragment : Fragment() {
         val alertDialogBuilder = AlertDialog.Builder(context)
         alertDialogBuilder.setTitle(categoryModel.name)
         alertDialogBuilder.setMessage("Select an operation")
-//        alertDialogBuilder.setCancelable(false)
         alertDialogBuilder.setPositiveButton(
             "Update"
         ) { dialog, which ->

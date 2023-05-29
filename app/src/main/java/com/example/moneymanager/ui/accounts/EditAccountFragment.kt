@@ -11,10 +11,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.moneymanager.model.AccountModel
+import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentEditAccountBinding
 
 
-class AccountEditFragment : Fragment() {
+class EditAccountFragment : Fragment() {
 
     private var _binding: FragmentEditAccountBinding? = null
     private val binding get() = _binding!!
@@ -34,7 +35,7 @@ class AccountEditFragment : Fragment() {
         binding.amountText.setText(args.accountModel.amount.toString())
         binding.switchPayment.isChecked = !args.accountModel.isIncludeInTotalBalance
 
-        binding.editAccountButton.text = "Save"
+        binding.editAccountButton.text = R.string.save.toString()
 
         mAccountViewModel = ViewModelProvider(this)[AccountsViewModel::class.java]
         binding.editAccountButton.setOnClickListener {
@@ -60,7 +61,7 @@ class AccountEditFragment : Fragment() {
             Toast.makeText(requireContext(), "Account successfully updated!", Toast.LENGTH_LONG)
                 .show()
             val action =
-                AccountEditFragmentDirections.actionAccountEditFragmentToAccountFragment2(account)
+                EditAccountFragmentDirections.actionAccountEditFragmentToAccountFragment2(account)
             findNavController().navigate(action)
         } else {
             Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG)

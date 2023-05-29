@@ -14,7 +14,7 @@ import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentEditAccountBinding
 
 
-class AccountCreateFragment : Fragment() {
+class CreateAccountFragment : Fragment() {
 
     private var _binding: FragmentEditAccountBinding? = null
     private val binding get() = _binding!!

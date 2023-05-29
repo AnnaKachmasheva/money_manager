@@ -51,7 +51,7 @@
 
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.example.moneymanager.ui.accounts.AccountCreateFragment"
+        android:name="com.example.moneymanager.ui.accounts.CreateAccountFragment"
         android:label="Create Account"
         tools:layout="@layout/fragment_edit_account">
         <action
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountEditFragment"
-        android:name="com.example.moneymanager.ui.accounts.AccountEditFragment"
+        android:name="com.example.moneymanager.ui.accounts.EditAccountFragment"
         android:label="Edit Account"
         tools:layout="@layout/fragment_edit_account">
         <argument
@@ -183,7 +183,7 @@
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/editRegularPaymentFragment"
-        android:name="com.example.moneymanager.ui.regularPayments.EditRegularPaymentFragment"
+        android:name="com.example.moneymanager.ui.regularPayments.CreateRegularPaymentFragment"
         android:label="Regular payment"
         tools:layout="@layout/fragment_edit_regular_payment" />
 
@@ -200,7 +200,5 @@
             android:id="@+id/action_createCategoryFragment_to_nav_categories"
             app:destination="@id/nav_categories" />
     </fragment>
-
-
 
 </navigation>

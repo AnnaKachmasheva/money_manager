@@ -1,5 +1,6 @@
 package com.example.moneymanager.ui.accounts
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -56,9 +57,7 @@ class AccountFragment : Fragment() {
                     }
 
                     R.id.delete -> {
-                        deleteDataFromDatabase()
-                        val action = AccountFragmentDirections.actionAccountFragmentToNavAccounts()
-                        findNavController().navigate(action)
+                        openDialog()
                     }
 
                     else -> {
@@ -70,6 +69,27 @@ class AccountFragment : Fragment() {
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
         return binding.root
+    }
+
+    private fun openDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setTitle("Delete account?")
+        alertDialogBuilder.setPositiveButton(
+            "Yes"
+        ) { dialog, which ->
+            deleteDataFromDatabase()
+            val action = AccountFragmentDirections.actionAccountFragmentToNavAccounts()
+            findNavController().navigate(action)
+            dialog.cancel()
+        }
+        alertDialogBuilder.setNegativeButton(
+            "No"
+        ) { dialog, which ->
+            dialog.cancel()
+        }
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
     }
 
     fun deleteDataFromDatabase() {
