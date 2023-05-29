@@ -11,98 +11,98 @@ import java.time.LocalDate
 
 object TransactionsItems {
 
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    val TransactionsItems = arrayListOf(
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 123f,
+    @RequiresApi(Build.VERSION_CODES.O)
+    val TransactionsItems = arrayListOf(
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 123f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[0],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 342f,
+            categoryModel = CategoriesItems.CategoriesItems[0],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 342f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[1],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 121f,
+            categoryModel = CategoriesItems.CategoriesItems[1],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 121f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[2],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 6666f,
+            categoryModel = CategoriesItems.CategoriesItems[2],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[3],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 6666f,
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[3],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 6666f,
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[3],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 342f,
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 342f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[1],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 121f,
+            categoryModel = CategoriesItems.CategoriesItems[1],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 121f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[2],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 6666f,
+            categoryModel = CategoriesItems.CategoriesItems[2],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[3],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 6666f,
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[3],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        ),
-//        TransactionModel(
-//            type = TransactionType.EXPENSES,
-//            amount = 6666f,
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        ),
+        TransactionModel(
+            type = TransactionType.EXPENSES,
+            amount = 6666f,
 //            accountModel = AccountModel("main"),
-//            categoryModel = CategoriesItems.CategoriesItems[3],
-//            date = LocalDate.of(2023, 11, 4),
-//            note = "-"
-//        )
-//
-//
-//    )
+            categoryModel = CategoriesItems.CategoriesItems[3],
+            date = LocalDate.of(2023, 11, 4),
+            note = "-"
+        )
+
+
+    )
 
 }

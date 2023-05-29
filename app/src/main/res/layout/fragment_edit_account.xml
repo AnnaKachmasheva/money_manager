@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.moneymanager.ui.accounts.EditAccountFragment">
+    tools:context="com.example.moneymanager.ui.accounts.AccountEditFragment">
 
     <GridLayout
         android:layout_width="match_parent"
@@ -87,12 +87,10 @@
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         </LinearLayout>
-
-
     </GridLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/createButton"
+        android:id="@+id/editAccountButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/text_margin_16"

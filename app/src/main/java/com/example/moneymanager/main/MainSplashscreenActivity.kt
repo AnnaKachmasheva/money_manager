@@ -3,8 +3,7 @@ package com.example.moneymanager.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.moneymanager.currency.SelectCurrencyActivity
-import com.example.sp_v2.R
+import com.example.moneymanager.ui.NavigationActivity
 import com.example.sp_v2.databinding.ActivitySplashscreenBinding
 
 class MainSplashscreenActivity : AppCompatActivity() {
@@ -16,10 +15,17 @@ class MainSplashscreenActivity : AppCompatActivity() {
         binding = ActivitySplashscreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val button = binding.startButton
+//        val button = binding.startButton
+//        button.setOnClickListener {
+//            val intent = Intent(this, SelectCurrencyActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
+
+        val button = binding.startButton
         button.setOnClickListener {
-            val intent = Intent(this, SelectCurrencyActivity::class.java)
+            val intent = Intent(this, NavigationActivity::class.java)
             startActivity(intent)
             finish()
         }

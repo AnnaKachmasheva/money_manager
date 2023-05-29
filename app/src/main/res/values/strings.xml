@@ -112,6 +112,9 @@
     <string name="content_description_update">Update</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
+    <string name="income_transaction">Income transactions</string>
+    <string name="expense_transaction">Expense transaction</string>
+    <string name="transfer_transaction">Transfers</string>
 
 
 </resources>

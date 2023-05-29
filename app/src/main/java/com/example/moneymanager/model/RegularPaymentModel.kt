@@ -8,7 +8,7 @@ data class RegularPaymentModel(
     var name: String = "",
     var amount: Float,
     var type: TransactionType = TransactionType.EXPENSES,
-    var account: AccountModel,
+//    var account: AccountModel,
     var category: CategoryModel,
     var startDate: LocalDate,
     var endDate: LocalDate,

@@ -5,20 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.AccountModel
+import com.example.moneymanager.ui.accounts.AccountsFragment
 import com.example.sp_v2.R
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.*
-import kotlin.collections.ArrayList
 
-class AccountsAdapter(
-    accountModelArrayList: ArrayList<AccountModel>
-) :
+class AccountsAdapter:
     RecyclerView.Adapter<AccountsAdapter.ViewHolder>() {
 
-    private val accountModelArrayList: ArrayList<AccountModel>
+    private var accountList = emptyList<AccountModel>()
     private var selectedItemPosition: Int = 0
 
     override fun onCreateViewHolder(
@@ -33,13 +32,15 @@ class AccountsAdapter(
 
     @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val model: AccountModel = accountModelArrayList[position]
+        val model: AccountModel = accountList[position]
         holder.accountName.text = model.name
         holder.accountAmount.text = prepareAmount(model.amount)
 
         holder.itemView.setOnClickListener {
-            selectedItemPosition = position
-            notifyDataSetChanged()
+            val action = AccountsFragmentD(model)
+//            holder.itemView.findNavController().navigate(action)
+//            selectedItemPosition = position
+//            notifyDataSetChanged()
         }
 
 //        if (selectedItemPosition == position) {
@@ -48,24 +49,13 @@ class AccountsAdapter(
 //        }
     }
 
-    private fun prepareAmount(amount: Float): String {
+    private fun prepareAmount(amount: Double): String {
         val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
         return dec.format(amount).replace(",", " ")
     }
 
-//    // todo change it
-//    private fun showUpdateDialog(context: Context) {
-//        val builder = AlertDialog.Builder(context)
-//        builder.setTitle(accountModelArrayList[selectedItemPosition].name)
-//        val options = listOf("Update", "Delete")
-//        builder.setPositiveButton(options[0], null)
-//        builder.create()
-//        builder.show()
-//    }
-
-
     override fun getItemCount(): Int {
-        return accountModelArrayList.size
+        return accountList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -78,8 +68,15 @@ class AccountsAdapter(
         }
     }
 
-    init {
-        this.accountModelArrayList = accountModelArrayList
+    fun setData(models: List<AccountModel>) {
+        this.accountList = models
+        notifyDataSetChanged()
+    }
+
+    fun getTotalBalance(): String {
+        val totalAmount = accountList.filter { a -> !a.isIncludeInTotalBalance }.sumOf { a -> a.amount }
+        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
+        return dec.format(totalAmount).replace(",", " ")
     }
 
 }

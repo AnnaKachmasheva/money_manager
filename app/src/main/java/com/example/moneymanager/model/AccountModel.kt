@@ -1,19 +1,16 @@
 package com.example.moneymanager.model
 
-import androidx.room.ColumnInfo
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.moneymanager.model.AccountModel.Companion.TABLE_NAME
+import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = TABLE_NAME)
+@Parcelize
+@Entity(tableName = "accounts_table")
 data class AccountModel(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id") var id: Long = 0,
-    @ColumnInfo(name = "name") var name: String?,
-    @ColumnInfo(name = "amount") var amount: Float = 0.0f,
-    @ColumnInfo(name = "include_in_total_balance") var isIncludeInTotalBalance: Boolean = true
-) {
-    companion object {
-        const val TABLE_NAME = "accounts"
-    }
-}
+    val id: Int,
+    var name: String?,
+    var amount: Double = 0.0,
+    var isIncludeInTotalBalance: Boolean = true
+) : Parcelable

@@ -1,43 +1,38 @@
 package com.example.moneymanager.data
 
 import android.content.Context
-import androidx.databinding.adapters.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.example.moneymanager.ui.regularPayments.RegularPaymentFragment
-import kotlinx.coroutines.CoroutineScope
+import com.example.moneymanager.data.dao.AccountDao
+import com.example.moneymanager.model.AccountModel
 
-@Database(entities = arrayOf(RegularPaymentFragment::class), version = 1, exportSchema = false)
-@TypeConverters(Converters::class)
+@Database(entities = [AccountModel::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-
-    abstract fun regularPaymentDao(): PlaygroundDao
+    abstract fun accountDao(): AccountDao
 
     companion object {
 
-        // For Singleton instantiation
         @Volatile
-        private var instance: AppDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(
-            context: Context,
-            scope: CoroutineScope
-        ): PlaygroundTruthDatabase {
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
-            return INSTANCE ?: synchronized(this) {
+            context: Context
+        ): AppDatabase {
+            val tempInstance = INSTANCE
+            if (tempInstance != null) {
+                return tempInstance
+            }
+            synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    PlaygroundTruthDatabase::class.java,
-                    "playground_database"
-                )
-                    .build()
+                    AppDatabase::class.java,
+                    "money_database"
+                ).build()
                 INSTANCE = instance
-                // return instance
-                instance
+                return instance
             }
         }
     }
+
 }

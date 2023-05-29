@@ -10,16 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moneymanager.adapter.CategorySmallCardsAdapter
-import com.example.moneymanager.adapter.DateCardsAdapter
 import com.example.moneymanager.model.CategoryModel
 import com.example.moneymanager.model.enums.FrequencyRegularPayment
 import com.example.moneymanager.model.enums.TransactionType
 import com.example.moneymanager.ui.home.DatePickerFragment
 import com.example.moneymanager.utils.CategoriesItems
-import com.example.moneymanager.utils.DateItems
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentEditRegularPaymentBinding
-import java.time.LocalDate
 
 
 class EditRegularPaymentFragment : Fragment() {
@@ -81,7 +78,7 @@ class EditRegularPaymentFragment : Fragment() {
         val addAccountButton = binding.addAccount
         addAccountButton.setOnClickListener() {
             Navigation.findNavController(view)
-                .navigate(R.id.createAccountFragment)
+                .navigate(R.id.editAccountFragment)
         }
 
         //start date date_picker

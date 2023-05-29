@@ -42,8 +42,31 @@
         android:label="@string/menu_accounts"
         tools:layout="@layout/fragment_accounts">
         <action
-            android:id="@+id/action_nav_accounts_to_createAccountFragment"
-            app:destination="@id/createAccountFragment" />
+            android:id="@+id/action_nav_accounts_to_editAccountFragment"
+            app:destination="@id/editAccountFragment" />
+        <action
+            android:id="@+id/action_nav_accounts_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editAccountFragment"
+        android:name="com.example.moneymanager.ui.accounts.AccountEditFragment"
+        android:label="Create Account"
+        tools:layout="@layout/fragment_edit_account">
+        <action
+            android:id="@+id/action_createAccountFragment_to_nav_accounts"
+            app:destination="@id/nav_accounts" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.moneymanager.ui.accounts.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <argument
+            android:name="accountModel"
+            app:argType="com.example.moneymanager.model.AccountModel" />
     </fragment>
 
     <fragment
@@ -127,10 +150,6 @@
         android:label="Regular payment"
         tools:layout="@layout/fragment_edit_regular_payment" />
     <fragment
-        android:id="@+id/createAccountFragment"
-        android:name="com.example.moneymanager.ui.accounts.EditAccountFragment"
-        android:label="Create Account" />
-    <fragment
         android:id="@+id/editCategoryFragment"
         android:name="com.example.moneymanager.ui.categories.EditCategoryFragment"
         android:label="Create Category" />
@@ -139,5 +158,6 @@
         android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentFragment"
         android:label="Regular Payment">
     </fragment>
+
 
 </navigation>

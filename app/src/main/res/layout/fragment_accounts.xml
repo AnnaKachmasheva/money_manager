@@ -4,9 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.moneymanager.ui.accounts.AccountsViewModel">
+    tools:context="com.example.moneymanager.ui.accounts.AccountsFragment">
 
-    <!--    todo -->
 
     <TextView
         android:id="@+id/labelForTotal"

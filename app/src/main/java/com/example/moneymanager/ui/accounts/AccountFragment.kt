@@ -6,21 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sp_v2.R
-import com.example.sp_v2.databinding.FragmentEditAccountBinding
+import com.example.sp_v2.databinding.FragmentAccountBinding
 
+class AccountFragment : Fragment() {
 
-class EditAccountFragment : Fragment() {
-
-    private var _binding: FragmentEditAccountBinding? = null
+    private var _binding: FragmentAccountBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentEditAccountBinding.inflate(inflater, container, false)
-        val view = inflater.inflate(R.layout.fragment_edit_account, container, false);
+        _binding = FragmentAccountBinding.inflate(inflater, container, false)
+        val view: View = binding.root
 
-        return view
+        return inflater.inflate(R.layout.fragment_regular_payment, container, false)
     }
 }

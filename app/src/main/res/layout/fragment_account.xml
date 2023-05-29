@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.moneymanager.ui.regularPayments.RegularPaymentFragment">
+    tools:context="com.example.moneymanager.ui.accounts.AccountFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -15,34 +15,34 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textLabelForPaymentName"
+                android:id="@+id/textLabelForAccountName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
                 android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/type"
+                android:text="@string/name"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentName"
+                android:id="@+id/textAccountName"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="@string/type" />
+                android:text="@string/name" />
 
 
             <TextView
-                android:id="@+id/textLabelForPaymentAmount"
+                android:id="@+id/textLabelForAccountAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
                 android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/amount"
+                android:text="@string/total"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentAmont"
+                android:id="@+id/textAccountAmount"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,104 +51,57 @@
 
 
             <TextView
-                android:id="@+id/textLabelForPaymentAccount"
+                android:id="@+id/textLabelForIncomeTransaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
                 android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/account"
+                android:text="@string/income_transaction"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentAccount"
+                android:id="@+id/textPaymentIncomeTransaction"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="Man" />
+                android:text="0" />
 
 
             <TextView
-                android:id="@+id/textLabelForPaymentCategory"
+                android:id="@+id/textLabelForExpenseTransaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
                 android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/category"
+                android:text="@string/expense_transaction"
                 android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/iconCategory"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="@dimen/text_margin_16"
-                android:contentDescription="@string/icon_category"
-                android:src="@drawable/ic_delete" />
-
             <TextView
-                android:id="@+id/textPaymentCategoryName"
+                android:id="@+id/textPaymentExpenseTransaction"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="Home" />
+                android:text="0" />
 
-        </LinearLayout>
 
             <TextView
-                android:id="@+id/textLabelForPaymentStartDate"
+                android:id="@+id/textLabelForTransferTransaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
                 android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/reminder_start_date"
+                android:text="@string/transfer_transaction"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentSatrtDate"
+                android:id="@+id/textPaymentTransferTransaction"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="23.3.2023" />
-
-            <TextView
-                android:id="@+id/textLabelForPaymentEndDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/text_margin_16"
-                android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/reminder_start_date"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textPaymentEndDate"
-                style="@style/TextAppearance.MaterialComponents.Headline5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/text_margin_16"
-                android:text="23.3.2024" />
-
-            <TextView
-                android:id="@+id/textLabelForPaymentFreqiency"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/text_margin_16"
-                android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/reminder_frequency"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textPaymentFrequency"
-                style="@style/TextAppearance.MaterialComponents.Headline5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/text_margin_16"
-                android:text="Monthly" />
+                android:text="0" />
 
 
         </LinearLayout>

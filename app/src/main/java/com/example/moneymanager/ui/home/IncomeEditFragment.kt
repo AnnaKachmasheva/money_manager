@@ -16,7 +16,6 @@ import com.example.moneymanager.utils.CategoriesItems
 import com.example.moneymanager.utils.DateItems
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentEditIncomeBinding
-import com.example.sp_v2.databinding.FragmentIncomeBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -40,7 +39,7 @@ class IncomeEditFragment : Fragment() {
         val addAccountButton = binding.addAccount
         addAccountButton.setOnClickListener() {
             Navigation.findNavController(view)
-                .navigate(R.id.createAccountFragment)
+                .navigate(R.id.editAccountFragment)
         }
 
         val addCategoryButton = binding.addCategory
