@@ -42,9 +42,8 @@ class AccountsFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
-        recyclerView.itemAnimator = DefaultItemAnimator();
+        recyclerView.itemAnimator = DefaultItemAnimator()
 
-        mAccountViewModel = ViewModelProvider(this)[AccountsViewModel::class.java]
         mAccountViewModel.readAllData.observe(viewLifecycleOwner, Observer { account ->
             adapter.setData(account)
         })

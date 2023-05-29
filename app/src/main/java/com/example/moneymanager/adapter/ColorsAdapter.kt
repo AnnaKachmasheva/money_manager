@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.utils.ColorItems
 import com.example.sp_v2.R
 
-class ColorsAdapter(
-    dateModelArrayList: ArrayList<String>
-) :
+class ColorsAdapter() :
     RecyclerView.Adapter<ColorsAdapter.ViewHolder>() {
 
     private val dateModelArrayList: ArrayList<String>
@@ -49,6 +48,9 @@ class ColorsAdapter(
         return dateModelArrayList.size
     }
 
+    fun getSelectedColor(): String {
+        return dateModelArrayList[selectedItemPosition]
+    }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val colorView: ImageView
@@ -59,6 +61,6 @@ class ColorsAdapter(
     }
 
     init {
-        this.dateModelArrayList = dateModelArrayList
+        this.dateModelArrayList = ColorItems.ColorItems
     }
 }

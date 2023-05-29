@@ -172,7 +172,7 @@
         tools:layout="@layout/fragment_edit_regular_payment" />
     <fragment
         android:id="@+id/editCategoryFragment"
-        android:name="com.example.moneymanager.ui.categories.EditCategoryFragment"
+        android:name="com.example.moneymanager.ui.categories.CreateCategoryFragment"
         android:label="Create Category" />
     <fragment
         android:id="@+id/regularPaymentFragment"

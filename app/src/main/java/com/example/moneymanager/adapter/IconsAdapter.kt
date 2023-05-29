@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.utils.IconItems
 import com.example.sp_v2.R
 
-class IconsAdapter(
-    iconArrayList: ArrayList<Int>
-) :
+class IconsAdapter() :
     RecyclerView.Adapter<IconsAdapter.ViewHolder>() {
 
     private val iconArrayList: ArrayList<Int>
@@ -56,7 +55,12 @@ class IconsAdapter(
         }
     }
 
-    init {
-        this.iconArrayList = iconArrayList
+    fun getSelectedIcon(): Int {
+        return iconArrayList[selectedItemPosition]
     }
+
+    init {
+        this.iconArrayList = IconItems.IconItems
+    }
+
 }

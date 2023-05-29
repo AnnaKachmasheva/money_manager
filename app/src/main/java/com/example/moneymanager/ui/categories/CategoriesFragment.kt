@@ -6,12 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.adapter.AccountsAdapter
 import com.example.moneymanager.adapter.CategoryCardsAdapter
 import com.example.moneymanager.main.MoneyManagerApp
+import com.example.moneymanager.ui.accounts.AccountsViewModel
 import com.example.sp_v2.R
+import com.example.sp_v2.databinding.FragmentAccountsBinding
 import com.example.sp_v2.databinding.FragmentCategoriesBinding
 
 class CategoriesFragment : Fragment() {
@@ -19,13 +28,8 @@ class CategoriesFragment : Fragment() {
     private var _binding: FragmentCategoriesBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var recyclerView: RecyclerView
-//
-//    private val categoriesViewModel: CategoriesViewModel by viewModels {
-//        CategoriesViewModel.CategoryViewModelFactory(
-//            (requireActivity().applicationContext as MoneyManagerApp).repositoryCategory
-//        )
-//    }
+    private lateinit var mCategoriesViewModel: CategoriesViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,33 +37,25 @@ class CategoriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCategoriesBinding.inflate(inflater, container, false)
-        val view: View = binding.root
-//        inflater.inflate(R.layout.fragment_categories, container, false)
+        val view = binding.root
+        mCategoriesViewModel = ViewModelProvider(this)[CategoriesViewModel::class.java]
+
+        val adapter = CategoryCardsAdapter()
+        val recyclerView = binding.categoriesRecycleView
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
+        recyclerView.itemAnimator = DefaultItemAnimator()
+
+        mCategoriesViewModel.readAllData.observe(viewLifecycleOwner, Observer { category ->
+            adapter.setData(category)
+        })
+
+//        val addButton = binding.addButton
+//        addButton.setOnClickListener() {
+//            findNavController().navigate(R.id.)
+//        }
 
         return view
-    }
-
-    override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(itemView, savedInstanceState)
-
-        recyclerView = binding.categoriesRecycleView
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
-//        val categoriesAdapter = CategoryCardsAdapter(categoriesViewModel.categoriesListLiveData)
-
-
-        // goto edit category fragment
-        val createButton = binding.addButton
-        createButton.setOnClickListener()
-        {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.editCategoryFragment)
-        }
-
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = CategoriesFragment()
     }
 
     override fun onDestroyView() {
