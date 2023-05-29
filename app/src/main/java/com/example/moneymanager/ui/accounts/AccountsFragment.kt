@@ -16,6 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.AccountsAdapter
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentAccountsBinding
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+import java.util.Locale
 
 
 class AccountsFragment : Fragment() {
@@ -45,9 +48,10 @@ class AccountsFragment : Fragment() {
         mAccountViewModel.readAllData.observe(viewLifecycleOwner, Observer { account ->
             adapter.setData(account)
         })
-
-        val totalAmount = binding.totalAccounts
-        totalAmount.text = adapter.getTotalBalance()
+        mAccountViewModel.totalAmount.observe(viewLifecycleOwner, Observer {amount ->
+            val totalAmount = binding.totalAccounts
+            totalAmount.text = prepareAmount(amount ?: 0.0)
+        })
 
         val addButton = binding.addButton
         addButton.setOnClickListener() {
@@ -57,6 +61,10 @@ class AccountsFragment : Fragment() {
         return view
     }
 
+    private fun prepareAmount(amount: Double): String {
+        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
+        return dec.format(amount).replace(",", " ")
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

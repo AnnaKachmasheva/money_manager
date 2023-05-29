@@ -68,10 +68,4 @@ class AccountsAdapter:
         notifyDataSetChanged()
     }
 
-    fun getTotalBalance(): String {
-        val totalAmount = accountList.filter { a -> !a.isIncludeInTotalBalance }.sumOf { a -> a.amount }
-        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
-        return dec.format(totalAmount).replace(",", " ")
-    }
-
 }

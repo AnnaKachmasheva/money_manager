@@ -43,20 +43,35 @@
         tools:layout="@layout/fragment_accounts">
         <action
             android:id="@+id/action_nav_accounts_to_editAccountFragment"
-            app:destination="@id/editAccountFragment" />
+            app:destination="@id/createAccountFragment" />
         <action
             android:id="@+id/action_nav_accounts_to_accountFragment"
             app:destination="@id/accountFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/editAccountFragment"
-        android:name="com.example.moneymanager.ui.accounts.AccountEditFragment"
+        android:id="@+id/createAccountFragment"
+        android:name="com.example.moneymanager.ui.accounts.AccountCreateFragment"
         android:label="Create Account"
         tools:layout="@layout/fragment_edit_account">
         <action
             android:id="@+id/action_createAccountFragment_to_nav_accounts"
             app:destination="@id/nav_accounts" />
+        <argument
+            android:name="accountModel"
+            app:argType="com.example.moneymanager.model.AccountModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountEditFragment"
+        android:name="com.example.moneymanager.ui.accounts.AccountEditFragment"
+        android:label="Edit Account"
+        tools:layout="@layout/fragment_edit_account">
+        <argument
+            android:name="accountModel"
+            app:argType="com.example.moneymanager.model.AccountModel" />
+        <action
+            android:id="@+id/action_accountEditFragment_to_accountFragment2"
+            app:destination="@id/accountFragment" />
     </fragment>
 
     <fragment
@@ -70,6 +85,9 @@
         <action
             android:id="@+id/action_accountFragment_to_nav_accounts"
             app:destination="@id/nav_accounts" />
+        <action
+            android:id="@+id/action_accountFragment_to_accountEditFragment"
+            app:destination="@id/accountEditFragment" />
     </fragment>
 
     <fragment

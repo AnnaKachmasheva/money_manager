@@ -39,7 +39,7 @@ class IncomeEditFragment : Fragment() {
         val addAccountButton = binding.addAccount
         addAccountButton.setOnClickListener() {
             Navigation.findNavController(view)
-                .navigate(R.id.editAccountFragment)
+                .navigate(R.id.createAccountFragment)
         }
 
         val addCategoryButton = binding.addCategory

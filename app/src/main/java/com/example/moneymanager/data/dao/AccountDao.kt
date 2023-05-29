@@ -2,9 +2,11 @@ package com.example.moneymanager.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.example.moneymanager.model.AccountModel
 
 @Dao
@@ -16,17 +18,14 @@ interface AccountDao {
     @Query("SELECT * FROM accounts ORDER BY id ASC")
     fun readAllData(): LiveData<List<AccountModel>>
 
-//    @Query("SELECT * FROM accounts ORDER BY id ASC")
-//    fun getAccountsFlow(): Flow<List<AccountModel>>
-//
-//    @Query("SELECT * FROM accounts WHERE id IN (:accountId)")
-//    fun loadAllByIds(accountId: IntArray): List<AccountModel>
-//
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun insertAll(vararg accountModels: AccountModel)
-//
-//    @Delete
-//    fun delete(vararg accountModel: AccountModel)
+    @Query("SELECT sum(amount) FROM accounts WHERE isIncludeInTotalBalance IS 1")
+    fun getTotalAmount(): LiveData<Double>
+
+    @Update
+    fun update(accountModel: AccountModel)
+
+    @Delete
+    fun delete(vararg accountModel: AccountModel)
 //
 //    @Query("DELETE FROM accounts")
 //    suspend fun deleteAll()

@@ -16,17 +16,31 @@ import java.util.Locale
 class AccountsViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllData: LiveData<List<AccountModel>>
+    val totalAmount: LiveData<Double>
     private val repository: AccountRepository
 
     init {
         val userDao = AppDatabase.getDatabase(application).accountDao()
         repository = AccountRepository(userDao)
         readAllData = repository.readAllData
+        totalAmount = repository.totalAmount
     }
 
     fun addAccount(accountModel: AccountModel) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addAccount(accountModel)
+        }
+    }
+
+    fun updateAccount(accountModel: AccountModel) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateAccount(accountModel)
+        }
+    }
+
+    fun deleteAccount(accountModel: AccountModel) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAccount(accountModel)
         }
     }
 }
