@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.TransfersAdapter
+import com.example.moneymanager.model.TransferModel
+import com.example.moneymanager.ui.home.interfaces.TransferClickListener
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentTransfersBinding
 import java.text.DecimalFormat
@@ -19,7 +21,7 @@ import java.text.DecimalFormatSymbols
 import java.util.Locale
 
 
-class TransfersFragment : Fragment() {
+class TransfersFragment : Fragment(), TransferClickListener {
     private var _binding: FragmentTransfersBinding? = null
     private val binding get() = _binding!!
 
@@ -34,12 +36,7 @@ class TransfersFragment : Fragment() {
 
         mHomeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
-        mHomeViewModel.totalTransferAmount.observe(viewLifecycleOwner, Observer { amount ->
-            val transfersAmount = binding.transfersAmount
-            transfersAmount.text = prepareAmount(amount ?: 0.0)
-        })
-
-        val adapter = TransfersAdapter()
+        val adapter = TransfersAdapter(this)
         val recyclerView = binding.transfersList
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -54,6 +51,11 @@ class TransfersFragment : Fragment() {
             adapter.setData(transfer)
         }
 
+        mHomeViewModel.totalTransferAmount.observe(viewLifecycleOwner) { amount ->
+            val transfersAmount = binding.transfersAmount
+            transfersAmount.text = prepareAmount(amount ?: 0.0)
+        }
+
 
         val button = binding.addButton
         button.setOnClickListener() {
@@ -66,6 +68,11 @@ class TransfersFragment : Fragment() {
     private fun prepareAmount(amount: Double): String {
         val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
         return dec.format(amount).replace(",", " ") + " CZK"
+    }
+
+    override fun onTransferClickListener(model: TransferModel) {
+        val action = HomeFragmentDirections.actionNavHomeToTransferFragment(model)
+        Navigation.findNavController(binding.root).navigate(action)
     }
 
 }

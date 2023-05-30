@@ -109,7 +109,7 @@ class CreateTransferFragment : Fragment() {
         if (accountFromPosition == accountToPosition) {
             Toast.makeText(requireContext(), "Please select different accounts.", Toast.LENGTH_LONG)
                 .show()
-        } else if (amount.isEmpty() || !amount.isDigitsOnly()) {
+        } else if (amount.isEmpty()) {
             Toast.makeText(
                 requireContext(),
                 "Please enter the amount as a number.",

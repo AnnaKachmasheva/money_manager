@@ -201,6 +201,9 @@
         <argument
             android:name="transferModel"
             app:argType="com.example.moneymanager.model.TransferModel" />
+        <action
+            android:id="@+id/action_editTransferFragment_to_transferFragment"
+            app:destination="@id/transferFragment" />
     </fragment>
 
     <fragment

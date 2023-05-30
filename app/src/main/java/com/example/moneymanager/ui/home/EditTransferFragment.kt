@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moneymanager.adapter.DateCardsAdapter
@@ -29,10 +28,6 @@ class EditTransferFragment : Fragment() {
     private var selectedDate: String = ""
     private lateinit var dateCardAdapter: DateCardsAdapter
     private lateinit var mHomeViewModel: HomeViewModel
-    private var oldAccountAmountFrom: Double = 0.0
-    private var oldAccountAmountTo: Double = 0.0
-    private var oldAmount: Double = 0.0
-
 
     private val args by navArgs<EditTransferFragmentArgs>()
 
@@ -49,9 +44,11 @@ class EditTransferFragment : Fragment() {
 
         // set old data
         binding.amountEditTransferText.setText(args.transferModel.amount.toString())
-        oldAccountAmountFrom = args.transferModel.accountFrom?.amount ?: 0.0
-        oldAccountAmountTo = args.transferModel.accountTo?.amount ?: 0.0
-        oldAmount = args.transferModel.amount
+        binding.noteText.setText(args.transferModel.note)
+
+        val oldTransferModel = args.transferModel
+
+        binding.createButton.text = "Save"
 
         //date picker
         val datePickerButton = binding.openDatePicker
@@ -87,7 +84,7 @@ class EditTransferFragment : Fragment() {
 
         val createButton = binding.createButton
         createButton.setOnClickListener {
-            updateData()
+            updateData(oldTransferModel)
         }
 
         return binding.root
@@ -113,7 +110,7 @@ class EditTransferFragment : Fragment() {
         binding.selectFromAccountSpinner.adapter = accounts
     }
 
-    private fun updateData() {
+    private fun updateData(oldTransferModel: TransferModel) {
         val accountFromPosition = binding.selectFromAccountSpinner.selectedItemPosition
         val accountToPosition = binding.selectToAccountSpinner.selectedItemPosition
         val amount = binding.amountEditTransferText.text.toString().trim()
@@ -123,7 +120,7 @@ class EditTransferFragment : Fragment() {
         if (accountFromPosition == accountToPosition) {
             Toast.makeText(requireContext(), "Please select different accounts.", Toast.LENGTH_LONG)
                 .show()
-        } else if (amount.isEmpty() || !amount.isDigitsOnly()) {
+        } else if (amount.isEmpty()) {
             Toast.makeText(
                 requireContext(),
                 "Please enter the amount as a number.",
@@ -147,16 +144,14 @@ class EditTransferFragment : Fragment() {
                 accountTo = accountTo
             )
             //update transfer and accounts
-            mHomeViewModel.updateTransfer(
-                transfer,
-                oldAccountAmountFrom,
-                oldAccountAmountTo,
-                oldAmount
-            )
+            mHomeViewModel.updateTransfer(transfer, oldTransferModel)
 
             Toast.makeText(requireContext(), "Transfer successfully updated!", Toast.LENGTH_LONG)
                 .show()
-            findNavController().popBackStack()
+
+            val action =
+                EditTransferFragmentDirections.actionEditTransferFragmentToTransferFragment(transfer)
+            Navigation.findNavController(binding.root).navigate(action)
         }
     }
 

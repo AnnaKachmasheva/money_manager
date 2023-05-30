@@ -39,6 +39,7 @@ class TransferFragment : Fragment() {
         binding.textToAccount.text = args.transferModel.accountTo?.name ?: ""
         binding.textAmount.text = args.transferModel.amount.toString()
         binding.textDate.text = args.transferModel.date.toString()
+        binding.textNote.text = args.transferModel.note
 
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {

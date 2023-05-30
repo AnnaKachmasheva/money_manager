@@ -65,35 +65,60 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteTransfer(transfer)
 
-            transfer.accountFrom?.plusAmount(transfer.amount)
-            transfer.accountFrom?.let { repositoryAccount.updateAccount(it) }
-
-            transfer.accountTo?.minusAmount(transfer.amount)
-            transfer.accountTo?.let { repositoryAccount.updateAccount(it) }
+            transfer.accountFrom?.let {
+                transfer.accountTo?.let { it1 ->
+                    updateAccountsAfterDeleteTransaction(
+                        it,
+                        it1, transfer.amount
+                    )
+                }
+            }
         }
     }
 
-    fun updateTransfer(
-        transfer: TransferModel,
-        transferOldAmountFrom: Double,
-        transferOldAmountTo: Double,
-        oldAmount: Double
+    private suspend fun updateAccountsAfterDeleteTransaction(
+        accountFrom: AccountModel,
+        accountTo: AccountModel,
+        amount: Double
     ) {
+        accountFrom.plusAmount(amount)
+        repositoryAccount.updateAccount(accountFrom)
+
+        accountTo.minusAmount(amount)
+        repositoryAccount.updateAccount(accountTo)
+    }
+
+    fun updateTransfer(transferNew: TransferModel, transferOld: TransferModel) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.updateTransfer(transfer)
-
-            val accountFrom = transfer.accountFrom
-            accountFrom?.plusAmount(transferOldAmountFrom + oldAmount - transfer.amount)
-            if (accountFrom != null) {
-                repositoryAccount.updateAccount(accountFrom)
-            }
-
-            val accountTo = transfer.accountTo
-            accountTo?.plusAmount(transferOldAmountTo - oldAmount + transfer.amount)
-            if (accountTo != null) {
-                repositoryAccount.updateAccount(accountTo)
-            }
-
+            repository.updateTransfer(transferNew)
+            updateAccountsAfterUpdateTransaction(transferNew, transferOld)
         }
     }
+
+    private fun updateAccountsAfterUpdateTransaction(
+        transferNew: TransferModel,
+        transferOld: TransferModel
+    ) {
+        val oldAccountFrom = transferOld.accountFrom
+        val oldAccountTo = transferOld.accountTo
+        val amountOld = transferOld.amount
+
+        oldAccountFrom?.plusAmount(amountOld)
+        oldAccountTo?.minusAmount(amountOld)
+
+        updateAccount(oldAccountFrom)
+        updateAccount(oldAccountTo)
+
+        val newAccountFrom = transferNew.accountFrom
+        val newAccountTo = transferNew.accountTo
+        val newAmount = transferNew.amount
+
+        newAccountFrom?.minusAmount(newAmount)
+        newAccountTo?.plusAmount(newAmount)
+
+        updateAccount(newAccountFrom)
+        updateAccount(newAccountTo)
+    }
+
+
 }
