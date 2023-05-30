@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.CategoryModel
 import com.example.sp_v2.R
 
-class CategorySmallCardsAdapter:
+class CategorySmallCardsAdapter :
     RecyclerView.Adapter<CategorySmallCardsAdapter.ViewHolder>() {
 
     private var categoryModelArrayList = emptyArray<CategoryModel>()
@@ -67,6 +67,10 @@ class CategorySmallCardsAdapter:
 
     fun getSelectedCategory(): CategoryModel? {
         return if (categoryModelArrayList.isNotEmpty()) categoryModelArrayList[selectedItemPosition] else null
+    }
+
+    fun setInitPosition(categoryModel: CategoryModel) {
+        selectedItemPosition = categoryModelArrayList.indexOf(categoryModel)
     }
 
     fun setData(models: Array<CategoryModel>?) {

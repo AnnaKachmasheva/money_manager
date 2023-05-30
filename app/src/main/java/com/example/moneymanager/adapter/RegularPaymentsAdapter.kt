@@ -2,6 +2,7 @@ package com.example.moneymanager.adapter
 
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
@@ -9,9 +10,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.RegularPaymentModel
 import com.example.moneymanager.ui.regularPayments.RegularPaymentsFragmentDirections
+import com.example.moneymanager.ui.regularPayments.SwitchClickListener
 import com.example.sp_v2.R
 
-class RegularPaymentsAdapter :
+class RegularPaymentsAdapter(private val clickListener: SwitchClickListener) :
     RecyclerView.Adapter<RegularPaymentsAdapter.ViewHolder>() {
 
     var regularPaymentList = emptyList<RegularPaymentModel>()
@@ -39,6 +41,9 @@ class RegularPaymentsAdapter :
             holder.itemView.findNavController().navigate(action)
         }
 
+        holder.swith.setOnClickListener() {
+            clickListener.onSwitchClickListener(model)
+        }
 
     }
 

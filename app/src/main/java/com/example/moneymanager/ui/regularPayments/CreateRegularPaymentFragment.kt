@@ -273,7 +273,6 @@ class CreateRegularPaymentFragment : Fragment() {
     private fun checkDates(startDate: String, endDate: String): Boolean {
         val startDateLD = LocalDate.parse(startDate, formatter)
         val endDateLD = LocalDate.parse(endDate, formatter)
-
         return startDateLD.isBefore(endDateLD)
     }
 

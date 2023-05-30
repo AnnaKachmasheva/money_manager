@@ -159,6 +159,9 @@
         <argument
             android:name="regularPayment"
             app:argType="com.example.moneymanager.model.RegularPaymentModel" />
+        <action
+            android:id="@+id/action_editRegularPaymentFragment_to_regularPaymentFragment"
+            app:destination="@id/regularPaymentFragment" />
     </fragment>
 
     <fragment

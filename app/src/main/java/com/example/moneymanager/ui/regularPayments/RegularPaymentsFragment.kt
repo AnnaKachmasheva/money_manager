@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,7 +16,7 @@ import com.example.moneymanager.model.RegularPaymentModel
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentRegularPaymentsBinding
 
-class RegularPaymentsFragment : Fragment() {
+class RegularPaymentsFragment : Fragment(), SwitchClickListener {
 
     private var _binding: FragmentRegularPaymentsBinding? = null
     private val binding get() = _binding!!
@@ -32,7 +33,7 @@ class RegularPaymentsFragment : Fragment() {
         val view: View = binding.root
 
         mRegularPaymentsViewModel = ViewModelProvider(this)[RegularPaymentsViewModel::class.java]
-        val adapter = RegularPaymentsAdapter()
+        val adapter = RegularPaymentsAdapter(this)
         val recyclerView = binding.regularPayments
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -60,8 +61,10 @@ class RegularPaymentsFragment : Fragment() {
         return view
     }
 
-
-
+    override fun onSwitchClickListener(regularPaymentModel: RegularPaymentModel) {
+        regularPaymentModel.isActive = !regularPaymentModel.isActive
+        mRegularPaymentsViewModel.updateRegularPayment(regularPaymentModel)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
