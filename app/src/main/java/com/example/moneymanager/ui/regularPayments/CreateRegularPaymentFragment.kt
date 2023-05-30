@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moneymanager.adapter.CategorySmallCardsAdapter
@@ -26,16 +25,13 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 
-class EditRegularPaymentFragment : Fragment() {
+class CreateRegularPaymentFragment : Fragment() {
 
     private var _binding: FragmentEditRegularPaymentBinding? = null
     private val binding get() = _binding!!
 
-    private val args by navArgs<RegularPaymentFragmentArgs>()
-
-    private lateinit var categoriesAdapter: CategorySmallCardsAdapter
     private lateinit var mRegularPaymentsViewModel: RegularPaymentsViewModel
-
+    private lateinit var categoriesAdapter: CategorySmallCardsAdapter
 
     private val typesRegularPayment = arrayOf(
         TransactionType.EXPENSES.type,
@@ -52,6 +48,7 @@ class EditRegularPaymentFragment : Fragment() {
 
     private var selectedStartDate: String = ""
     private var selectedEndDate: String = ""
+    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
 
     override fun onCreateView(
@@ -65,6 +62,26 @@ class EditRegularPaymentFragment : Fragment() {
         mRegularPaymentsViewModel = ViewModelProvider(this)[RegularPaymentsViewModel::class.java]
 
 
+        mRegularPaymentsViewModel.readAllData.observe(
+            viewLifecycleOwner
+        ) { regularPayments ->
+//            adapter.setData(regularPayments)
+        }
+
+        var accountsRegularPayment = mRegularPaymentsViewModel.readAllAccounts.value?.toTypedArray()
+        mRegularPaymentsViewModel.readAllAccounts.observe(
+            viewLifecycleOwner
+        ) { regularPayments ->
+            accountsRegularPayment = regularPayments.toTypedArray()
+        }
+        var categoriesRegularPayment =
+            mRegularPaymentsViewModel.readAllCategories.value?.toTypedArray()
+        mRegularPaymentsViewModel.readAllCategories.observe(
+            viewLifecycleOwner
+        ) { categories ->
+            categoriesRegularPayment = categories.toTypedArray()
+        }
+
         //spinner select type
         val selectTypeRegularPaymentSpinner = binding.selectType
         val selectTypeAdapter = this.context?.let {
@@ -75,12 +92,6 @@ class EditRegularPaymentFragment : Fragment() {
             )
         }
         selectTypeRegularPaymentSpinner.adapter = selectTypeAdapter
-        selectTypeRegularPaymentSpinner.setSelection(
-            if (args.regularPayment.type == TransactionType.EXPENSES) 0 else 1
-        )
-
-        binding.paymentNameText.setText(args.regularPayment.name)
-        binding.amountText.setText(args.regularPayment.amount.toString())
 
         //spinner frequency type
         val selectFrequencyRegularPaymentSpinner = binding.selectFrequency
@@ -93,12 +104,7 @@ class EditRegularPaymentFragment : Fragment() {
         }
         selectFrequencyRegularPaymentSpinner.adapter = selectFrequencyAdapter
 
-        var accountsRegularPayment = mRegularPaymentsViewModel.readAllAccounts.value?.toTypedArray()
-        mRegularPaymentsViewModel.readAllAccounts.observe(
-            viewLifecycleOwner
-        ) { regularPayments ->
-            accountsRegularPayment = regularPayments.toTypedArray()
-        }
+        //spiner select account
         val selectAccountRegularPaymentSpinner = binding.selectAccount
         val selectAccountAdapter = this.context?.let {
             accountsRegularPayment?.let { it1 ->
@@ -120,7 +126,6 @@ class EditRegularPaymentFragment : Fragment() {
 
         //start date date_picker
         val textStartDate = binding.startDateText
-        textStartDate.setText(args.regularPayment.startDate.toString())
         val dateStartPickerButton = binding.openStrtDatePicker
         dateStartPickerButton.setOnClickListener() {
             val datePickerFragment = DatePickerFragment()
@@ -143,7 +148,6 @@ class EditRegularPaymentFragment : Fragment() {
 
         //end date date_picker
         val dateEndPickerText = binding.endDateText
-        dateEndPickerText.setText(args.regularPayment.endDate.toString())
         val dateEndPickerButton = binding.openEndDatePicker
         dateEndPickerButton.setOnClickListener() {
             val datePickerFragment = DatePickerFragment()
@@ -165,13 +169,6 @@ class EditRegularPaymentFragment : Fragment() {
             datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
         }
 
-        var categoriesRegularPayment = mRegularPaymentsViewModel.readAllCategories.value?.toTypedArray()
-        mRegularPaymentsViewModel.readAllCategories.observe(
-            viewLifecycleOwner
-        ) { categories ->
-            categoriesRegularPayment = categories.toTypedArray()
-        }
-
         //categories recycle view
         categoriesAdapter = CategorySmallCardsAdapter()
         categoriesAdapter.setData(categoriesRegularPayment)
@@ -179,7 +176,6 @@ class EditRegularPaymentFragment : Fragment() {
         recyclerViewCategories.adapter = categoriesAdapter
         recyclerViewCategories.layoutManager = GridLayoutManager(requireContext(), 3)
         recyclerViewCategories.itemAnimator = DefaultItemAnimator()
-
 
         // go to create new category
         val addCategoryButton = binding.addCategory
@@ -190,17 +186,14 @@ class EditRegularPaymentFragment : Fragment() {
 
         // create button
         val addPaymentButton = binding.createButton
-        addPaymentButton.text = "Save"
         addPaymentButton.setOnClickListener() {
-            updateDataToDatabase()
+            insertDataToDatabase()
         }
 
         return view
     }
 
-    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-
-    private fun updateDataToDatabase() {
+    private fun insertDataToDatabase() {
         val typePosition = binding.selectType.selectedItemPosition
         val amount = binding.amountText.text.toString().trim()
         val name = binding.paymentNameText.text.toString().trim()
@@ -253,8 +246,9 @@ class EditRegularPaymentFragment : Fragment() {
             )
                 .show()
         } else {
+
             val regularPayment = RegularPaymentModel(
-                id = args.regularPayment.id,
+                id = 0,
                 name = name,
                 amount = amount.toDouble(),
                 type = if (typePosition == 0) TransactionType.EXPENSES else TransactionType.INCOME,
@@ -265,12 +259,8 @@ class EditRegularPaymentFragment : Fragment() {
                 endDate = LocalDate.parse(endDate, formatter),
                 isActive = true
             )
-            mRegularPaymentsViewModel.updateRegularPayment(regularPayment)
-            Toast.makeText(
-                requireContext(),
-                "Regular payment successfully added!",
-                Toast.LENGTH_LONG
-            )
+            mRegularPaymentsViewModel.addRegularPayment(regularPayment)
+            Toast.makeText(requireContext(), "Regular payment successfully added!", Toast.LENGTH_LONG)
                 .show()
             findNavController().navigate(R.id.nav_regular_payments)
         }

@@ -122,8 +122,43 @@
         android:label="@string/menu_regular_payments"
         tools:layout="@layout/fragment_regular_payments">
         <action
+            android:id="@+id/action_nav_regular_payments_to_regularPaymentFragment"
+            app:destination="@id/regularPaymentFragment" />
+        <action
             android:id="@+id/action_nav_regular_payments_to_createRegularPaymentFragment"
+            app:destination="@id/createRegularPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/regularPaymentFragment"
+        android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentFragment"
+        android:label="Regular Payment"
+        tools:layout="@layout/fragment_regular_payment">
+        <argument
+            android:name="regularPayment"
+            app:argType="com.example.moneymanager.model.RegularPaymentModel" />
+        <action
+            android:id="@+id/action_regularPaymentFragment_to_nav_regular_payments2"
+            app:destination="@id/nav_regular_payments" />
+        <action
+            android:id="@+id/action_regularPaymentFragment_to_editRegularPaymentFragment"
             app:destination="@id/editRegularPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRegularPaymentFragment"
+        android:name="com.example.moneymanager.ui.regularPayments.CreateRegularPaymentFragment"
+        android:label="Create regular payment" >
+        <action
+            android:id="@+id/action_createRegularPaymentFragment_to_createCategoryFragment"
+            app:destination="@id/createCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRegularPaymentFragment"
+        android:name="com.example.moneymanager.ui.regularPayments.EditRegularPaymentFragment"
+        android:label="Edit regular payment"
+        tools:layout="@layout/fragment_edit_regular_payment">
+        <argument
+            android:name="regularPayment"
+            app:argType="com.example.moneymanager.model.RegularPaymentModel" />
     </fragment>
 
     <fragment
@@ -181,17 +216,7 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.moneymanager.ui.settings.SettingsFragment"
         android:label="SettingsFragment" />
-    <fragment
-        android:id="@+id/editRegularPaymentFragment"
-        android:name="com.example.moneymanager.ui.regularPayments.CreateRegularPaymentFragment"
-        android:label="Regular payment"
-        tools:layout="@layout/fragment_edit_regular_payment" />
 
-    <fragment
-        android:id="@+id/regularPaymentFragment"
-        android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentFragment"
-        android:label="Regular Payment">
-    </fragment>
     <fragment
         android:id="@+id/createCategoryFragment"
         android:name="com.example.moneymanager.ui.categories.CreateCategoryFragment"
@@ -200,5 +225,7 @@
             android:id="@+id/action_createCategoryFragment_to_nav_categories"
             app:destination="@id/nav_categories" />
     </fragment>
+
+
 
 </navigation>

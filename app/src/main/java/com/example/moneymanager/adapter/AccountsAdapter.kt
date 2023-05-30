@@ -1,27 +1,22 @@
 package com.example.moneymanager.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.NavAction
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.AccountModel
-import com.example.moneymanager.ui.accounts.AccountFragment
-import com.example.moneymanager.ui.accounts.AccountsFragment
 import com.example.moneymanager.ui.accounts.AccountsFragmentDirections
 import com.example.sp_v2.R
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import java.util.*
+import java.util.Locale
 
-class AccountsAdapter:
+class AccountsAdapter :
     RecyclerView.Adapter<AccountsAdapter.ViewHolder>() {
 
     private var accountList = emptyList<AccountModel>()
-    private var selectedItemPosition: Int = 0
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -49,10 +44,6 @@ class AccountsAdapter:
         return dec.format(amount).replace(",", " ")
     }
 
-    override fun getItemCount(): Int {
-        return accountList.size
-    }
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val accountName: TextView
         val accountAmount: TextView
@@ -62,6 +53,9 @@ class AccountsAdapter:
             accountAmount = itemView.findViewById(R.id.amountAccount)
         }
     }
+
+    override fun getItemCount() = accountList.size
+
 
     fun setData(models: List<AccountModel>) {
         this.accountList = models

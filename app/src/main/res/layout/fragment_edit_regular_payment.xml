@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.moneymanager.ui.regularPayments.EditRegularPaymentFragment">
+    tools:context="com.example.moneymanager.ui.regularPayments.CreateRegularPaymentFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                     android:id="@+id/paymentNameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal" />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +95,7 @@
                 android:layout_marginEnd="@dimen/text_margin_16">
 
                 <Spinner
-                    android:id="@+id/selectAccountSpiner"
+                    android:id="@+id/selectAccount"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
@@ -240,7 +240,6 @@
                 android:layout_marginStart="@dimen/text_margin_16"
                 android:layout_marginEnd="@dimen/text_margin_16">
 
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/categories"
                     android:layout_width="wrap_content"
@@ -270,13 +269,12 @@
                         app:iconGravity="textStart"
                         app:iconPadding="0dp" />
 
-
                     <TextView
-                        android:id="@+id/otherCategory"
+                        android:id="@+id/addCategoryLabel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/text_margin_16"
-                        android:text="@string/others"
+                        android:text="@string/create"
                         android:textAlignment="center"
                         android:textColor="@color/grey"
                         android:textSize="14sp" />

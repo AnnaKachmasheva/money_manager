@@ -103,8 +103,6 @@ class IncomeEditFragment : Fragment() {
             layoutManager = GridLayoutManager(activity, 3)
             adapter =
                 CategorySmallCardsAdapter(
-                    CategoriesItems.CategoriesItems.take(3)
-                            as ArrayList<CategoryModel>
                 )
         }
     }

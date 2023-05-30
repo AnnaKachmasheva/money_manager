@@ -2,8 +2,6 @@ package com.example.moneymanager.ui.accounts
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -41,13 +39,18 @@ class AccountsFragment : Fragment() {
         val recyclerView = binding.accountList
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                activity,
+                DividerItemDecoration.VERTICAL
+            )
+        );
         recyclerView.itemAnimator = DefaultItemAnimator()
 
         mAccountViewModel.readAllData.observe(viewLifecycleOwner, Observer { account ->
             adapter.setData(account)
         })
-        mAccountViewModel.totalAmount.observe(viewLifecycleOwner, Observer {amount ->
+        mAccountViewModel.totalAmount.observe(viewLifecycleOwner, Observer { amount ->
             val totalAmount = binding.totalAccounts
             totalAmount.text = prepareAmount(amount ?: 0.0)
         })
@@ -64,6 +67,7 @@ class AccountsFragment : Fragment() {
         val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
         return dec.format(amount).replace(",", " ")
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

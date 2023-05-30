@@ -1,18 +1,16 @@
 package com.example.moneymanager.ui.regularPayments
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.RegularPaymentsAdapter
-import com.example.moneymanager.utils.RegularPaymentsItems
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentRegularPaymentsBinding
 
@@ -21,42 +19,43 @@ class RegularPaymentsFragment : Fragment() {
     private var _binding: FragmentRegularPaymentsBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var mRegularPaymentsViewModel: RegularPaymentsViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val profileViewModel =
-            ViewModelProvider(this)[RegularPaymentsViewModel::class.java]
 
         _binding = FragmentRegularPaymentsBinding.inflate(inflater, container, false)
         val view: View = binding.root
 
-        inflater.inflate(R.layout.fragment_regular_payments, container, false)
+        mRegularPaymentsViewModel = ViewModelProvider(this)[RegularPaymentsViewModel::class.java]
+        val adapter = RegularPaymentsAdapter()
+        val recyclerView = binding.regularPayments
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                activity,
+                DividerItemDecoration.VERTICAL
+            )
+        )
+        recyclerView.itemAnimator = DefaultItemAnimator()
+
+        mRegularPaymentsViewModel.readAllData.observe(
+            viewLifecycleOwner
+        ) { regularPayments ->
+            adapter.setData(regularPayments)
+        }
 
         val button = binding.addButton
-        button.setOnClickListener() {
-            Navigation.findNavController(view)
-                .navigate(R.id.editRegularPaymentFragment)
+        button.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_regular_payments_to_createRegularPaymentFragment)
         }
 
         return view
     }
-
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(itemView, savedInstanceState)
-//
-//        _binding?.regularPayments?.apply {
-//            layoutManager = GridLayoutManager(activity, 1)
-//            adapter = RegularPaymentsAdapter(
-//                RegularPaymentsItems.RegularPaymentsItems
-//            ) { regularPayment  ->
-//                Navigation.findNavController(binding.root)
-//                    .navigate(R.id.regularPaymentFragment)
-//            }
-//        }
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

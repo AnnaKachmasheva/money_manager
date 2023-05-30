@@ -15,7 +15,7 @@ interface CategoryDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(categoryModel: CategoryModel)
 
-    @Query("SELECT * FROM categories ORDER BY id ASC")
+    @Query("SELECT * FROM categories ORDER BY category_id ASC")
     fun readAllData(): LiveData<List<CategoryModel>>
 
     @Update

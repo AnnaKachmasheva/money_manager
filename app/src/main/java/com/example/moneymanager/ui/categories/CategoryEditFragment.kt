@@ -55,7 +55,7 @@ class CategoryEditFragment : Fragment() {
 
         mCategoriesViewModel = ViewModelProvider(this)[CategoriesViewModel::class.java]
         val button = binding.createButton
-        button.text = R.string.save.toString()
+        button.text = "Save"
         button.setOnClickListener {
             updateDataToDatabase()
         }

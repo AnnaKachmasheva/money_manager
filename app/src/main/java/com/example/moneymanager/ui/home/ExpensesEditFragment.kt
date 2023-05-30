@@ -10,9 +10,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moneymanager.adapter.CategorySmallCardsAdapter
 import com.example.moneymanager.adapter.DateCardsAdapter
-import com.example.moneymanager.model.CategoryModel
 import com.example.moneymanager.model.DateModel
-import com.example.moneymanager.utils.CategoriesItems
 import com.example.moneymanager.utils.DateItems
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentEditExpensesBinding
@@ -102,10 +100,7 @@ class ExpensesEditFragment : Fragment() {
         _binding?.categories?.apply {
             layoutManager = GridLayoutManager(activity, 3)
             adapter =
-                CategorySmallCardsAdapter(
-                    CategoriesItems.CategoriesItems.take(3)
-                            as ArrayList<CategoryModel>
-                )
+                CategorySmallCardsAdapter()
         }
     }
 

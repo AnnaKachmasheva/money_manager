@@ -35,7 +35,7 @@ class EditAccountFragment : Fragment() {
         binding.amountText.setText(args.accountModel.amount.toString())
         binding.switchPayment.isChecked = !args.accountModel.isIncludeInTotalBalance
 
-        binding.editAccountButton.text = R.string.save.toString()
+        binding.editAccountButton.text = "Save"
 
         mAccountViewModel = ViewModelProvider(this)[AccountsViewModel::class.java]
         binding.editAccountButton.setOnClickListener {

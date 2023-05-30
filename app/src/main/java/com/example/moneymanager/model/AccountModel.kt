@@ -1,6 +1,7 @@
 package com.example.moneymanager.model
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
@@ -9,8 +10,8 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "accounts")
 data class AccountModel(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    var name: String?,
-    var amount: Double = 0.0,
+    @ColumnInfo(name = "account_id") val id: Int,
+    @ColumnInfo(name = "account_name") var name: String?,
+    @ColumnInfo(name = "account_amount")var amount: Double = 0.0,
     var isIncludeInTotalBalance: Boolean = true
 ) : Parcelable

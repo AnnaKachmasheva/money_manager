@@ -15,10 +15,13 @@ interface AccountDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(accountModel: AccountModel)
 
-    @Query("SELECT * FROM accounts ORDER BY id ASC")
+    @Query("SELECT * FROM accounts ORDER BY account_id ASC")
     fun readAllData(): LiveData<List<AccountModel>>
 
-    @Query("SELECT sum(amount) FROM accounts WHERE isIncludeInTotalBalance IS 1")
+    @Query("SELECT * FROM accounts ORDER BY account_id ASC")
+    suspend fun getAllAccounts(): List<AccountModel>
+
+    @Query("SELECT sum(account_amount) FROM accounts WHERE isIncludeInTotalBalance IS 1")
     fun getTotalAmount(): LiveData<Double>
 
     @Update

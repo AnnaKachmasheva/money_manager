@@ -10,12 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.CategoryModel
 import com.example.sp_v2.R
 
-class CategorySmallCardsAdapter(
-    categoryModelArrayList: ArrayList<CategoryModel>
-) :
+class CategorySmallCardsAdapter:
     RecyclerView.Adapter<CategorySmallCardsAdapter.ViewHolder>() {
 
-    private val categoryModelArrayList: ArrayList<CategoryModel>
+    private var categoryModelArrayList = emptyArray<CategoryModel>()
 
     private var selectedItemPosition: Int = 0
     private val greyColor: String = "#808080"
@@ -67,7 +65,15 @@ class CategorySmallCardsAdapter(
         }
     }
 
-    init {
-        this.categoryModelArrayList = categoryModelArrayList
+    fun getSelectedCategory(): CategoryModel? {
+        return if (categoryModelArrayList.isNotEmpty()) categoryModelArrayList[selectedItemPosition] else null
     }
+
+    fun setData(models: Array<CategoryModel>?) {
+        if (models != null) {
+            this.categoryModelArrayList = models
+        }
+        notifyDataSetChanged()
+    }
+
 }

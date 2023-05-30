@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
                 android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/type"
+                android:text="@string/name"
                 android:textSize="16sp" />
 
             <TextView
@@ -29,8 +29,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="@string/type" />
+                android:text="@string/name" />
 
+            <TextView
+                android:id="@+id/textLabelForPaymentType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/type"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textPaymentType"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:text="@string/type" />
 
             <TextView
                 android:id="@+id/textLabelForPaymentAmount"
@@ -42,7 +58,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentAmont"
+                android:id="@+id/textPaymentAmount"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,7 +125,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textPaymentSatrtDate"
+                android:id="@+id/textPaymentStartDate"
                 style="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -122,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
                 android:layout_marginTop="@dimen/text_margin_40"
-                android:text="@string/reminder_start_date"
+                android:text="@string/reminder_end_date"
                 android:textSize="16sp" />
 
             <TextView

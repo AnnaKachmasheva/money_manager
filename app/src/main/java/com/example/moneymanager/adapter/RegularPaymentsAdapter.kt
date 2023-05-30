@@ -6,17 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.RegularPaymentModel
+import com.example.moneymanager.ui.accounts.AccountsFragmentDirections
+import com.example.moneymanager.ui.regularPayments.RegularPaymentsFragmentDirections
 import com.example.sp_v2.R
 
-class RegularPaymentsAdapter(
-    regularPaymentsModelArrayList: ArrayList<RegularPaymentModel>,
-    private val listener: (RegularPaymentModel) -> Unit
-) :
+class RegularPaymentsAdapter :
     RecyclerView.Adapter<RegularPaymentsAdapter.ViewHolder>() {
 
-    private val modelArrayList: ArrayList<RegularPaymentModel>
+    private var regularPaymentList = emptyList<RegularPaymentModel>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -28,27 +29,19 @@ class RegularPaymentsAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val model: RegularPaymentModel = modelArrayList[position]
+        val model: RegularPaymentModel = regularPaymentList[position]
         holder.regularPaymentName.text = model.name
         val isActive = model.isActive
         holder.swith.isChecked = isActive
 
         holder.regularPaymentName.setOnClickListener {
-            listener(modelArrayList[position])
+            val action = RegularPaymentsFragmentDirections.actionNavRegularPaymentsToRegularPaymentFragment(model)
+            holder.itemView.findNavController().navigate(action)
         }
     }
 
-    class OnClickListener(val clickListener: (model: RegularPaymentModel) -> Unit) {
-        fun onClick(model: RegularPaymentModel) = clickListener(model)
-    }
-
-    override fun getItemCount() = modelArrayList.size
-
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val regularPaymentName: TextView
-
-        @SuppressLint("UseSwitchCompatOrMaterialCode")
         val swith: Switch
 
         init {
@@ -57,7 +50,11 @@ class RegularPaymentsAdapter(
         }
     }
 
-    init {
-        this.modelArrayList = regularPaymentsModelArrayList
+    override fun getItemCount() = regularPaymentList.size
+
+    fun setData(models: List<RegularPaymentModel>) {
+        this.regularPaymentList = models
+        notifyDataSetChanged()
     }
+
 }
