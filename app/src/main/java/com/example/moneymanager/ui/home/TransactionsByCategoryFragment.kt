@@ -7,36 +7,40 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.TransactionsAdapter
 import com.example.moneymanager.model.CategoryModel
 import com.example.moneymanager.ui.home.interfaces.TransactionClickListener
 import com.example.sp_v2.R
-import com.example.sp_v2.databinding.FragmentExpencesBinding
+import com.example.sp_v2.databinding.FragmentTransactionsByCategoryBinding
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.Locale
 
-class ExpensesFragment : Fragment(), TransactionClickListener {
+class TransactionsByCategoryFragment : Fragment() {
 
-    private var _binding: FragmentExpencesBinding? = null
+    private var _binding: FragmentTransactionsByCategoryBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var mHomeViewModel: HomeViewModel
+
+    private val args by navArgs<TransactionsByCategoryFragmentArgs>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentExpencesBinding.inflate(inflater, container, false)
+        _binding = FragmentTransactionsByCategoryBinding.inflate(inflater, container, false)
         val view = binding.root
 
         mHomeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         val adapter = TransactionsAdapter(this)
-        val recyclerView = binding.expensesList
+        val recyclerView = binding.transactionsList
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.itemAnimator = DefaultItemAnimator()
@@ -69,9 +73,4 @@ class ExpensesFragment : Fragment(), TransactionClickListener {
         _binding = null
     }
 
-    override fun onTransactionClickListener(expensesIncomeModel: Pair<CategoryModel?, Double>) {
-        //todo
-        //        val action = HomeFragmentDirections.actionNavHomeToTransferFragment(model)
-//        Navigation.findNavController(binding.root).navigate(action)
-    }
 }

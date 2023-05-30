@@ -17,7 +17,7 @@ import com.example.sp_v2.databinding.FragmentEditExpensesBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class ExpensesEditFragment : Fragment() {
+class EditExpensesFragment : Fragment() {
 
     private var _binding: FragmentEditExpensesBinding? = null
     private val binding get() = _binding!!

@@ -22,6 +22,7 @@ import java.util.Locale
 
 
 class TransfersFragment : Fragment(), TransferClickListener {
+
     private var _binding: FragmentTransfersBinding? = null
     private val binding get() = _binding!!
 
@@ -55,7 +56,6 @@ class TransfersFragment : Fragment(), TransferClickListener {
             val transfersAmount = binding.transfersAmount
             transfersAmount.text = prepareAmount(amount ?: 0.0)
         }
-
 
         val button = binding.addButton
         button.setOnClickListener() {

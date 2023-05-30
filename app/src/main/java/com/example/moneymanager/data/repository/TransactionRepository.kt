@@ -2,7 +2,6 @@ package com.example.moneymanager.data.repository
 
 import androidx.lifecycle.LiveData
 import com.example.moneymanager.data.dao.TransactionDao
-import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.model.TransferModel
 
@@ -14,10 +13,14 @@ class TransactionRepository(private val transactionDao: TransactionDao) {
     val readAllDataTransfer: LiveData<List<TransferModel>> = transactionDao.readAllDataTransfer()
 
     val totalTransferAmount: LiveData<Double> = transactionDao.getTotalTransferAmount()
+    val totalExpencesAmount: LiveData<Double> = transactionDao.getTotalExpencesAmount()
 
     suspend fun addExpensesIncome(expensesIncomeModel: ExpensesIncomeModel) {
         transactionDao.insertExpensesIncome(expensesIncomeModel)
     }
+
+
+    //transfers
 
     suspend fun addTransfer(transferModel: TransferModel) {
         transactionDao.insertTransfer(transferModel)
@@ -30,4 +33,7 @@ class TransactionRepository(private val transactionDao: TransactionDao) {
     suspend fun updateTransfer(transferModel: TransferModel) {
         transactionDao.updateTransfer(transferModel)
     }
+
+    // expenses
+
 }

@@ -175,7 +175,27 @@
         android:id="@+id/expensesFragment"
         android:name="com.example.moneymanager.ui.home.ExpensesFragment"
         android:label="fragment_expences"
-        tools:layout="@layout/fragment_expences" />
+        tools:layout="@layout/fragment_expences" >
+        <action
+            android:id="@+id/action_expensesFragment_to_transactionsByCategoryFragment"
+            app:destination="@id/transactionsByCategoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/transactionsByCategoryFragment"
+        android:name="com.example.moneymanager.ui.home.TransactionsByCategoryFragment"
+        android:label="Transactions by category"
+        tools:layout="@layout/fragment_transactions_by_category">
+        <argument
+            android:name="transactionModels"
+            app:argType="com.example.moneymanager.model.ExpensesIncomeModel[]" />
+        <argument
+            android:name="totalCategory"
+            app:argType="long" />
+        <argument
+            android:name="nameCategory"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/incomeFragment"

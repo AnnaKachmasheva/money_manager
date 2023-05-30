@@ -18,12 +18,11 @@ interface TransactionDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExpensesIncome(expensesIncomeModel: ExpensesIncomeModel)
 
-    @Query("SELECT * FROM expenses_incomes WHERE transaction_type IS 'EXPENSES' ORDER BY transaction_id ASC")
+    @Query("SELECT * FROM expenses_incomes WHERE type IS 'EXPENSES'")
     fun readAllDataExpenses(): LiveData<List<ExpensesIncomeModel>>
 
-    @Query("SELECT * FROM expenses_incomes WHERE transaction_type IS 'INCOME' ORDER BY transaction_id ASC")
+    @Query("SELECT * FROM expenses_incomes WHERE type IS 'INCOME'")
     fun readAllDataIncome(): LiveData<List<ExpensesIncomeModel>>
-
 
     //transfers
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -40,19 +39,7 @@ interface TransactionDao {
 
     @Update
     fun updateTransfer(transferModel: TransferModel)
-//
-//    @Query("SELECT * FROM accounts ORDER BY account_id ASC")
-//    suspend fun getAllAccounts(): List<AccountModel>
-//
-//    @Query("SELECT sum(account_amount) FROM accounts WHERE isIncludeInTotalBalance IS 1")
-//    fun getTotalAmount(): LiveData<Double>
-//
-//    @Update
-//    fun update(accountModel: AccountModel)
-//
-//    @Delete
-//    fun delete(vararg accountModel: AccountModel)
-//
-//    @Query("DELETE FROM accounts")
-//    suspend fun deleteAll()
+
+    @Query("SELECT sum(amount) FROM expenses_incomes WHERE type IS 'EXPENSES'")
+    fun getTotalExpencesAmount(): LiveData<Double>
 }

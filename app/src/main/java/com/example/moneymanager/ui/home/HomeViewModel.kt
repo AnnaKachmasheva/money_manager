@@ -6,8 +6,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.moneymanager.data.AppDatabase
 import com.example.moneymanager.data.repository.AccountRepository
+import com.example.moneymanager.data.repository.CategoryRepository
 import com.example.moneymanager.data.repository.TransactionRepository
 import com.example.moneymanager.model.AccountModel
+import com.example.moneymanager.model.CategoryModel
 import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.model.TransferModel
 import kotlinx.coroutines.Dispatchers
@@ -19,16 +21,19 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val readAllDataIncome: LiveData<List<ExpensesIncomeModel>>
     val readAllDataTransfer: LiveData<List<TransferModel>>
     val readAllAccounts: LiveData<List<AccountModel>>
+    val readAllCategories: LiveData<List<CategoryModel>>
 
     val totalTransferAmount: LiveData<Double>
-
+    val totalExpencesAmount: LiveData<Double>
 
     private val repository: TransactionRepository
     private val repositoryAccount: AccountRepository
+    private val repositoryCategory: CategoryRepository
 
     init {
         val transactionDao = AppDatabase.getDatabase(application).transactionDao()
         val accountDao = AppDatabase.getDatabase(application).accountDao()
+        val categoryDao = AppDatabase.getDatabase(application).categoryDao()
 
         repository = TransactionRepository(transactionDao)
         readAllDataExpenses = repository.readAllDataExpenses
@@ -36,16 +41,16 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         readAllDataTransfer = repository.readAllDataTransfer
 
         totalTransferAmount = repository.totalTransferAmount
+        totalExpencesAmount = repository.totalExpencesAmount
 
         repositoryAccount = AccountRepository(accountDao)
         readAllAccounts = repositoryAccount.readAllData
+
+        repositoryCategory = CategoryRepository(categoryDao)
+        readAllCategories = repositoryCategory.readAllData
     }
 
-    fun addExpensesIncome(expensesIncomeModel: ExpensesIncomeModel) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.addExpensesIncome(expensesIncomeModel)
-        }
-    }
+    // transfers
 
     fun addTransfer(transferModel: TransferModel) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -120,5 +125,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         updateAccount(newAccountTo)
     }
 
+    // expenses and income
+
+    fun addExpensesIncome(expensesIncomeModel: ExpensesIncomeModel) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addExpensesIncome(expensesIncomeModel)
+        }
+    }
 
 }

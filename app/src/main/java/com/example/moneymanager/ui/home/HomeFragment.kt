@@ -27,7 +27,6 @@ class HomeFragment : Fragment() {
         val adapter = HomeTabPagerAdapter(childFragmentManager, lifecycle)
         view.adapter = adapter
 
-
         val viewDate = binding.viewPagerHome
 
         TabLayoutMediator(tabLayout, view) { tab, position ->
