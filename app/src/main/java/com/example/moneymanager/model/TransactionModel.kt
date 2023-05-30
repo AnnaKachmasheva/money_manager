@@ -6,13 +6,12 @@ import androidx.room.PrimaryKey
 import com.example.moneymanager.model.enums.TransactionType
 import java.time.LocalDate
 
-
-@Entity(tableName="transactions")
+@Entity(tableName = "transactions")
 abstract class TransactionModel(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "transaction_id") var id: Long = 0,
-    @ColumnInfo(name = "transaction_type") val type: TransactionType?,
-    @ColumnInfo(name = "transaction_amount") val amount: Double = 0.0,
-    @ColumnInfo(name = "transaction_date") val date: LocalDate,
-    @ColumnInfo(name = "transaction_note") val note: String?
-) {}
+    @ColumnInfo(name = "transaction_id") open var id: Long = 0,
+    @ColumnInfo(name = "transaction_type") open val type: TransactionType?,
+    @ColumnInfo(name = "transaction_amount") open val amount: Double = 0.0,
+    @ColumnInfo(name = "transaction_date") open val date: LocalDate,
+    @ColumnInfo(name = "transaction_note") open val note: String?
+)

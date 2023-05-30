@@ -1,0 +1,129 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.moneymanager.ui.home.TransferFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textLabelForFromAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/transfer_from_account"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textFromAccount"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:text="@string/name" />
+
+            <TextView
+                android:id="@+id/textLabelForToAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/transfer_fo_account"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textToAccount"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:text="@string/name" />
+
+            <TextView
+                android:id="@+id/textLabelForPaymentAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/amount"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textAmount"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:text="100 CZK" />
+
+
+            <TextView
+                android:id="@+id/textLabelForPaymentAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/account"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textPaymentAccount"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:text="Man" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/textLabelForDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/date"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textDate"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:text="23.3.2023" />
+
+            <TextView
+                android:id="@+id/textLabelForNode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:layout_marginTop="@dimen/text_margin_40"
+                android:text="@string/note"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textNote"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_16"
+                android:text="note" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

@@ -60,4 +60,40 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+    fun deleteTransfer(transfer: TransferModel) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteTransfer(transfer)
+
+            transfer.accountFrom?.plusAmount(transfer.amount)
+            transfer.accountFrom?.let { repositoryAccount.updateAccount(it) }
+
+            transfer.accountTo?.minusAmount(transfer.amount)
+            transfer.accountTo?.let { repositoryAccount.updateAccount(it) }
+        }
+    }
+
+    fun updateTransfer(
+        transfer: TransferModel,
+        transferOldAmountFrom: Double,
+        transferOldAmountTo: Double,
+        oldAmount: Double
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateTransfer(transfer)
+
+            val accountFrom = transfer.accountFrom
+            accountFrom?.plusAmount(transferOldAmountFrom + oldAmount - transfer.amount)
+            if (accountFrom != null) {
+                repositoryAccount.updateAccount(accountFrom)
+            }
+
+            val accountTo = transfer.accountTo
+            accountTo?.plusAmount(transferOldAmountTo - oldAmount + transfer.amount)
+            if (accountTo != null) {
+                repositoryAccount.updateAccount(accountTo)
+            }
+
+        }
+    }
 }

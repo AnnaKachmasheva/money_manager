@@ -7,12 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.TransferModel
+import com.example.moneymanager.ui.home.interfaces.TransferClickListener
 import com.example.sp_v2.R
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.Locale
 
-class TransfersAdapter() :
+class TransfersAdapter(private val clickListener: TransferClickListener) :
     RecyclerView.Adapter<TransfersAdapter.ViewHolder>() {
 
     private var transferModelArrayList = emptyList<TransferModel>()
@@ -36,8 +37,7 @@ class TransfersAdapter() :
         holder.date.text = model.date.toString()
 
         holder.itemView.setOnClickListener {
-            //todo
-            notifyDataSetChanged()
+            clickListener.onTransferClickListener(model)
         }
     }
 
@@ -47,7 +47,6 @@ class TransfersAdapter() :
         val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
         return dec.format(amount).replace(",", " ")
     }
-
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val fromAccount: TextView

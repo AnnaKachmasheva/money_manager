@@ -23,6 +23,9 @@
             android:id="@+id/action_nav_home_to_incomeFragment"
             app:destination="@id/incomeFragment" />
         <action
+            android:id="@+id/action_nav_home_to_transferFragment"
+            app:destination="@id/transferFragment" />
+        <action
             android:id="@+id/action_nav_home_to_transfersFragment"
             app:destination="@id/transfersFragment" />
     </fragment>
@@ -70,6 +73,7 @@
             android:id="@+id/action_accountEditFragment_to_accountFragment2"
             app:destination="@id/accountFragment" />
     </fragment>
+
 
     <fragment
         android:id="@+id/accountFragment"
@@ -183,16 +187,21 @@
         android:id="@+id/transfersFragment"
         android:name="com.example.moneymanager.ui.home.TransfersFragment"
         android:label="fragment_transfers"
-        tools:layout="@layout/fragment_transfers" >
-        <action
-            android:id="@+id/action_transfersFragment_to_createTransferFragment"
-            app:destination="@id/createTransferFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_transfers" />
     <fragment
         android:id="@+id/createTransferFragment"
         android:name="com.example.moneymanager.ui.home.CreateTransferFragment"
         android:label="Create transfer"
         tools:layout="@layout/fragment_edit_transfer"/>
+    <fragment
+        android:id="@+id/editTransferFragment"
+        android:name="com.example.moneymanager.ui.home.EditTransferFragment"
+        android:label="Edit transfer"
+        tools:layout="@layout/fragment_edit_transfer">
+        <argument
+            android:name="transferModel"
+            app:argType="com.example.moneymanager.model.TransferModel" />
+    </fragment>
 
     <fragment
         android:id="@+id/editTransactionFragment"
@@ -234,7 +243,18 @@
             android:id="@+id/action_createCategoryFragment_to_nav_categories"
             app:destination="@id/nav_categories" />
     </fragment>
-
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="com.example.moneymanager.ui.home.TransferFragment"
+        android:label="Transfer"
+        tools:layout="@layout/fragment_transfer_details" >
+        <argument
+            android:name="transferModel"
+            app:argType="com.example.moneymanager.model.TransferModel" />
+        <action
+            android:id="@+id/action_transferFragment_to_editTransferFragment"
+            app:destination="@id/editTransferFragment" />
+    </fragment>
 
 
 </navigation>

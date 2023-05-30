@@ -2,6 +2,7 @@ package com.example.moneymanager.data.repository
 
 import androidx.lifecycle.LiveData
 import com.example.moneymanager.data.dao.TransactionDao
+import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.model.TransferModel
 
@@ -22,4 +23,11 @@ class TransactionRepository(private val transactionDao: TransactionDao) {
         transactionDao.insertTransfer(transferModel)
     }
 
+    suspend fun deleteTransfer(transferModel: TransferModel) {
+        transactionDao.deleteTransfer(transferModel)
+    }
+
+    suspend fun updateTransfer(transferModel: TransferModel) {
+        transactionDao.updateTransfer(transferModel)
+    }
 }
