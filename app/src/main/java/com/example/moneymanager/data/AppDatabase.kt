@@ -8,16 +8,21 @@ import androidx.room.TypeConverters
 import com.example.moneymanager.data.dao.AccountDao
 import com.example.moneymanager.data.dao.CategoryDao
 import com.example.moneymanager.data.dao.RegularPaymentDao
+import com.example.moneymanager.data.dao.TransactionDao
 import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.CategoryModel
+import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.model.RegularPaymentModel
+import com.example.moneymanager.model.TransferModel
 import com.example.moneymanager.model.convertets.DateConverter
 
 @Database(
     entities = [
         AccountModel::class,
         CategoryModel::class,
-        RegularPaymentModel::class
+        RegularPaymentModel::class,
+        ExpensesIncomeModel::class,
+        TransferModel::class
     ],
     version = 1,
     exportSchema = false
@@ -26,7 +31,9 @@ import com.example.moneymanager.model.convertets.DateConverter
 abstract class AppDatabase : RoomDatabase() {
     abstract fun accountDao(): AccountDao
     abstract fun categoryDao(): CategoryDao
-    abstract fun regularPaymentDao() : RegularPaymentDao
+    abstract fun regularPaymentDao(): RegularPaymentDao
+
+    abstract fun transactionDao(): TransactionDao
 
     companion object {
 

@@ -25,9 +25,6 @@
         <action
             android:id="@+id/action_nav_home_to_transfersFragment"
             app:destination="@id/transfersFragment" />
-        <action
-            android:id="@+id/action_nav_home_to_createTransactionFragment"
-            app:destination="@id/editTransactionFragment" />
     </fragment>
 
     <fragment
@@ -186,7 +183,16 @@
         android:id="@+id/transfersFragment"
         android:name="com.example.moneymanager.ui.home.TransfersFragment"
         android:label="fragment_transfers"
-        tools:layout="@layout/fragment_transfers" />
+        tools:layout="@layout/fragment_transfers" >
+        <action
+            android:id="@+id/action_transfersFragment_to_createTransferFragment"
+            app:destination="@id/createTransferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTransferFragment"
+        android:name="com.example.moneymanager.ui.home.CreateTransferFragment"
+        android:label="Create transfer"
+        tools:layout="@layout/fragment_edit_transfer"/>
 
     <fragment
         android:id="@+id/editTransactionFragment"

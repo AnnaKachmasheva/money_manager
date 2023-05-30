@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.moneymanager.ui.home.ExpensesEditFragment
 import com.example.moneymanager.ui.home.IncomeEditFragment
-import com.example.moneymanager.ui.home.TransferEditFragment
+import com.example.moneymanager.ui.home.CreateTransferFragment
 
 class TransactionEditViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
@@ -22,6 +22,6 @@ class TransactionEditViewPagerAdapter(fragmentManager: FragmentManager, lifecycl
             0 -> return ExpensesEditFragment()
             1 -> return IncomeEditFragment()
         }
-        return TransferEditFragment()
+        return CreateTransferFragment()
     }
 }

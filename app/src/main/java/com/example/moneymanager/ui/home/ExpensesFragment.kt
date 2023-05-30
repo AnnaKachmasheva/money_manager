@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.moneymanager.adapter.TransactionsAdapter
-import com.example.moneymanager.utils.TransactionsItems
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentExpencesBinding
 

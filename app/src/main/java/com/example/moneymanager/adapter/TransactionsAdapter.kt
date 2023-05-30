@@ -34,9 +34,6 @@ class TransactionsAdapter(
     @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model: TransactionModel = transactionModelArrayList[position]
-        holder.categoryIcon.setImageResource(model.categoryModel.icon)
-        holder.categoryIcon.setBackgroundColor(Color.parseColor(model.categoryModel.color))
-        holder.categotyName.text = model.categoryModel.name
         holder.percent.text = "100" + "%"
         holder.amount.text = model.amount.toString()
         holder.currency.text = "CZK"

@@ -63,6 +63,8 @@ class EditRegularPaymentFragment : Fragment() {
         val view: View = binding.root
 
         mRegularPaymentsViewModel = ViewModelProvider(this)[RegularPaymentsViewModel::class.java]
+        initAccountsData()
+        initCategoriesData()
 
         //spinner select type
         val selectTypeRegularPaymentSpinner = binding.selectType
@@ -92,25 +94,6 @@ class EditRegularPaymentFragment : Fragment() {
             )
         }
         selectFrequencyRegularPaymentSpinner.adapter = selectFrequencyAdapter
-
-        // select account
-        var accountsRegularPayment = mRegularPaymentsViewModel.readAllAccounts.value?.toTypedArray()
-        mRegularPaymentsViewModel.readAllAccounts.observe(
-            viewLifecycleOwner
-        ) { regularPayments ->
-            accountsRegularPayment = regularPayments.toTypedArray()
-        }
-        val selectAccountRegularPaymentSpinner = binding.selectAccount
-        val selectAccountAdapter = this.context?.let {
-            accountsRegularPayment?.let { it1 ->
-                ArrayAdapter(
-                    it,
-                    R.layout.spiner_item,
-                    it1.map { a -> a.name }
-                )
-            }
-        }
-        selectAccountRegularPaymentSpinner.adapter = selectAccountAdapter
 
         // go to create new account
         val addAccountButton = binding.addAccount
@@ -166,24 +149,6 @@ class EditRegularPaymentFragment : Fragment() {
             datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
         }
 
-        //categories recycle view
-        var categoriesRegularPayment = mRegularPaymentsViewModel.readAllCategories.value?.toTypedArray()
-        mRegularPaymentsViewModel.readAllCategories.observe(viewLifecycleOwner) { categories ->
-            categoriesRegularPayment = categories.toTypedArray()
-        }
-        val recyclerViewCategories = binding.categories
-        categoriesAdapter = CategorySmallCardsAdapter()
-        categoriesAdapter.setData(categoriesRegularPayment)
-        recyclerViewCategories.adapter = categoriesAdapter
-        recyclerViewCategories.layoutManager = GridLayoutManager(requireContext(), 3)
-        recyclerViewCategories.itemAnimator = DefaultItemAnimator()
-        args.regularPayment.category.let {
-            if (it != null) {
-                categoriesAdapter.setInitPosition(it)
-            }
-        }
-
-
         // go to create new category
         val addCategoryButton = binding.addCategory
         addCategoryButton.setOnClickListener {
@@ -200,6 +165,35 @@ class EditRegularPaymentFragment : Fragment() {
 
         return view
     }
+
+    private fun initAccountsData() {
+        val accounts = this@EditRegularPaymentFragment.context?.let {
+            ArrayAdapter<Any>(
+                it,
+                android.R.layout.simple_spinner_item
+            )
+        }
+        mRegularPaymentsViewModel.readAllAccounts.observe(viewLifecycleOwner) { accountsList ->
+            accountsList?.forEach {
+                accounts?.add(it.name)
+            }
+            accounts?.getPosition(args.regularPayment.account?.name)?.let { binding.selectAccount.setSelection(it) }
+        }
+        binding.selectAccount.adapter = accounts
+    }
+
+    private fun initCategoriesData() {
+        categoriesAdapter = CategorySmallCardsAdapter()
+        val recyclerViewCategories = binding.categories
+        mRegularPaymentsViewModel.readAllCategories.observe(viewLifecycleOwner) { categories ->
+            categoriesAdapter.setData(categories.toTypedArray())
+            args.regularPayment.category?.let { categoriesAdapter.setInitPosition(it) }
+        }
+        recyclerViewCategories.adapter = categoriesAdapter
+        recyclerViewCategories.layoutManager = GridLayoutManager(requireContext(), 3)
+        recyclerViewCategories.itemAnimator = DefaultItemAnimator()
+    }
+
 
     private fun updateDataToDatabase() {
         val typePosition = binding.selectType.selectedItemPosition
