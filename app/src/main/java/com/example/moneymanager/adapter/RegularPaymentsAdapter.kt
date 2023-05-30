@@ -1,6 +1,5 @@
 package com.example.moneymanager.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,16 +7,14 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.RegularPaymentModel
-import com.example.moneymanager.ui.accounts.AccountsFragmentDirections
 import com.example.moneymanager.ui.regularPayments.RegularPaymentsFragmentDirections
 import com.example.sp_v2.R
 
 class RegularPaymentsAdapter :
     RecyclerView.Adapter<RegularPaymentsAdapter.ViewHolder>() {
 
-    private var regularPaymentList = emptyList<RegularPaymentModel>()
+    var regularPaymentList = emptyList<RegularPaymentModel>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -35,9 +32,14 @@ class RegularPaymentsAdapter :
         holder.swith.isChecked = isActive
 
         holder.regularPaymentName.setOnClickListener {
-            val action = RegularPaymentsFragmentDirections.actionNavRegularPaymentsToRegularPaymentFragment(model)
+            val action =
+                RegularPaymentsFragmentDirections.actionNavRegularPaymentsToRegularPaymentFragment(
+                    model
+                )
             holder.itemView.findNavController().navigate(action)
         }
+
+
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

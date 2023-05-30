@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.RegularPaymentsAdapter
+import com.example.moneymanager.model.RegularPaymentModel
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentRegularPaymentsBinding
 
@@ -54,8 +55,13 @@ class RegularPaymentsFragment : Fragment() {
             findNavController().navigate(R.id.action_nav_regular_payments_to_createRegularPaymentFragment)
         }
 
+        //todo update when switch change
+
         return view
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
