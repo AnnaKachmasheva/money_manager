@@ -1,7 +1,5 @@
 package com.example.moneymanager.utils
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.example.sp_v2.R
 
 object IconItems {

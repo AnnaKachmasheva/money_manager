@@ -15,10 +15,10 @@ interface TransactionDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExpensesIncome(expensesIncomeModel: ExpensesIncomeModel)
 
-    @Query("SELECT * FROM expenses_incomes WHERE transaction_type IS 'Expenses' ORDER BY transaction_id ASC")
+    @Query("SELECT * FROM expenses_incomes WHERE transaction_type IS 'EXPENSES' ORDER BY transaction_id ASC")
     fun readAllDataExpenses(): LiveData<List<ExpensesIncomeModel>>
 
-    @Query("SELECT * FROM expenses_incomes WHERE transaction_type IS 'Income' ORDER BY transaction_id ASC")
+    @Query("SELECT * FROM expenses_incomes WHERE transaction_type IS 'INCOME' ORDER BY transaction_id ASC")
     fun readAllDataIncome(): LiveData<List<ExpensesIncomeModel>>
 
 
@@ -26,8 +26,12 @@ interface TransactionDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertTransfer(transferModel: TransferModel)
 
-    @Query("SELECT * FROM transfers WHERE transaction_type IS 'Transfer' ORDER BY transaction_id ASC")
+    @Query("SELECT * FROM transfers ORDER BY transaction_id ASC")
     fun readAllDataTransfer(): LiveData<List<TransferModel>>
+
+    @Query("SELECT sum(transaction_amount) FROM transfers")
+    fun getTotalTransferAmount(): LiveData<Double>
+
 
 
 //

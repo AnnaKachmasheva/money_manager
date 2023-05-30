@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/categoryAmount"
+            android:id="@+id/transfersAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_margin_16"
@@ -22,11 +22,11 @@
             android:textSize="32sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/expencesList"
+            android:id="@+id/transfersList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
-            tools:listitem="@layout/expense_or_income_item" />
+            tools:listitem="@layout/transfer_list_item" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addButton"

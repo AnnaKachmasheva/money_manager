@@ -12,6 +12,7 @@ class TransactionRepository(private val transactionDao: TransactionDao) {
     val readAllDataIncome: LiveData<List<ExpensesIncomeModel>> = transactionDao.readAllDataIncome()
     val readAllDataTransfer: LiveData<List<TransferModel>> = transactionDao.readAllDataTransfer()
 
+    val totalTransferAmount: LiveData<Double> = transactionDao.getTotalTransferAmount()
 
     suspend fun addExpensesIncome(expensesIncomeModel: ExpensesIncomeModel) {
         transactionDao.insertExpensesIncome(expensesIncomeModel)

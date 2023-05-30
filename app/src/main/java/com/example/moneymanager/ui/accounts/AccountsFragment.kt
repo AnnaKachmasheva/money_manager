@@ -44,12 +44,12 @@ class AccountsFragment : Fragment() {
                 activity,
                 DividerItemDecoration.VERTICAL
             )
-        );
+        )
         recyclerView.itemAnimator = DefaultItemAnimator()
-
         mAccountViewModel.readAllData.observe(viewLifecycleOwner, Observer { account ->
             adapter.setData(account)
         })
+
         mAccountViewModel.totalAmount.observe(viewLifecycleOwner, Observer { amount ->
             val totalAmount = binding.totalAccounts
             totalAmount.text = prepareAmount(amount ?: 0.0)

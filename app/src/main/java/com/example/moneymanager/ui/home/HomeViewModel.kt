@@ -20,6 +20,9 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val readAllDataTransfer: LiveData<List<TransferModel>>
     val readAllAccounts: LiveData<List<AccountModel>>
 
+    val totalTransferAmount: LiveData<Double>
+
+
     private val repository: TransactionRepository
     private val repositoryAccount: AccountRepository
 
@@ -31,6 +34,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         readAllDataExpenses = repository.readAllDataExpenses
         readAllDataIncome = repository.readAllDataIncome
         readAllDataTransfer = repository.readAllDataTransfer
+
+        totalTransferAmount = repository.totalTransferAmount
 
         repositoryAccount = AccountRepository(accountDao)
         readAllAccounts = repositoryAccount.readAllData
@@ -45,6 +50,14 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     fun addTransfer(transferModel: TransferModel) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addTransfer(transferModel)
+        }
+    }
+
+    fun updateAccount(account: AccountModel?) {
+        viewModelScope.launch(Dispatchers.IO) {
+            if (account != null) {
+                repositoryAccount.updateAccount(account)
+            }
         }
     }
 }

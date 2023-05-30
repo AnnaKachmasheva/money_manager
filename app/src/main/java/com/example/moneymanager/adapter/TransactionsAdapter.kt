@@ -53,7 +53,6 @@ class TransactionsAdapter(
     override fun getItemCount(): Int {
         return transactionModelArrayList.size
     }
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryIcon: ImageView
         val categotyName: TextView

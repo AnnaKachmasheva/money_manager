@@ -69,6 +69,10 @@ class DateCardsAdapter(
         notifyItemInserted(dateModelArrayList.size)
     }
 
+    fun getSelectedDate(): DateModel {
+        return dateModelArrayList[selectedItemPosition]
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dateName: TextView
         val date: TextView

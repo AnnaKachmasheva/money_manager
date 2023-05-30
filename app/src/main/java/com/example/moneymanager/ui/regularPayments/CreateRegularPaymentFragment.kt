@@ -30,6 +30,9 @@ class CreateRegularPaymentFragment : Fragment() {
     private var _binding: FragmentEditRegularPaymentBinding? = null
     private val binding get() = _binding!!
 
+    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+
+
     private lateinit var mRegularPaymentsViewModel: RegularPaymentsViewModel
     private lateinit var categoriesAdapter: CategorySmallCardsAdapter
 
@@ -48,8 +51,6 @@ class CreateRegularPaymentFragment : Fragment() {
 
     private var selectedStartDate: String = ""
     private var selectedEndDate: String = ""
-    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
