@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.example.moneymanager.ui.home.ExpensesFragment">
 
     <FrameLayout
+        android:id="@+id/mainView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mainView">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.card.MaterialCardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <com.google.android.material.card.MaterialCardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/cardViewCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,13 +22,13 @@
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">
 
-        <TextView
+            <TextView
                 android:id="@+id/axpensesAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_100_czk"
                 android:layout_marginTop="@dimen/text_margin_16"
                 android:layout_marginBottom="@dimen/text_margin_16"
+                android:text="@string/_100_czk"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="32sp" />
@@ -44,13 +42,24 @@
             android:layout_marginTop="90dp"
             tools:listitem="@layout/expense_or_income_item" />
 
+        <TextView
+            android:id="@+id/add_transaction_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="280dp"
+            android:layout_marginBottom="100dp"
+            android:text="@string/click_on_plus_button"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="24sp" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/submit"
-            android:layout_marginTop="540dp"
             android:layout_marginStart="280dp"
+            android:layout_marginTop="540dp"
+            android:contentDescription="@string/submit"
             android:src="@drawable/ic_plus_40" />
 
     </FrameLayout>

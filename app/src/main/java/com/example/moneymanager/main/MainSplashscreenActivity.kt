@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moneymanager.ui.NavigationActivity
+import com.example.sp_v2.R
 import com.example.sp_v2.databinding.ActivitySplashscreenBinding
 
 class MainSplashscreenActivity : AppCompatActivity() {
@@ -14,6 +15,9 @@ class MainSplashscreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashscreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val image = binding.mainImage
+        image.setImageResource(R.drawable.splashscreen_image)
 
         val button = binding.startButton
         button.setOnClickListener {

@@ -42,6 +42,10 @@ class IncomesFragment : Fragment(), TransactionClickListener {
         recyclerView.itemAnimator = DefaultItemAnimator()
         mHomeViewModel.readAllDataIncome.observe(viewLifecycleOwner) { income ->
             adapter.setData(income)
+            if(income.isNotEmpty()) {
+                val tip = binding.addTransactionTips
+                tip.setText("")
+            }
         }
 
         mHomeViewModel.totalIncomeAmount.observe(viewLifecycleOwner) { income ->

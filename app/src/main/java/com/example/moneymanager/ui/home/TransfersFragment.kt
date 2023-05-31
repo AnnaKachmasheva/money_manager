@@ -16,9 +16,6 @@ import com.example.moneymanager.model.TransferModel
 import com.example.moneymanager.ui.home.interfaces.TransferClickListener
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentTransfersBinding
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.Locale
 
 
 class TransfersFragment : Fragment(), TransferClickListener {
@@ -50,6 +47,10 @@ class TransfersFragment : Fragment(), TransferClickListener {
         recyclerView.itemAnimator = DefaultItemAnimator()
         mHomeViewModel.readAllDataTransfer.observe(viewLifecycleOwner) { transfer ->
             adapter.setData(transfer)
+            if (transfer.isNotEmpty()) {
+                val tip = binding.addTransferTips
+                tip.setText("")
+            }
         }
 
         mHomeViewModel.totalTransferAmount.observe(viewLifecycleOwner) { amount ->

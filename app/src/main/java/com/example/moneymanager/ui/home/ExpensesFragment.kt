@@ -15,9 +15,6 @@ import com.example.moneymanager.model.CategoryModel
 import com.example.moneymanager.ui.home.interfaces.TransactionClickListener
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentExpencesIncomeBinding
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.Locale
 
 class ExpensesFragment : Fragment(), TransactionClickListener {
 
@@ -43,6 +40,10 @@ class ExpensesFragment : Fragment(), TransactionClickListener {
         recyclerView.itemAnimator = DefaultItemAnimator()
         mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { expenses ->
             adapter.setData(expenses)
+            if (expenses.isNotEmpty()) {
+                val tip = binding.addTransactionTips
+                tip.setText("")
+            }
         }
 
         mHomeViewModel.totalExpensesAmount.observe(viewLifecycleOwner) { amount ->
