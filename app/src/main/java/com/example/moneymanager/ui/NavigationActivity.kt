@@ -38,7 +38,8 @@ class NavigationActivity : AppCompatActivity() {
                 R.id.nav_categories,
                 R.id.nav_regular_payments,
                 R.id.nav_settings,
-                R.id.nav_about_us
+                R.id.nav_about_us,
+                R.id.nav_delete_all_data
             ), drawerLayout
         )
 

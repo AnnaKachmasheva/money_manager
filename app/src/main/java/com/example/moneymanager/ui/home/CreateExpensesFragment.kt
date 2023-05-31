@@ -153,10 +153,10 @@ class CreateExpensesFragment : Fragment() {
         val date = dateCardAdapter.getSelectedDate()
         val note = binding.noteText.text.toString().trim()
 
-        if (amount.isEmpty()) {
+        if (amount.isEmpty() || category == null ) {
             Toast.makeText(
                 requireContext(),
-                "Please enter the amount as a number.",
+                "Please fill in the fields",
                 Toast.LENGTH_LONG
             )
                 .show()

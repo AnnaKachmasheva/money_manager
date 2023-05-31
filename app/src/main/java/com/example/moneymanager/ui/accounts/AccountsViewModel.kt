@@ -6,12 +6,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.moneymanager.data.AppDatabase
 import com.example.moneymanager.data.repository.AccountRepository
+import com.example.moneymanager.data.repository.TransactionRepository
 import com.example.moneymanager.model.AccountModel
+import com.example.moneymanager.model.ExpensesIncomeModel
+import com.example.moneymanager.model.TransferModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.Locale
 
 class AccountsViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -19,11 +20,22 @@ class AccountsViewModel(application: Application) : AndroidViewModel(application
     val totalAmount: LiveData<Double>
     private val repository: AccountRepository
 
+    val readAllDataExpenses: LiveData<List<ExpensesIncomeModel>>
+    val readAllDataIncome: LiveData<List<ExpensesIncomeModel>>
+    val readAllDataTransfer: LiveData<List<TransferModel>>
+    private val transactionRepository: TransactionRepository
+
     init {
         val userDao = AppDatabase.getDatabase(application).accountDao()
         repository = AccountRepository(userDao)
         readAllData = repository.readAllData
         totalAmount = repository.totalAmount
+
+        val transactionDao = AppDatabase.getDatabase(application).transactionDao()
+        transactionRepository = TransactionRepository(transactionDao)
+        readAllDataExpenses = transactionRepository.readAllDataExpenses
+        readAllDataIncome = transactionRepository.readAllDataIncome
+        readAllDataTransfer = transactionRepository.readAllDataTransfer
     }
 
     fun addAccount(accountModel: AccountModel) {
@@ -43,4 +55,5 @@ class AccountsViewModel(application: Application) : AndroidViewModel(application
             repository.deleteAccount(accountModel)
         }
     }
+
 }

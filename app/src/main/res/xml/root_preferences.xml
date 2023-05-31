@@ -1,33 +1,20 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory>
 
-        <ListPreference
-            app:icon="@drawable/ic_happy_face"
-            android:defaultValue="1"
-            android:dialogTitle="@string/select_default_account"
-            android:entries="@array/pref_uploads"
-            android:entryValues="@array/pref_duration"
-            android:key="@string/pref_uploads"
-            android:title="@string/select_default_account" />
-
         <EditTextPreference
-            app:icon="@drawable/ic_coins"
+            android:defaultValue="0.1"
             android:key="numberFormat"
             android:title="@string/format_number"
-            android:defaultValue="0.1"/>
+            app:icon="@drawable/ic_coins" />
 
         <SwitchPreference
-            app:icon="@drawable/ic_notification"
             android:defaultValue="false"
             android:key="@string/reminders"
-            android:title="@string/reminders" />
+            android:title="@string/reminders"
+            app:icon="@drawable/ic_notification" />
 
-        <Preference
-            app:icon="@drawable/ic_delete"
-            android:title="@string/delete_all_data"
-            />
     </PreferenceCategory>
 
 </PreferenceScreen>

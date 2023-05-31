@@ -12,13 +12,10 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        supportFragmentManager.beginTransaction().replace(R.id.content, SettingsFragment())
-        .commit()
-
-
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.content, SettingsFragment())
+            .commit()
     }
 
 }

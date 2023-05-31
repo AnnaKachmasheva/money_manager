@@ -135,10 +135,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getExpensesByCategoryId(id: Int?): LiveData<List<ExpensesIncomeModel>> {
-        return repository.getExpensesByCategoryId(id)
-    }
-
     fun deleteTransaction(model: ExpensesIncomeModel) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteTransaction(model)

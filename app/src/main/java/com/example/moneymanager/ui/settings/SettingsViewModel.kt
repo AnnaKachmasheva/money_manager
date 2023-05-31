@@ -1,11 +1,21 @@
 package com.example.moneymanager.ui.settings
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import com.example.moneymanager.data.AppDatabase
+import com.example.moneymanager.data.repository.AccountRepository
+import com.example.moneymanager.model.AccountModel
 
-class SettingsViewModel : ViewModel() {
+class SettingsViewModel(application: Application) : AndroidViewModel(application) {
 
-//    private val _text = MutableLiveData<String>().apply {
-//        value = "This is settings Fragment"
-//    }
-//    val text: LiveData<String> = _text
+    val readAllData: LiveData<List<AccountModel>>
+    private val repository: AccountRepository
+
+    init {
+        val userDao = AppDatabase.getDatabase(application).accountDao()
+        repository = AccountRepository(userDao)
+        readAllData = repository.readAllData
+    }
+
 }

@@ -95,4 +95,5 @@
     <string name="expense_transaction">Expense transaction</string>
     <string name="transfer_transaction">Transfers</string>
     <string name="save">Save</string>
+    <string name="settings">Settings</string>
 </resources>

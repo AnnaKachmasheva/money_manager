@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name = "com.example.moneymanager.main.MoneyManagerApp"
+        android:name="com.example.moneymanager.main.MoneyManagerApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,8 +17,13 @@
             android:name="com.example.moneymanager.currency.AddMainBalanceActivity"
             android:exported="false" />
 
-        <activity android:name="com.example.moneymanager.currency.SelectCurrencyActivity"
-            android:exported="false"/>
+        <activity
+            android:name="com.example.moneymanager.currency.SelectCurrencyActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.moneymanager.ui.settings.SettingsActivity"
+            android:exported="false" />
 
         <activity
             android:name="com.example.moneymanager.ui.NavigationActivity"

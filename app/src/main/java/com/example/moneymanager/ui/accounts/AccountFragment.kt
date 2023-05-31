@@ -16,6 +16,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.moneymanager.model.enums.TransactionType
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentAccountBinding
 
@@ -36,6 +37,7 @@ class AccountFragment : Fragment() {
         binding.textAccountAmount.text = args.accountModel.amount.toString()
 
         mAccountViewModel = ViewModelProvider(this)[AccountsViewModel::class.java]
+        initData()
 
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
@@ -69,6 +71,36 @@ class AccountFragment : Fragment() {
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
         return binding.root
+    }
+
+    private fun initData() {
+        var expenses = 0
+        mAccountViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { accountsList ->
+            expenses = accountsList.filter { item ->
+                (item.account?.id ?: -1) == args.accountModel.id
+            }
+                .filter { item -> item.type == TransactionType.EXPENSES }.size
+        }
+        binding.textPaymentIncomeTransaction.text = expenses.toString()
+
+        var incomes = 0
+        mAccountViewModel.readAllDataIncome.observe(viewLifecycleOwner) { accountsList ->
+            incomes = accountsList.filter { item ->
+                (item.account?.id ?: -1) == args.accountModel.id
+            }
+                .filter { item -> item.type == TransactionType.INCOME }.size
+        }
+        binding.textPaymentExpenseTransaction.text = incomes.toString()
+
+        var transfers = 0
+        mAccountViewModel.readAllDataTransfer.observe(viewLifecycleOwner) { accountsList ->
+            transfers = accountsList.filter { item ->
+                ((item.accountFrom?.id ?: -1) == args.accountModel.id || (item.accountTo?.id
+                    ?: -1) == args.accountModel.id)
+            }
+                .filter { item -> item.type == TransactionType.TRANSFER }.size
+        }
+        binding.textPaymentTransferTransaction.text = transfers.toString()
     }
 
     private fun openDialog() {

@@ -40,5 +40,9 @@
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_about_us"
             android:title="@string/menu_about_us" />
+        <item
+            android:id="@+id/nav_delete_all_data"
+            android:icon="@drawable/ic_delete"
+            android:title="@string/delete_all_data" />
     </group>
 </menu>

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.moneymanager.ui.profile.ProfileFragment"
+        android:name="com.example.moneymanager.ui.deleteAllData.DeleteAllDataFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
 
@@ -82,7 +82,7 @@
         android:id="@+id/accountFragment"
         android:name="com.example.moneymanager.ui.accounts.AccountFragment"
         android:label="Account details"
-        tools:layout="@layout/fragment_account" >
+        tools:layout="@layout/fragment_account">
         <argument
             android:name="accountModel"
             app:argType="com.example.moneymanager.model.AccountModel" />
@@ -110,8 +110,8 @@
     <fragment
         android:id="@+id/categoryEditFragment"
         android:name="com.example.moneymanager.ui.categories.CategoryEditFragment"
-        tools:layout="@layout/fragment_edit_category"
-        android:label="Edit category" >
+        android:label="Edit category"
+        tools:layout="@layout/fragment_edit_category">
         <action
             android:id="@+id/action_categoryEditFragment_to_nav_categories"
             app:destination="@id/nav_categories" />
@@ -120,18 +120,6 @@
             app:argType="com.example.moneymanager.model.CategoryModel" />
     </fragment>
 
-    <fragment
-        android:id="@+id/nav_regular_payments"
-        android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentsFragment"
-        android:label="@string/menu_regular_payments"
-        tools:layout="@layout/fragment_regular_payments">
-        <action
-            android:id="@+id/action_nav_regular_payments_to_regularPaymentFragment"
-            app:destination="@id/regularPaymentFragment" />
-        <action
-            android:id="@+id/action_nav_regular_payments_to_createRegularPaymentFragment"
-            app:destination="@id/createRegularPaymentFragment" />
-    </fragment>
     <fragment
         android:id="@+id/regularPaymentFragment"
         android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentFragment"
@@ -150,7 +138,7 @@
     <fragment
         android:id="@+id/createRegularPaymentFragment"
         android:name="com.example.moneymanager.ui.regularPayments.CreateRegularPaymentFragment"
-        android:label="Create regular payment" >
+        android:label="Create regular payment">
         <action
             android:id="@+id/action_createRegularPaymentFragment_to_createCategoryFragment"
             app:destination="@id/createCategoryFragment" />
@@ -211,8 +199,8 @@
     <fragment
         android:id="@+id/incomeExpensesFragment"
         android:name="com.example.moneymanager.ui.home.IncomeExpensesFragment"
-        tools:layout="@layout/fragment_tincome_expemses_details"
-        android:label="Transaction details" >
+        android:label="Transaction details"
+        tools:layout="@layout/fragment_tincome_expemses_details">
         <argument
             android:name="transactionModel"
             app:argType="com.example.moneymanager.model.ExpensesIncomeModel" />
@@ -239,7 +227,7 @@
         android:id="@+id/createTransferFragment"
         android:name="com.example.moneymanager.ui.home.CreateTransferFragment"
         android:label="Create transfer"
-        tools:layout="@layout/fragment_edit_transfer"/>
+        tools:layout="@layout/fragment_edit_transfer" />
     <fragment
         android:id="@+id/editTransferFragment"
         android:name="com.example.moneymanager.ui.home.EditTransferFragment"
@@ -263,7 +251,6 @@
             app:destination="@id/createCategoryFragment" />
     </fragment>
 
-
     <fragment
         android:id="@+id/nav_about_us"
         android:name="com.example.moneymanager.ui.aboutUs.AboutUsFragment"
@@ -283,12 +270,13 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.moneymanager.ui.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment"
+        tools:layout="@layout/activity_settings" />
 
     <fragment
         android:id="@+id/createCategoryFragment"
         android:name="com.example.moneymanager.ui.categories.CreateCategoryFragment"
-        android:label="Create category" >
+        android:label="Create category">
         <action
             android:id="@+id/action_createCategoryFragment_to_nav_categories"
             app:destination="@id/nav_categories" />
@@ -297,7 +285,7 @@
         android:id="@+id/transferFragment"
         android:name="com.example.moneymanager.ui.home.TransferFragment"
         android:label="Transfer"
-        tools:layout="@layout/fragment_transfer_details" >
+        tools:layout="@layout/fragment_transfer_details">
         <argument
             android:name="transferModel"
             app:argType="com.example.moneymanager.model.TransferModel" />
@@ -309,6 +297,32 @@
         android:id="@+id/editIncomeFragment"
         android:name="com.example.moneymanager.ui.home.EditIncomeFragment"
         android:label="EditIncomeFragment" />
+
+    <fragment
+        android:id="@+id/nav_regular_payments"
+        android:name="com.example.moneymanager.ui.regularPayments.RegularPaymentsFragment"
+        android:label="@string/menu_regular_payments"
+        tools:layout="@layout/fragment_regular_payments">
+        <action
+            android:id="@+id/action_nav_regular_payments_to_regularPaymentFragment"
+            app:destination="@id/regularPaymentFragment" />
+        <action
+            android:id="@+id/action_nav_regular_payments_to_createRegularPaymentFragment"
+            app:destination="@id/createRegularPaymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.moneymanager.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/activity_settings"/>
+
+    <fragment
+        android:id="@+id/nav_delete_all_data"
+        android:name="com.example.moneymanager.ui.deleteAllData.DeleteAllDataFragment"
+        android:label="@string/delete_all_data"
+        tools:layout="@layout/fragment_delete_all_data"/>
+
 
 
 </navigation>
