@@ -17,15 +17,11 @@ class AboutUsFragment : Fragment() {
     private var _binding: FragmentAboutUsBinding? = null
     private val binding get() = _binding!!
 
-    @SuppressLint("CommitTransaction")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val aboutViewModel =
-            ViewModelProvider(this)[AboutUsViewModel::class.java]
-
         _binding = FragmentAboutUsBinding.inflate(inflater, container, false)
         val view: View = binding.root
 
