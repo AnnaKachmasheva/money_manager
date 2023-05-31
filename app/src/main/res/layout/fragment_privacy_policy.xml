@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"   xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.moneymanager.ui.privacyPolicy.PrivacyPolicyViewModel">
+    tools:context="com.example.moneymanager.ui.privacyPolicy.PrivacyPolicyFragment">
 
     <TextView
         android:id="@+id/text_privacy_policy"

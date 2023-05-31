@@ -11,7 +11,6 @@ import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.model.TransferModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 
 class AccountsViewModel(application: Application) : AndroidViewModel(application) {

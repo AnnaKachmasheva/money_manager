@@ -74,14 +74,11 @@ class CreateCategoryFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(name: String): Boolean {
-        return !TextUtils.isEmpty(name)
-    }
+    private fun inputCheck(name: String) = !TextUtils.isEmpty(name)
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 
 }

@@ -16,7 +16,7 @@
         style="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_gravity="top|left"
+        android:layout_gravity="left|top"
         android:layout_marginTop="70dp"
         android:text="@string/app_name_caps" />
 
@@ -27,6 +27,7 @@
         android:layout_column="1"
         android:layout_gravity="top|end"
         android:layout_marginTop="70dp"
-        android:src="@drawable/baseline_keyboard_double_arrow_left_24" />
+        android:src="@drawable/baseline_keyboard_double_arrow_left_24"
+        android:contentDescription="@string/icon" />
 
 </GridLayout>

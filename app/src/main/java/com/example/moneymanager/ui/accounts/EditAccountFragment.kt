@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.moneymanager.model.AccountModel
-import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentEditAccountBinding
 
 

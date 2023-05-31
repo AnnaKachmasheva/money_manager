@@ -7,7 +7,8 @@ import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
     private val calendar = Calendar.getInstance()
@@ -32,4 +33,5 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
 
         setFragmentResult("REQUEST_KEY", selectedDateBundle)
     }
+
 }

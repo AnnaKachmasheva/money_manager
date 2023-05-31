@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.TransactionsAdapter
 import com.example.moneymanager.model.CategoryModel
-import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.ui.home.interfaces.TransactionClickListener
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentExpencesIncomeBinding
@@ -25,7 +24,6 @@ class ExpensesFragment : Fragment(), TransactionClickListener {
     private val binding get() = _binding!!
 
     private lateinit var mHomeViewModel: HomeViewModel
-    private lateinit var models: Array<ExpensesIncomeModel>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,17 +40,17 @@ class ExpensesFragment : Fragment(), TransactionClickListener {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.itemAnimator = DefaultItemAnimator()
-        mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { expences ->
-            adapter.setData(expences)
+        mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { expenses ->
+            adapter.setData(expenses)
         }
 
-        mHomeViewModel.totalExpencesAmount.observe(viewLifecycleOwner) { amount ->
+        mHomeViewModel.totalExpensesAmount.observe(viewLifecycleOwner) { amount ->
             val transfersAmount = binding.axpensesAmount
             transfersAmount.text = prepareAmount(amount ?: 0.0)
         }
 
         val button = binding.addButton
-        button.setOnClickListener() {
+        button.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.editTransactionFragment)
         }
@@ -70,10 +68,10 @@ class ExpensesFragment : Fragment(), TransactionClickListener {
         _binding = null
     }
 
-    override fun onTransactionClickListener(model: Pair<CategoryModel?, Double>) {
-        val action = model.first?.let {
+    override fun onTransactionClickListener(expensesIncomeModel: Pair<CategoryModel?, Double>) {
+        val action = expensesIncomeModel.first?.let {
             HomeFragmentDirections.actionNavHomeToTransactionsByCategoryFragment(
-                model.second.toLong(),
+                expensesIncomeModel.second.toLong(),
                 it
             )
         }

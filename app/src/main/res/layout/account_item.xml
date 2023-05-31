@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:text="100"
+        android:text="@string/_100"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp" />
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:text="CZK"
+        android:text="@string/czk"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:layout_marginStart="8dp"

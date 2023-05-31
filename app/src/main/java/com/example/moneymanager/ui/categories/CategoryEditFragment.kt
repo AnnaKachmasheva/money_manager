@@ -29,7 +29,6 @@ class CategoryEditFragment : Fragment() {
 
     private val args by navArgs<CategoryEditFragmentArgs>()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

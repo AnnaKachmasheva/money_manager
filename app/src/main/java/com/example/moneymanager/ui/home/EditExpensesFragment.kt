@@ -68,9 +68,7 @@ class EditExpensesFragment : Fragment() {
 
         //date picker
         val datePickerButton = binding.openDatePicker
-        datePickerButton.setOnClickListener() {
-            //todo open dialog with date picker
-
+        datePickerButton.setOnClickListener {
             val datePickerFragment = DatePickerFragment()
             val supportFragmentManager = requireActivity().supportFragmentManager
 
@@ -101,32 +99,31 @@ class EditExpensesFragment : Fragment() {
         }
 
         val addAccountButton = binding.addAccount
-        addAccountButton.setOnClickListener() {
+        addAccountButton.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.createAccountFragment)
         }
 
         val addCategoryButton = binding.addCategory
-        addCategoryButton.setOnClickListener() {
+        addCategoryButton.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.createCategoryFragment)
         }
 
         val addPhotoButton = binding.addPhoto
-        addPhotoButton.setOnClickListener() {
+        addPhotoButton.setOnClickListener {
             //todo open dialog for load photo
         }
 
         // create button
         val addPaymentButton = binding.createButton
         addPaymentButton.text = "Save"
-        addPaymentButton.setOnClickListener() {
+        addPaymentButton.setOnClickListener {
             updateData()
         }
 
         return view
     }
-
 
     private fun initAccountsData() {
         val accounts = this@EditExpensesFragment.context?.let {

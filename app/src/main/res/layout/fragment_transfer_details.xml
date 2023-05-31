@@ -63,12 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="100 CZK" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:text="@string/_100_czk" />
 
             <TextView
                 android:id="@+id/textLabelForDate"
@@ -85,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="23.3.2023" />
+                android:text="@string/date_example" />
 
             <TextView
                 android:id="@+id/textLabelForNode"
@@ -102,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="note" />
+                android:text="@string/note" />
 
         </LinearLayout>
 

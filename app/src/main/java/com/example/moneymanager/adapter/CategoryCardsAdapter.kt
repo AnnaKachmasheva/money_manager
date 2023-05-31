@@ -9,8 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.CategoryModel
 import com.example.sp_v2.R
+import kotlin.reflect.KFunction1
 
-class CategoryCardsAdapter(private val onClickListener: (View, CategoryModel) -> Unit) :
+class CategoryCardsAdapter(private val onClickListener: KFunction1<CategoryModel, Unit>) :
     RecyclerView.Adapter<CategoryCardsAdapter.ViewHolder>() {
 
     private var categoryModelArrayList = emptyList<CategoryModel>()
@@ -31,8 +32,8 @@ class CategoryCardsAdapter(private val onClickListener: (View, CategoryModel) ->
         holder.categoryIcon.setImageResource(model.icon)
         holder.categoryItem.setBackgroundColor(Color.parseColor(model.color))
 
-        holder.itemView.setOnClickListener { view ->
-            onClickListener.invoke(view, model)
+        holder.itemView.setOnClickListener {
+            onClickListener.invoke(model)
         }
     }
 

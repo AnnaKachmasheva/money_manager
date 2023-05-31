@@ -84,14 +84,14 @@ class IncomeExpensesFragment : Fragment() {
         alertDialogBuilder.setTitle("Delete transaction?")
         alertDialogBuilder.setPositiveButton(
             "Yes"
-        ) { dialog, which ->
+        ) { dialog, _ ->
             deleteDataFromDatabase()
             findNavController().popBackStack()
             dialog.cancel()
         }
         alertDialogBuilder.setNegativeButton(
             "No"
-        ) { dialog, which ->
+        ) { dialog, _ ->
             dialog.cancel()
         }
 

@@ -31,8 +31,6 @@ class EditTransferFragment : Fragment() {
 
     private val args by navArgs<EditTransferFragmentArgs>()
 
-    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,7 +50,7 @@ class EditTransferFragment : Fragment() {
 
         //date picker
         val datePickerButton = binding.openDatePicker
-        datePickerButton.setOnClickListener() {
+        datePickerButton.setOnClickListener {
             val datePickerFragment = DatePickerFragment()
             val supportFragmentManager = requireActivity().supportFragmentManager
 

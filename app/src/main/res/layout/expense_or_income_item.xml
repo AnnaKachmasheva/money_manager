@@ -22,7 +22,7 @@
             android:id="@+id/iconCategoryEI"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:contentDescription="TODO" />
+            android:contentDescription="@string/icon" />
 
         <TextView
             android:id="@+id/nameCategoryEI"
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="100%"
+            android:text="@string/_100_percent"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="100"
+            android:text="@string/_100"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="CZK"
+            android:text="@string/czk"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp" />

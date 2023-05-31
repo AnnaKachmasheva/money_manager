@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -46,17 +45,17 @@ class AccountsFragment : Fragment() {
             )
         )
         recyclerView.itemAnimator = DefaultItemAnimator()
-        mAccountViewModel.readAllData.observe(viewLifecycleOwner, Observer { account ->
+        mAccountViewModel.readAllData.observe(viewLifecycleOwner) { account ->
             adapter.setData(account)
-        })
+        }
 
-        mAccountViewModel.totalAmount.observe(viewLifecycleOwner, Observer { amount ->
+        mAccountViewModel.totalAmount.observe(viewLifecycleOwner) { amount ->
             val totalAmount = binding.totalAccounts
             totalAmount.text = prepareAmount(amount ?: 0.0)
-        })
+        }
 
         val addButton = binding.addButton
-        addButton.setOnClickListener() {
+        addButton.setOnClickListener {
             findNavController().navigate(R.id.action_nav_accounts_to_editAccountFragment)
         }
 
@@ -72,4 +71,5 @@ class AccountsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

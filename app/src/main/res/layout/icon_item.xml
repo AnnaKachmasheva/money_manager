@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_margin="6dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="8dp"
     app:cardElevation="2dp"
-    android:layout_margin="6dp"
     app:cardMaxElevation="2dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
 
     <ImageView
         android:id="@+id/icon"
-        android:padding="6dp"
         android:layout_width="60dp"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"
+        android:contentDescription="@string/icon"
+        android:padding="6dp" />
 
 </androidx.cardview.widget.CardView>

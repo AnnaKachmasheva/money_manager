@@ -106,7 +106,7 @@ class CreateRegularPaymentFragment : Fragment() {
 
         // go to create new account
         val addAccountButton = binding.addAccount
-        addAccountButton.setOnClickListener() {
+        addAccountButton.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.createAccountFragment)
         }
@@ -114,7 +114,7 @@ class CreateRegularPaymentFragment : Fragment() {
         //start date date_picker
         val textStartDate = binding.startDateText
         val dateStartPickerButton = binding.openStrtDatePicker
-        dateStartPickerButton.setOnClickListener() {
+        dateStartPickerButton.setOnClickListener {
             val datePickerFragment = DatePickerFragment()
             val supportFragmentManager = requireActivity().supportFragmentManager
             supportFragmentManager.setFragmentResultListener(
@@ -136,7 +136,7 @@ class CreateRegularPaymentFragment : Fragment() {
         //end date date_picker
         val dateEndPickerText = binding.endDateText
         val dateEndPickerButton = binding.openEndDatePicker
-        dateEndPickerButton.setOnClickListener() {
+        dateEndPickerButton.setOnClickListener {
             val datePickerFragment = DatePickerFragment()
             val supportFragmentManager = requireActivity().supportFragmentManager
 
@@ -165,7 +165,7 @@ class CreateRegularPaymentFragment : Fragment() {
 
         // create button
         val addPaymentButton = binding.createButton
-        addPaymentButton.setOnClickListener() {
+        addPaymentButton.setOnClickListener {
             insertDataToDatabase()
         }
 

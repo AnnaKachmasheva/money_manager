@@ -28,7 +28,7 @@
                 android:id="@+id/axpensesAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1000CZK"
+                android:text="@string/_100_czk"
                 android:layout_marginTop="@dimen/text_margin_16"
                 android:layout_marginBottom="@dimen/text_margin_16"
                 android:textAlignment="center"

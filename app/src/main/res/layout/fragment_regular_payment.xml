@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="100 CZK" />
+                android:text="@string/_100_czk" />
 
 
             <TextView
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="Man" />
+                android:text="@string/account" />
 
 
             <TextView
@@ -111,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/text_margin_16"
-                    android:text="Home" />
+                    android:text="@string/menu_home" />
 
             </LinearLayout>
 
@@ -130,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="23.3.2023" />
+                android:text="@string/date_example" />
 
             <TextView
                 android:id="@+id/textLabelForPaymentEndDate"
@@ -147,7 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="23.3.2024" />
+                android:text="@string/date_example" />
 
             <TextView
                 android:id="@+id/textLabelForPaymentFreqiency"
@@ -164,8 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="Monthly" />
-
+                android:text="@string/monthly" />
 
         </LinearLayout>
 

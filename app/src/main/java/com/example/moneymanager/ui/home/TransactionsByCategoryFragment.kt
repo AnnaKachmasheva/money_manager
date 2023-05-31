@@ -11,7 +11,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.TransactionByCategoryAdapter
 import com.example.sp_v2.R
@@ -55,7 +54,7 @@ class TransactionsByCategoryFragment : Fragment() {
 
 
         val button = binding.addButton
-        button.setOnClickListener() {
+        button.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.editTransactionFragment)
         }
@@ -71,10 +70,10 @@ class TransactionsByCategoryFragment : Fragment() {
     private fun initData() {
         adapter = TransactionByCategoryAdapter()
         val recyclerView = binding.transactionsList
-        mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { expences ->
+        mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { expenses ->
             val listTransaction =
-                expences.filter { ex -> ex.category!!.id == args.categoryModel.id }
-                    .toList().sortedBy { exp ->exp.date }
+                expenses.filter { ex -> ex.category!!.id == args.categoryModel.id }
+                    .toList().sortedBy { exp -> exp.date }
             adapter.setData(listTransaction)
         }
         recyclerView.addItemDecoration(

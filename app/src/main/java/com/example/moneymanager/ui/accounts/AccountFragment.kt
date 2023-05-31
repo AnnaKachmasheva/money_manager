@@ -57,11 +57,9 @@ class AccountFragment : Fragment() {
                             )
                         findNavController().navigate(action)
                     }
-
                     R.id.delete -> {
                         openDialog()
                     }
-
                     else -> {
                         val action = AccountFragmentDirections.actionAccountFragmentToNavAccounts()
                         findNavController().navigate(action)
@@ -108,7 +106,7 @@ class AccountFragment : Fragment() {
         alertDialogBuilder.setTitle("Delete account?")
         alertDialogBuilder.setPositiveButton(
             "Yes"
-        ) { dialog, which ->
+        ) { dialog, _ ->
             deleteDataFromDatabase()
             val action = AccountFragmentDirections.actionAccountFragmentToNavAccounts()
             findNavController().navigate(action)
@@ -116,7 +114,7 @@ class AccountFragment : Fragment() {
         }
         alertDialogBuilder.setNegativeButton(
             "No"
-        ) { dialog, which ->
+        ) { dialog, _ ->
             dialog.cancel()
         }
 
@@ -124,7 +122,7 @@ class AccountFragment : Fragment() {
         alertDialog.show()
     }
 
-    fun deleteDataFromDatabase() {
+    private fun deleteDataFromDatabase() {
         mAccountViewModel.deleteAccount(args.accountModel)
         Toast.makeText(requireContext(), "Account successfully deleted!", Toast.LENGTH_LONG)
             .show()

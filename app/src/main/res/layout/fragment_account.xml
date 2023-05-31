@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="100 CZK" />
+                android:text="@string/_100_czk" />
 
 
             <TextView
@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="0" />
+                android:text="@string/_0" />
 
 
             <TextView
@@ -83,8 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="0" />
-
+                android:text="@string/_0" />
 
             <TextView
                 android:id="@+id/textLabelForTransferTransaction"
@@ -101,8 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin_16"
-                android:text="0" />
-
+                android:text="@string/_0" />
 
         </LinearLayout>
 

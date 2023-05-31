@@ -33,7 +33,6 @@ class NavigationActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_profile,
                 R.id.nav_home,
-                R.id.nav_charts,
                 R.id.nav_accounts,
                 R.id.nav_categories,
                 R.id.nav_regular_payments,

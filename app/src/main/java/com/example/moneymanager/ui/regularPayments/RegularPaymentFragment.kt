@@ -17,7 +17,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.moneymanager.ui.accounts.AccountsViewModel
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentRegularPaymentBinding
 
@@ -32,7 +31,7 @@ class RegularPaymentFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRegularPaymentBinding.inflate(inflater, container, false)
         val view: View = binding.root
 
@@ -96,7 +95,7 @@ class RegularPaymentFragment : Fragment() {
         alertDialogBuilder.setTitle("Delete regular payment?")
         alertDialogBuilder.setPositiveButton(
             "Yes"
-        ) { dialog, which ->
+        ) { dialog, _ ->
             deleteDataFromDatabase()
             val action =
                 RegularPaymentFragmentDirections.actionRegularPaymentFragmentToNavRegularPayments2()
@@ -105,7 +104,7 @@ class RegularPaymentFragment : Fragment() {
         }
         alertDialogBuilder.setNegativeButton(
             "No"
-        ) { dialog, which ->
+        ) { dialog, _ ->
             dialog.cancel()
         }
 
@@ -113,7 +112,7 @@ class RegularPaymentFragment : Fragment() {
         alertDialog.show()
     }
 
-    fun deleteDataFromDatabase() {
+    private fun deleteDataFromDatabase() {
         mRegularPaymentViewModel.deleteRegularPayment(args.regularPayment)
         Toast.makeText(requireContext(), "Regular payment successfully deleted!", Toast.LENGTH_LONG)
             .show()

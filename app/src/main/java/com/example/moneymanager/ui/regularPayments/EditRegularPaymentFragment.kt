@@ -11,7 +11,6 @@ import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -97,7 +96,7 @@ class EditRegularPaymentFragment : Fragment() {
 
         // go to create new account
         val addAccountButton = binding.addAccount
-        addAccountButton.setOnClickListener() {
+        addAccountButton.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.createAccountFragment)
         }
@@ -106,7 +105,7 @@ class EditRegularPaymentFragment : Fragment() {
         val textStartDate = binding.startDateText
         textStartDate.setText(args.regularPayment.startDate?.format(formatter) ?: "")
         val dateStartPickerButton = binding.openStrtDatePicker
-        dateStartPickerButton.setOnClickListener() {
+        dateStartPickerButton.setOnClickListener {
             val datePickerFragment = DatePickerFragment()
             val supportFragmentManager = requireActivity().supportFragmentManager
             supportFragmentManager.setFragmentResultListener(
@@ -129,7 +128,7 @@ class EditRegularPaymentFragment : Fragment() {
         val dateEndPickerText = binding.endDateText
         dateEndPickerText.setText(args.regularPayment.endDate?.format(formatter) ?: "")
         val dateEndPickerButton = binding.openEndDatePicker
-        dateEndPickerButton.setOnClickListener() {
+        dateEndPickerButton.setOnClickListener {
             val datePickerFragment = DatePickerFragment()
             val supportFragmentManager = requireActivity().supportFragmentManager
 
@@ -159,7 +158,7 @@ class EditRegularPaymentFragment : Fragment() {
         // create button
         val addPaymentButton = binding.createButton
         addPaymentButton.text = "Save"
-        addPaymentButton.setOnClickListener() {
+        addPaymentButton.setOnClickListener {
             updateDataToDatabase()
         }
 
@@ -177,7 +176,8 @@ class EditRegularPaymentFragment : Fragment() {
             accountsList?.forEach {
                 accounts?.add(it.name)
             }
-            accounts?.getPosition(args.regularPayment.account?.name)?.let { binding.selectAccount.setSelection(it) }
+            accounts?.getPosition(args.regularPayment.account?.name)
+                ?.let { binding.selectAccount.setSelection(it) }
         }
         binding.selectAccount.adapter = accounts
     }
@@ -264,7 +264,10 @@ class EditRegularPaymentFragment : Fragment() {
                 Toast.LENGTH_LONG
             )
                 .show()
-            val action = EditRegularPaymentFragmentDirections.actionEditRegularPaymentFragmentToRegularPaymentFragment(regularPayment)
+            val action =
+                EditRegularPaymentFragmentDirections.actionEditRegularPaymentFragmentToRegularPaymentFragment(
+                    regularPayment
+                )
             findNavController().navigate(action)
         }
     }
@@ -284,4 +287,5 @@ class EditRegularPaymentFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

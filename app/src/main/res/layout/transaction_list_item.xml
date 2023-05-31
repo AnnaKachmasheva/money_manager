@@ -31,7 +31,7 @@
             android:id="@+id/categoryNameTransactionByCategory"
             android:layout_height="wrap_content"
             android:layout_row="0"
-            android:text="category"
+            android:text="@string/category"
             android:layout_columnWeight="10"
             android:layout_margin="@dimen/text_margin_16"
             android:textAppearance="?attr/textAppearanceListItem" />
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
-            android:text="100"
+            android:text="@string/_100"
             android:layout_columnWeight="1"
             android:layout_margin="@dimen/text_margin_16"
             android:textAppearance="?attr/textAppearanceListItem" />
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
-            android:text="CZK"
+            android:text="@string/czk"
             android:layout_columnWeight="1"
             android:layout_margin="@dimen/text_margin_16"
             android:textAppearance="?attr/textAppearanceListItem" />

@@ -6,19 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moneymanager.adapter.DateCardsAdapter
-import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.DateModel
 import com.example.moneymanager.model.TransferModel
 import com.example.moneymanager.model.enums.TransactionType
-import com.example.moneymanager.ui.accounts.AccountFragmentDirections
 import com.example.moneymanager.utils.DateItems
-import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentEditTransferBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -32,8 +28,6 @@ class CreateTransferFragment : Fragment() {
     private lateinit var dateCardAdapter: DateCardsAdapter
     private lateinit var mHomeViewModel: HomeViewModel
 
-    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,7 +39,7 @@ class CreateTransferFragment : Fragment() {
 
         //date picker
         val datePickerButton = binding.openDatePicker
-        datePickerButton.setOnClickListener() {
+        datePickerButton.setOnClickListener {
             val datePickerFragment = DatePickerFragment()
             val supportFragmentManager = requireActivity().supportFragmentManager
 

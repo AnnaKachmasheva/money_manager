@@ -19,6 +19,7 @@ class EditTransactionFragment : Fragment() {
         TransactionType.INCOME.type,
         TransactionType.TRANSFER.type
     )
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,9 +39,9 @@ class EditTransactionFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

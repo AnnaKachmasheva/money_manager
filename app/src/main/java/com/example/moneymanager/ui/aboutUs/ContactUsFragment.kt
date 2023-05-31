@@ -17,12 +17,12 @@ class ContactUsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentContactUsBinding.inflate(inflater, container, false)
 
         val view = binding.root
         val sendButton = binding.sendButton
-        sendButton.setOnClickListener() {
+        sendButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
 
             val subject = binding.subjectText.text.toString()

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -56,8 +55,6 @@ class RegularPaymentsFragment : Fragment(), SwitchClickListener {
             findNavController().navigate(R.id.action_nav_regular_payments_to_createRegularPaymentFragment)
         }
 
-        //todo update when switch change
-
         return view
     }
 
@@ -70,4 +67,5 @@ class RegularPaymentsFragment : Fragment(), SwitchClickListener {
         super.onDestroyView()
         _binding = null
     }
+
 }

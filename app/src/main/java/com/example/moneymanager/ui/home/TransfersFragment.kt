@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -58,7 +57,7 @@ class TransfersFragment : Fragment(), TransferClickListener {
         }
 
         val button = binding.addButton
-        button.setOnClickListener() {
+        button.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.createTransferFragment)
         }
 
@@ -70,8 +69,8 @@ class TransfersFragment : Fragment(), TransferClickListener {
         return dec.format(amount).replace(",", " ") + " CZK"
     }
 
-    override fun onTransferClickListener(model: TransferModel) {
-        val action = HomeFragmentDirections.actionNavHomeToTransferFragment(model)
+    override fun onTransferClickListener(transferModel: TransferModel) {
+        val action = HomeFragmentDirections.actionNavHomeToTransferFragment(transferModel)
         Navigation.findNavController(binding.root).navigate(action)
     }
 
