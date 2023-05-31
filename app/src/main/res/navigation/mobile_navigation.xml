@@ -6,12 +6,6 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_profile"
-        android:name="com.example.moneymanager.ui.profile.ProfileFragment"
-        android:label="@string/menu_profile"
-        tools:layout="@layout/fragment_profile" />
-
-    <fragment
         android:id="@+id/nav_home"
         android:name="com.example.moneymanager.ui.home.HomeFragment"
         android:label="@string/menu_home"

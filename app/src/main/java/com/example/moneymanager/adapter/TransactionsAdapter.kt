@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.moneymanager.model.CategoryModel
 import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.ui.home.interfaces.TransactionClickListener
 import com.example.sp_v2.R
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.Locale
 
 class TransactionsAdapter(private val clickListener: TransactionClickListener) :
     RecyclerView.Adapter<TransactionsAdapter.ViewHolder>() {
@@ -40,10 +38,10 @@ class TransactionsAdapter(private val clickListener: TransactionClickListener) :
         )
 
         holder.categoryName.text = modelList[position].first?.name ?: ""
-        val amountCategory: Double? = modelList[position].second
+        val amountCategory: Double = modelList[position].second
         holder.percent.text =
-            amountCategory?.div(totalAmount)?.times(100)?.let { prepareAmount(it) }
-        holder.amount.text = amountCategory?.toString()
+            amountCategory.div(totalAmount).times(100).let { prepareAmount(it) }
+        holder.amount.text = numberFormat.format(amountCategory).replace(",", " ")
         holder.currency.text = "CZK"
 
         holder.itemView.setOnClickListener {
@@ -55,8 +53,7 @@ class TransactionsAdapter(private val clickListener: TransactionClickListener) :
     override fun getItemCount() = modelList.size
 
     private fun prepareAmount(amount: Double): String {
-        val dec = DecimalFormat("###,###,###,###,###", DecimalFormatSymbols(Locale.ENGLISH))
-        return dec.format(amount).replace(",", " ") + "%"
+        return numberFormat.format(amount).replace(",", " ") + "%"
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

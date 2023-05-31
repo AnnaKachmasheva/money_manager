@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.AccountsAdapter
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentAccountsBinding
 import java.text.DecimalFormat
@@ -63,7 +64,7 @@ class AccountsFragment : Fragment() {
     }
 
     private fun prepareAmount(amount: Double): String {
-        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
+        val dec = numberFormat
         return dec.format(amount).replace(",", " ")
     }
 

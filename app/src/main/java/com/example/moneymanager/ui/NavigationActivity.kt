@@ -31,7 +31,6 @@ class NavigationActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_navigation)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_profile,
                 R.id.nav_home,
                 R.id.nav_accounts,
                 R.id.nav_categories,

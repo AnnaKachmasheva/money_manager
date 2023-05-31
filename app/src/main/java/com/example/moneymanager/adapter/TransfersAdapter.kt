@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.main.MoneyManagerApp.Companion.datePattern
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.moneymanager.model.TransferModel
 import com.example.moneymanager.ui.home.interfaces.TransferClickListener
 import com.example.sp_v2.R
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.Locale
+import java.time.format.DateTimeFormatter
 
 class TransfersAdapter(private val clickListener: TransferClickListener) :
     RecyclerView.Adapter<TransfersAdapter.ViewHolder>() {
@@ -34,7 +34,7 @@ class TransfersAdapter(private val clickListener: TransferClickListener) :
         holder.fromAccount.text = model.accountFrom?.name ?: ""
         holder.toAccount.text = model.accountTo?.name ?: ""
         holder.amount.text = prepareAmount(model.amount)
-        holder.date.text = model.date.toString()
+        holder.date.text = model.date.format(DateTimeFormatter.ofPattern(datePattern))
 
         holder.itemView.setOnClickListener {
             clickListener.onTransferClickListener(model)
@@ -44,7 +44,7 @@ class TransfersAdapter(private val clickListener: TransferClickListener) :
     override fun getItemCount() = transferModelArrayList.size
 
     private fun prepareAmount(amount: Double): String {
-        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
+        val dec = numberFormat
         return dec.format(amount).replace(",", " ")
     }
 

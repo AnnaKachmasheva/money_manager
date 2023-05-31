@@ -16,8 +16,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.moneymanager.main.MoneyManagerApp
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentTransferDetailsBinding
+import java.time.format.DateTimeFormatter
 
 class TransferFragment : Fragment() {
 
@@ -37,8 +40,11 @@ class TransferFragment : Fragment() {
 
         binding.textFromAccount.text = args.transferModel.accountFrom?.name ?: ""
         binding.textToAccount.text = args.transferModel.accountTo?.name ?: ""
-        binding.textAmount.text = args.transferModel.amount.toString()
-        binding.textDate.text = args.transferModel.date.toString()
+        binding.textAmount.text = numberFormat.format(args.transferModel.amount).replace(",", " ")
+        binding.textDate.text = args.transferModel.date.format(
+            DateTimeFormatter.ofPattern(
+                MoneyManagerApp.datePattern
+            ))
         binding.textNote.text = args.transferModel.note
 
         val menuHost: MenuHost = requireActivity()

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.TransfersAdapter
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.moneymanager.model.TransferModel
 import com.example.moneymanager.ui.home.interfaces.TransferClickListener
 import com.example.sp_v2.R
@@ -65,7 +66,7 @@ class TransfersFragment : Fragment(), TransferClickListener {
     }
 
     private fun prepareAmount(amount: Double): String {
-        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
+        val dec = numberFormat
         return dec.format(amount).replace(",", " ") + " CZK"
     }
 

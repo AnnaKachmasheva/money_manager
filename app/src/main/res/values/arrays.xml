@@ -6,9 +6,10 @@
     </string-array>
 
     <!--    todo remove it-->
-    <string-array name="pref_uploads">
-        <item>Only when on Wi-Fi</item>
-        <item>On any network</item>
+    <string-array name="formats">
+        <item>21/05/2023</item>
+        <item>21.05.2023</item>
+        <item>21 May 2023</item>
     </string-array>
 
     <string-array name="reply_values">

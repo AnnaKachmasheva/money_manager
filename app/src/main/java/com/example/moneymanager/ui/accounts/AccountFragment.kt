@@ -16,6 +16,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.moneymanager.model.enums.TransactionType
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentAccountBinding
@@ -34,7 +35,7 @@ class AccountFragment : Fragment() {
     ): View {
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
         binding.textAccountName.text = args.accountModel.name
-        binding.textAccountAmount.text = args.accountModel.amount.toString()
+        binding.textAccountAmount.text = numberFormat.format(args.accountModel.amount).replace(",", " ")
 
         mAccountViewModel = ViewModelProvider(this)[AccountsViewModel::class.java]
         initData()

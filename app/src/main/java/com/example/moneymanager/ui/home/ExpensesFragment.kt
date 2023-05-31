@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moneymanager.adapter.TransactionsAdapter
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.moneymanager.model.CategoryModel
 import com.example.moneymanager.ui.home.interfaces.TransactionClickListener
 import com.example.sp_v2.R
@@ -59,7 +60,7 @@ class ExpensesFragment : Fragment(), TransactionClickListener {
     }
 
     private fun prepareAmount(amount: Double): String {
-        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
+        val dec = numberFormat
         return dec.format(amount).replace(",", " ") + " CZK"
     }
 

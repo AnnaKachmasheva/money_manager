@@ -17,8 +17,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.moneymanager.main.MoneyManagerApp
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentRegularPaymentBinding
+import java.time.format.DateTimeFormatter
 
 class RegularPaymentFragment : Fragment() {
 
@@ -39,7 +42,8 @@ class RegularPaymentFragment : Fragment() {
 
         binding.textPaymentName.text = args.regularPayment.name
         binding.textPaymentType.text = args.regularPayment.type.toString()
-        binding.textPaymentAmount.text = args.regularPayment.amount.toString()
+        binding.textPaymentAmount.text = numberFormat.format(args.regularPayment.amount)
+            .replace(",", " ")
         binding.textPaymentAccount.text = args.regularPayment.account?.name ?: "-"
         binding.textPaymentCategoryName.text = args.regularPayment.category?.name ?: "-"
         args.regularPayment.category?.icon?.let { binding.iconCategory.setImageResource(it) }
@@ -50,8 +54,16 @@ class RegularPaymentFragment : Fragment() {
                 )
             )
         }
-        binding.textPaymentStartDate.text = args.regularPayment.startDate.toString()
-        binding.textPaymentEndDate.text = args.regularPayment.endDate.toString()
+        binding.textPaymentStartDate.text = args.regularPayment.startDate?.format(
+            DateTimeFormatter.ofPattern(
+                MoneyManagerApp.datePattern
+            )
+        )
+        binding.textPaymentEndDate.text = args.regularPayment.endDate?.format(
+            DateTimeFormatter.ofPattern(
+                MoneyManagerApp.datePattern
+            )
+        )
         binding.textPaymentFrequency.text = args.regularPayment.frequency.toString()
 
         val menuHost: MenuHost = requireActivity()

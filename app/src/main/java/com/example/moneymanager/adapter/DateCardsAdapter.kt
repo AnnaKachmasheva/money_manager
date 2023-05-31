@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.main.MoneyManagerApp.Companion.datePattern
 import com.example.moneymanager.model.DateModel
 import com.example.sp_v2.R
 import java.time.format.DateTimeFormatter
@@ -32,8 +33,7 @@ class DateCardsAdapter(
         val model: DateModel = dateModelArrayList[position]
         holder.dateName.text = model.name
 
-        val formatter = DateTimeFormatter.ofPattern("dd.MM")
-        holder.date.text = model.date.format(formatter)
+        holder.date.text = model.date.format(DateTimeFormatter.ofPattern(datePattern))
 
         holder.itemView.setOnClickListener {
             selectedItemPosition = position

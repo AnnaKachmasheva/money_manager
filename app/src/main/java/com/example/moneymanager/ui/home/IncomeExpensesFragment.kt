@@ -17,8 +17,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.moneymanager.main.MoneyManagerApp
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentTincomeExpemsesDetailsBinding
+import java.time.format.DateTimeFormatter
 
 class IncomeExpensesFragment : Fragment() {
 
@@ -38,12 +41,13 @@ class IncomeExpensesFragment : Fragment() {
 
         val model = args.transactionModel
 
-        binding.textAmount.text = model.amount.toString()
+        binding.textAmount.text =
+            numberFormat.format(model.amount).replace(",", " ")
         binding.textType.text = model.type.type
         binding.textAccount.text = model.account?.name ?: ""
         model.category?.icon?.let { binding.iconCategory.setImageResource(it) }
         model.category?.color?.let { binding.iconCategory.setBackgroundColor(Color.parseColor(it)) }
-        binding.textDate.text = model.date.toString()
+        binding.textDate.text = model.date.format(DateTimeFormatter.ofPattern(MoneyManagerApp.datePattern))
         binding.textNote.text = model.note
 
         val menuHost: MenuHost = requireActivity()

@@ -1,18 +1,15 @@
 package com.example.moneymanager.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.ui.accounts.AccountsFragmentDirections
 import com.example.sp_v2.R
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.Locale
 
 class AccountsAdapter :
     RecyclerView.Adapter<AccountsAdapter.ViewHolder>() {
@@ -41,7 +38,7 @@ class AccountsAdapter :
     }
 
     private fun prepareAmount(amount: Double): String {
-        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
+        val dec = numberFormat
         return dec.format(amount).replace(",", " ")
     }
 

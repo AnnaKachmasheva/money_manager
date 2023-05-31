@@ -7,12 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.main.MoneyManagerApp.Companion.numberFormat
 import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.ui.home.TransactionsByCategoryFragmentDirections
 import com.example.sp_v2.R
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.Locale
 
 class TransactionByCategoryAdapter :
     RecyclerView.Adapter<TransactionByCategoryAdapter.ViewHolder>() {
@@ -48,7 +46,7 @@ class TransactionByCategoryAdapter :
     override fun getItemCount() = modelArrayList.size
 
     private fun prepareAmount(amount: Double): String {
-        val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
+        val dec = numberFormat
         return dec.format(amount).replace(",", " ")
     }
 

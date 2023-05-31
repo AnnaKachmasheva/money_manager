@@ -103,4 +103,9 @@
     <string name="_0">0</string>
     <string name="date_example">23.3.2023</string>
     <string name="monthly">Monthly</string>
+    <string name="round_the_numbers">Round the numbers?</string>
+    <string name="summary_off">off</string>
+    <string name="summary_on">on</string>
+    <string name="date_format">Date format</string>
+    <string name="date_format_list">Date formats</string>
 </resources>
