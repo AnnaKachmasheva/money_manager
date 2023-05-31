@@ -1,7 +1,6 @@
 package com.example.moneymanager.adapter
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +16,6 @@ class CurrenciesListAdapter(currencyModelsList: ArrayList<CurrencyModel>) :
 
     private val currencyModelsList: ArrayList<CurrencyModel>
     private var selectedItemPosition: Int = 0
-    private val greyColor: String = "#808080"
-    private val whiteColor: String = "#FFFFFF"
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -44,22 +40,19 @@ class CurrenciesListAdapter(currencyModelsList: ArrayList<CurrencyModel>) :
         }
 
         if (selectedItemPosition == position) {
-            holder.currencyRow.setBackgroundColor(Color.parseColor(greyColor))
+            holder.currencyRow.setBackgroundResource(R.color.grey)
         } else {
-            holder.currencyRow.setBackgroundColor(Color.parseColor(whiteColor))
+            holder.currencyRow.setBackgroundResource(R.color.white)
         }
     }
 
-    override fun getItemCount(): Int {
-        return currencyModelsList.size
-    }
+    override fun getItemCount() = currencyModelsList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val currencyCode: TextView
         val currencyName: TextView
         val currencyFlag: ImageView
         val currencyRow: View
-
 
         init {
             currencyCode = itemView.findViewById(R.id.code)

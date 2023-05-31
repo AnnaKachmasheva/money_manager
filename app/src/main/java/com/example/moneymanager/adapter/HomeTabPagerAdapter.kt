@@ -12,7 +12,6 @@ class HomeTabPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     private val NUM_TABS = 3
-
     override fun getItemCount(): Int {
         return NUM_TABS
     }

@@ -1,7 +1,5 @@
 package com.example.moneymanager.adapter
 
-import android.app.AlertDialog
-import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +14,6 @@ class CategoryCardsAdapter(private val onClickListener: (View, CategoryModel) ->
     RecyclerView.Adapter<CategoryCardsAdapter.ViewHolder>() {
 
     private var categoryModelArrayList = emptyList<CategoryModel>()
-    private var selectedItemPosition: Int = 0
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -39,20 +36,7 @@ class CategoryCardsAdapter(private val onClickListener: (View, CategoryModel) ->
         }
     }
 
-    // todo change it
-    private fun showUpdateDialog(context: Context) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(categoryModelArrayList[selectedItemPosition].name)
-        val options = listOf("Update", "Delete")
-        builder.setPositiveButton(options[0], null)
-        builder.create()
-        builder.show()
-    }
-
-
-    override fun getItemCount(): Int {
-        return categoryModelArrayList.size
-    }
+    override fun getItemCount() = categoryModelArrayList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryName: TextView

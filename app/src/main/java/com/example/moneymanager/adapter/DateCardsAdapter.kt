@@ -1,12 +1,10 @@
 package com.example.moneymanager.adapter
 
 import android.graphics.Color
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.model.DateModel
 import com.example.sp_v2.R
@@ -19,8 +17,6 @@ class DateCardsAdapter(
 
     private val dateModelArrayList: ArrayList<DateModel>
     var selectedItemPosition: Int = 0
-    private val greyColor: String = "#808080"
-    private val whiteColor: String = "#FFFFFF"
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -28,10 +24,10 @@ class DateCardsAdapter(
     ): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.date_item, parent, false)
+
         return ViewHolder(view)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model: DateModel = dateModelArrayList[position]
         holder.dateName.text = model.name
@@ -45,19 +41,15 @@ class DateCardsAdapter(
         }
 
         if (selectedItemPosition == position) {
-            holder.dateCard.setBackgroundColor(Color.parseColor(greyColor))
-            holder.date.setTextColor(Color.parseColor(whiteColor))
-            holder.dateName.setTextColor(Color.parseColor(whiteColor))
+            holder.dateCard.setBackgroundResource(R.color.grey)
+            holder.date.setTextColor(Color.WHITE)
+            holder.dateName.setTextColor(Color.WHITE)
 
         } else {
-            holder.dateCard.setBackgroundColor(Color.parseColor(whiteColor))
-            holder.date.setTextColor(Color.parseColor(greyColor))
-            holder.dateName.setTextColor(Color.parseColor(greyColor))
+            holder.dateCard.setBackgroundResource(R.color.white)
+            holder.date.setTextColor(Color.GRAY)
+            holder.dateName.setTextColor(Color.GRAY)
         }
-    }
-
-    override fun getItemCount(): Int {
-        return dateModelArrayList.size
     }
 
     fun addDate(model: DateModel) {
@@ -69,9 +61,9 @@ class DateCardsAdapter(
         notifyItemInserted(dateModelArrayList.size)
     }
 
-    fun getSelectedDate(): DateModel {
-        return dateModelArrayList[selectedItemPosition]
-    }
+    fun getSelectedDate() = dateModelArrayList[selectedItemPosition]
+
+    override fun getItemCount() = dateModelArrayList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dateName: TextView

@@ -14,10 +14,7 @@ class CategorySmallCardsAdapter :
     RecyclerView.Adapter<CategorySmallCardsAdapter.ViewHolder>() {
 
     private var categoryModelArrayList = emptyArray<CategoryModel>()
-
     private var selectedItemPosition: Int = 0
-    private val greyColor: String = "#808080"
-    private val whiteColor: String = "#FFFFFF"
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -40,18 +37,13 @@ class CategorySmallCardsAdapter :
         }
 
         if (selectedItemPosition == position) {
-            holder.cardCategoryView.setBackgroundColor(Color.parseColor(greyColor))
-            holder.categoryName.setTextColor(Color.parseColor(whiteColor))
-
+            holder.cardCategoryView.setBackgroundResource(R.color.grey)
         } else {
-            holder.cardCategoryView.setBackgroundColor(Color.parseColor(whiteColor))
-            holder.categoryName.setTextColor(Color.parseColor(greyColor))
+            holder.cardCategoryView.setBackgroundResource(R.color.white)
         }
     }
 
-    override fun getItemCount(): Int {
-        return categoryModelArrayList.size
-    }
+    override fun getItemCount() = categoryModelArrayList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryName: TextView
@@ -65,9 +57,9 @@ class CategorySmallCardsAdapter :
         }
     }
 
-    fun getSelectedCategory(): CategoryModel? {
-        return if (categoryModelArrayList.isNotEmpty()) categoryModelArrayList[selectedItemPosition] else null
-    }
+    fun getSelectedCategory(): CategoryModel? =
+        if (categoryModelArrayList.isNotEmpty()) categoryModelArrayList[selectedItemPosition]
+        else null
 
     fun setInitPosition(categoryModel: CategoryModel) {
         selectedItemPosition = categoryModelArrayList.indexOf(categoryModel)

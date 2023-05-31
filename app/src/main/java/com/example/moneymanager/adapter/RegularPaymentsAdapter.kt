@@ -2,7 +2,6 @@ package com.example.moneymanager.adapter
 
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
@@ -24,6 +23,7 @@ class RegularPaymentsAdapter(private val clickListener: SwitchClickListener) :
     ): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.regular_payment_item, parent, false)
+
         return ViewHolder(view)
     }
 

@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.utils.ColorItems
 import com.example.sp_v2.R
 
-class ColorsAdapter() :
-    RecyclerView.Adapter<ColorsAdapter.ViewHolder>() {
+class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.ViewHolder>() {
 
     private val dateModelArrayList: ArrayList<String> = ColorItems.ColorItems
     private var selectedItemPosition: Int = 0
@@ -36,7 +35,6 @@ class ColorsAdapter() :
             notifyDataSetChanged()
         }
 
-
         if (selectedItemPosition == position) {
             holder.colorView.setImageResource(R.drawable.ic_check)
         } else {
@@ -44,13 +42,10 @@ class ColorsAdapter() :
         }
     }
 
-    override fun getItemCount(): Int {
-        return dateModelArrayList.size
-    }
+    override fun getItemCount() = dateModelArrayList.size
 
-    fun getSelectedColor(): String {
-        return dateModelArrayList[selectedItemPosition]
-    }
+    fun getSelectedColor() = dateModelArrayList[selectedItemPosition]
+
 
     fun setInitPosition(color: String) {
         selectedItemPosition = dateModelArrayList.indexOf(color)

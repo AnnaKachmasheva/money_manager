@@ -38,9 +38,11 @@ class TransactionsAdapter(private val clickListener: TransactionClickListener) :
                 modelList[position].first?.color ?: ""
             )
         )
+
         holder.categoryName.text = modelList[position].first?.name ?: ""
         val amountCategory: Double? = modelList[position].second
-        holder.percent.text = amountCategory?.div(totalAmount)?.times(100)?.let { prepareAmount(it) }
+        holder.percent.text =
+            amountCategory?.div(totalAmount)?.times(100)?.let { prepareAmount(it) }
         holder.amount.text = amountCategory?.toString()
         holder.currency.text = "CZK"
 

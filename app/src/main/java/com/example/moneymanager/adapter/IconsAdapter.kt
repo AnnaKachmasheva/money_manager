@@ -1,6 +1,5 @@
 package com.example.moneymanager.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,14 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moneymanager.utils.IconItems
 import com.example.sp_v2.R
 
-class IconsAdapter() :
+class IconsAdapter :
     RecyclerView.Adapter<IconsAdapter.ViewHolder>() {
 
     private val iconArrayList: ArrayList<Int> = IconItems.IconItems
 
     private var selectedItemPosition: Int = 0
-    private val greyColor: String = "#808080"
-    private val whiteColor: String = "#FFFFFF"
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -24,6 +21,7 @@ class IconsAdapter() :
     ): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.icon_item, parent, false)
+
         return ViewHolder(view)
     }
 
@@ -37,14 +35,10 @@ class IconsAdapter() :
         }
 
         if (selectedItemPosition == position) {
-            holder.iconView.setBackgroundColor(Color.parseColor(greyColor))
+            holder.iconView.setBackgroundResource(R.color.grey)
         } else {
-            holder.iconView.setBackgroundColor(Color.parseColor(whiteColor))
+            holder.iconView.setBackgroundResource(R.color.white)
         }
-    }
-
-    override fun getItemCount(): Int {
-        return iconArrayList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -55,9 +49,9 @@ class IconsAdapter() :
         }
     }
 
-    fun getSelectedIcon(): Int {
-        return iconArrayList[selectedItemPosition]
-    }
+    override fun getItemCount() = iconArrayList.size
+
+    fun getSelectedIcon() = iconArrayList[selectedItemPosition]
 
     fun setInitPosition(icon: Int) {
         selectedItemPosition = iconArrayList.indexOf(icon)

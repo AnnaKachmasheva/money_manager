@@ -70,4 +70,5 @@ class TransactionByCategoryAdapter :
         this.modelArrayList = models
         notifyDataSetChanged()
     }
+
 }
