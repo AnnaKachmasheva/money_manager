@@ -110,4 +110,7 @@
     <string name="date_format_list">Date formats</string>
     <string name="click_on_plus_button">No transactions yet! Tap + to start adding</string>
     <string name="click_on_plus_butto_transfer">No transfer yet! Tap + to start adding</string>
+    <string name="descrition">The application was developed as part of a semester\'s work</string>
+    <string name="author">Kachmasheva Anna</string>
+    <string name="author_label">"Author: "</string>
 </resources>

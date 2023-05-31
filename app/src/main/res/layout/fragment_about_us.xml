@@ -8,12 +8,54 @@
     tools:context="com.example.moneymanager.ui.aboutUs.AboutUsFragment"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin_40"
+        android:layout_marginEnd="@dimen/text_margin_40"
+        android:layout_marginTop="@dimen/text_margin_40"
+        android:textAlignment="center"
+        android:text="@string/descrition"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/authorLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin_40"
+        android:layout_marginEnd="@dimen/text_margin_40"
+        android:layout_marginTop="@dimen/text_margin_40"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:text="@string/author_label"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin_40"
+        android:layout_marginEnd="@dimen/text_margin_40"
+        android:textAlignment="center"
+        android:text="@string/author"
+        android:textSize="18sp" />
+
+
+    <ImageView
+        android:id="@+id/contact_uds_image"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="45dp"
+        android:padding="@dimen/text_margin_16" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/contact_us_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/text_margin_16"
-        android:layout_marginTop="580dp"
         android:layout_marginEnd="@dimen/text_margin_16"
         android:gravity="center"
         android:paddingStart="36dp"

@@ -21,6 +21,8 @@ class AboutUsFragment : Fragment() {
     ): View {
         _binding = FragmentAboutUsBinding.inflate(inflater, container, false)
 
+        val image = binding.contactUdsImage
+        image.setImageResource(R.drawable.contact_us_image)
         return binding.root
     }
 
