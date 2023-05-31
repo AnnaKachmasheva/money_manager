@@ -26,10 +26,6 @@
             android:icon="@drawable/ic_settings"
             android:title="@string/menu_settings" />
         <item
-            android:id="@+id/nav_privacy_policy"
-            android:icon="@drawable/ic_privacy_policy"
-            android:title="@string/menu_privacy_policy" />
-        <item
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_about_us"
             android:title="@string/menu_about_us" />
