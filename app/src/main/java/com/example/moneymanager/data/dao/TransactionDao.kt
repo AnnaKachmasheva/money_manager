@@ -7,14 +7,12 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.model.TransferModel
 
 @Dao
 interface TransactionDao {
 
-    //income, expenses
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExpensesIncome(expensesIncomeModel: ExpensesIncomeModel)
 
@@ -22,13 +20,11 @@ interface TransactionDao {
     fun readAllDataExpenses(): LiveData<List<ExpensesIncomeModel>>
 
     @Query("SELECT * FROM expenses_incomes WHERE type IS 'EXPENSES' AND category_id = :id")
-    fun getExpensesByCategoryId(id: Int?) : LiveData<List<ExpensesIncomeModel>>
-
+    fun getExpensesByCategoryId(id: Int?): LiveData<List<ExpensesIncomeModel>>
 
     @Query("SELECT * FROM expenses_incomes WHERE type IS 'INCOME'")
     fun readAllDataIncome(): LiveData<List<ExpensesIncomeModel>>
 
-    //transfers
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertTransfer(transferModel: TransferModel)
 

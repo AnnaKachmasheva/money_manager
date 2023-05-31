@@ -23,4 +23,5 @@ interface RegularPaymentDao {
 
     @Delete
     fun delete(vararg regularPaymentModel: RegularPaymentModel)
+
 }

@@ -15,14 +15,6 @@ class MainSplashscreenActivity : AppCompatActivity() {
         binding = ActivitySplashscreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val button = binding.startButton
-//        button.setOnClickListener {
-//            val intent = Intent(this, SelectCurrencyActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-
-
         val button = binding.startButton
         button.setOnClickListener {
             val intent = Intent(this, NavigationActivity::class.java)

@@ -8,16 +8,15 @@ class RegularPaymentRepository(private val regularPaymentDao: RegularPaymentDao)
 
     val readAllData: LiveData<List<RegularPaymentModel>> = regularPaymentDao.readAllData()
 
-
     suspend fun addRegularPayment(regularPaymentModel: RegularPaymentModel) {
         regularPaymentDao.insert(regularPaymentModel)
     }
 
-    suspend fun updateRegularPayment(regularPaymentModel: RegularPaymentModel) {
+    fun updateRegularPayment(regularPaymentModel: RegularPaymentModel) {
         regularPaymentDao.update(regularPaymentModel)
     }
 
-    suspend fun deleteRegularPayment(regularPaymentModel: RegularPaymentModel) {
+    fun deleteRegularPayment(regularPaymentModel: RegularPaymentModel) {
         regularPaymentDao.delete(regularPaymentModel)
 
     }

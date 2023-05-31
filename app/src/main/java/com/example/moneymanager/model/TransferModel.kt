@@ -8,7 +8,6 @@ import com.example.moneymanager.model.enums.TransactionType
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 
-
 @Parcelize
 @Entity(tableName = "transfers")
 class TransferModel(
@@ -19,4 +18,4 @@ class TransferModel(
     override var note: String,
     @Embedded(prefix = "from_") val accountFrom: AccountModel?,
     @Embedded(prefix = "to_") val accountTo: AccountModel?,
-) : TransactionModel(id, type, amount, date, note), Parcelable {}
+) : TransactionModel(id, type, amount, date, note), Parcelable

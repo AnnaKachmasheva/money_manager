@@ -26,5 +26,5 @@ data class RegularPaymentModel(
     var startDate: LocalDate?,
     var endDate: LocalDate?,
     var frequency: FrequencyRegularPayment?,
-    var isActive: Boolean
+    var isActive: Boolean = true
 ) : Parcelable

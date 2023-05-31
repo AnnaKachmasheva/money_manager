@@ -20,4 +20,4 @@ class ExpensesIncomeModel(
     @Embedded val category: CategoryModel?
 //    @Relation(entityColumn = "photo_address")
 //    val photo: List<PhotoModel>? = null,
-) : TransactionModel(id, type, amount, date, note), Parcelable {}
+) : TransactionModel(id, type, amount, date, note), Parcelable

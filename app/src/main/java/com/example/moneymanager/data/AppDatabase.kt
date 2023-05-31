@@ -29,6 +29,7 @@ import com.example.moneymanager.model.convertets.DateConverter
 )
 @TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun accountDao(): AccountDao
     abstract fun categoryDao(): CategoryDao
     abstract fun regularPaymentDao(): RegularPaymentDao

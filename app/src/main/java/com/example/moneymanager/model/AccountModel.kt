@@ -15,6 +15,7 @@ data class AccountModel(
     @ColumnInfo(name = "account_amount") var amount: Double = 0.0,
     var isIncludeInTotalBalance: Boolean = true
 ) : Parcelable {
+
     fun minusAmount(amount: Double) {
         this.amount -= amount
     }

@@ -23,4 +23,5 @@ interface CategoryDao {
 
     @Delete
     fun delete(vararg categoryModel: CategoryModel)
+
 }

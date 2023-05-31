@@ -18,9 +18,6 @@ interface AccountDao {
     @Query("SELECT * FROM accounts ORDER BY account_id ASC")
     fun readAllData(): LiveData<List<AccountModel>>
 
-    @Query("SELECT * FROM accounts ORDER BY account_id ASC")
-    suspend fun getAllAccounts(): List<AccountModel>
-
     @Query("SELECT sum(account_amount) FROM accounts WHERE isIncludeInTotalBalance IS 1")
     fun getTotalAmount(): LiveData<Double>
 
@@ -29,7 +26,5 @@ interface AccountDao {
 
     @Delete
     fun delete(vararg accountModel: AccountModel)
-//
-//    @Query("DELETE FROM accounts")
-//    suspend fun deleteAll()
+
 }
