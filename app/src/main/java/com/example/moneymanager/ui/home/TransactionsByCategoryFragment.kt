@@ -1,5 +1,6 @@
 package com.example.moneymanager.ui.home
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,10 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.moneymanager.adapter.TransactionsAdapter
-import com.example.moneymanager.model.CategoryModel
-import com.example.moneymanager.ui.home.interfaces.TransactionClickListener
+import com.example.moneymanager.adapter.TransactionByCategoryAdapter
 import com.example.sp_v2.R
 import com.example.sp_v2.databinding.FragmentTransactionsByCategoryBinding
 import java.text.DecimalFormat
@@ -25,6 +26,7 @@ class TransactionsByCategoryFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var mHomeViewModel: HomeViewModel
+    private lateinit var adapter: TransactionByCategoryAdapter
 
     private val args by navArgs<TransactionsByCategoryFragmentArgs>()
 
@@ -38,20 +40,19 @@ class TransactionsByCategoryFragment : Fragment() {
         val view = binding.root
 
         mHomeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        initData()
 
-        val adapter = TransactionsAdapter(this)
-        val recyclerView = binding.transactionsList
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.itemAnimator = DefaultItemAnimator()
-        mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { expences ->
-            adapter.setData(expences)
-        }
+        val categoryName = args.categoryModel.name
+        val totalCategory = args.totalCategory
 
-        mHomeViewModel.totalExpencesAmount.observe(viewLifecycleOwner) { amount ->
-            val transfersAmount = binding.axpensesAmount
-            transfersAmount.text = prepareAmount(amount ?: 0.0)
-        }
+        binding.nameCategory.text = categoryName
+        binding.categoryAmount.text = prepareAmount(totalCategory)
+        binding.cardViewCategory.setCardBackgroundColor(Color.parseColor(args.categoryModel.color))
+
+//        mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) {
+//            adapter.setData(transactions)
+//        }
+
 
         val button = binding.addButton
         button.setOnClickListener() {
@@ -62,9 +63,29 @@ class TransactionsByCategoryFragment : Fragment() {
         return view
     }
 
-    private fun prepareAmount(amount: Double): String {
+    private fun prepareAmount(amount: Long): String {
         val dec = DecimalFormat("###,###,###,###,###.0", DecimalFormatSymbols(Locale.ENGLISH))
         return dec.format(amount).replace(",", " ") + " CZK"
+    }
+
+    private fun initData() {
+        adapter = TransactionByCategoryAdapter()
+        val recyclerView = binding.transactionsList
+        mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { expences ->
+            val listTransaction =
+                expences.filter { ex -> ex.category!!.id == args.categoryModel.id }
+                    .toList().sortedBy { exp ->exp.date }
+            adapter.setData(listTransaction)
+        }
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                activity,
+                DividerItemDecoration.VERTICAL
+            )
+        )
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.itemAnimator = DefaultItemAnimator()
     }
 
 

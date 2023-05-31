@@ -14,6 +14,7 @@ class TransactionRepository(private val transactionDao: TransactionDao) {
 
     val totalTransferAmount: LiveData<Double> = transactionDao.getTotalTransferAmount()
     val totalExpencesAmount: LiveData<Double> = transactionDao.getTotalExpencesAmount()
+    val totalIncomeAmount: LiveData<Double> = transactionDao.getTotalIncomeAmount()
 
     suspend fun addExpensesIncome(expensesIncomeModel: ExpensesIncomeModel) {
         transactionDao.insertExpensesIncome(expensesIncomeModel)
@@ -34,6 +35,18 @@ class TransactionRepository(private val transactionDao: TransactionDao) {
         transactionDao.updateTransfer(transferModel)
     }
 
+
     // expenses
+    fun getExpensesByCategoryId(id: Int?) : LiveData<List<ExpensesIncomeModel>> {
+        return transactionDao.getExpensesByCategoryId(id)
+    }
+
+    suspend fun deleteTransaction(model: ExpensesIncomeModel) {
+        transactionDao.deleteTransaction(model)
+    }
+
+    suspend fun updateTransaction(model: ExpensesIncomeModel) {
+        transactionDao.updateTransaction(model)
+    }
 
 }

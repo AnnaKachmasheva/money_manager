@@ -173,7 +173,6 @@
 
             </FrameLayout>
 
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/noteTextInput"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.moneymanager.ui.home.ExpensesFragment
-import com.example.moneymanager.ui.home.IncomeFragment
+import com.example.moneymanager.ui.home.IncomesFragment
 import com.example.moneymanager.ui.home.TransfersFragment
 
 class HomeTabPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
@@ -20,7 +20,7 @@ class HomeTabPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle
     override fun createFragment(position: Int): Fragment {
         when (position) {
             0 -> return ExpensesFragment()
-            1 -> return IncomeFragment()
+            1 -> return IncomesFragment()
         }
         return TransfersFragment()
     }

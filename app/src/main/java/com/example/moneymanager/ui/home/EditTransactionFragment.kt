@@ -19,7 +19,6 @@ class EditTransactionFragment : Fragment() {
         TransactionType.INCOME.type,
         TransactionType.TRANSFER.type
     )
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,13 +34,6 @@ class EditTransactionFragment : Fragment() {
         TabLayoutMediator(tabLayout, view) { tab, position ->
             tab.text = operations[position]
         }.attach()
-
-//
-//        val button = binding.addButton
-//        button.setOnClickListener() {
-//            Navigation.findNavController(view)
-//                .navigate(R.id.editTransactionFragment)
-//        }
 
         return binding.root
     }

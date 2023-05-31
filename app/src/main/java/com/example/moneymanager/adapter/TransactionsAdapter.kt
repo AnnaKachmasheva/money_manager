@@ -75,10 +75,10 @@ class TransactionsAdapter(private val clickListener: TransactionClickListener) :
         }
     }
 
-    fun setData(expences: List<ExpensesIncomeModel>?) {
-        this.totalAmount = expences?.sumOf { exp -> exp.amount }!!
+    fun setData(expenses: List<ExpensesIncomeModel>?) {
+        this.totalAmount = expenses?.sumOf { exp -> exp.amount }!!
         val modelListProm: Map<Int?, List<ExpensesIncomeModel>> =
-            expences.groupBy { exp -> exp.category?.id }
+            expenses.groupBy { exp -> exp.category?.id }
 
         val modelListResult: MutableList<Pair<CategoryModel?, Double>> = mutableListOf()
         modelListProm.forEach {

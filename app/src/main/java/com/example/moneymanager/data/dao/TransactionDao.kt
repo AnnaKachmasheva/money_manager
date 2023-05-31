@@ -21,6 +21,10 @@ interface TransactionDao {
     @Query("SELECT * FROM expenses_incomes WHERE type IS 'EXPENSES'")
     fun readAllDataExpenses(): LiveData<List<ExpensesIncomeModel>>
 
+    @Query("SELECT * FROM expenses_incomes WHERE type IS 'EXPENSES' AND category_id = :id")
+    fun getExpensesByCategoryId(id: Int?) : LiveData<List<ExpensesIncomeModel>>
+
+
     @Query("SELECT * FROM expenses_incomes WHERE type IS 'INCOME'")
     fun readAllDataIncome(): LiveData<List<ExpensesIncomeModel>>
 
@@ -42,4 +46,13 @@ interface TransactionDao {
 
     @Query("SELECT sum(amount) FROM expenses_incomes WHERE type IS 'EXPENSES'")
     fun getTotalExpencesAmount(): LiveData<Double>
+
+    @Delete
+    fun deleteTransaction(vararg model: ExpensesIncomeModel)
+
+    @Update
+    fun updateTransaction(model: ExpensesIncomeModel)
+
+    @Query("SELECT sum(amount) FROM expenses_incomes WHERE type IS 'INCOME'")
+    fun getTotalIncomeAmount(): LiveData<Double>
 }

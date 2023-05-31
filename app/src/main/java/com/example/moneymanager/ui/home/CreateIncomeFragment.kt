@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moneymanager.adapter.CategorySmallCardsAdapter
@@ -24,7 +23,7 @@ import com.example.sp_v2.databinding.FragmentEditExpensesIncomeBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class EditExpensesFragment : Fragment() {
+class CreateIncomeFragment : Fragment() {
 
     private var _binding: FragmentEditExpensesIncomeBinding? = null
     private val binding get() = _binding!!
@@ -32,9 +31,6 @@ class EditExpensesFragment : Fragment() {
     private lateinit var dateCardAdapter: DateCardsAdapter
     private lateinit var categoriesAdapter: CategorySmallCardsAdapter
     private lateinit var mHomeViewModel: HomeViewModel
-    private lateinit var oldModel: ExpensesIncomeModel
-
-    private val args by navArgs<EditExpensesFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,11 +42,6 @@ class EditExpensesFragment : Fragment() {
         mHomeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         initAccountsData()
         initCategoriesData()
-
-        // set old data
-        oldModel = args.transactionModel
-        binding.amountText.setText(oldModel.amount.toString())
-        binding.noteText.setText(oldModel.note)
 
         var accountsRegularPayment = mHomeViewModel.readAllAccounts.value?.toTypedArray()
         mHomeViewModel.readAllAccounts.observe(
@@ -97,6 +88,7 @@ class EditExpensesFragment : Fragment() {
                     }
                 }
             }
+
             datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
         }
 
@@ -119,9 +111,8 @@ class EditExpensesFragment : Fragment() {
 
         // create button
         val addPaymentButton = binding.createButton
-        addPaymentButton.text = "Save"
         addPaymentButton.setOnClickListener() {
-            updateData()
+            insertDataToDatabase()
         }
 
         return view
@@ -129,7 +120,7 @@ class EditExpensesFragment : Fragment() {
 
 
     private fun initAccountsData() {
-        val accounts = this@EditExpensesFragment.context?.let {
+        val accounts = this@CreateIncomeFragment.context?.let {
             ArrayAdapter<Any>(
                 it,
                 android.R.layout.simple_spinner_item
@@ -139,8 +130,6 @@ class EditExpensesFragment : Fragment() {
             accountList?.forEach {
                 accounts?.add(it.name)
             }
-            accounts?.getPosition(args.transactionModel.account?.name)
-                ?.let { binding.selectAccountSpiner.setSelection(it) }
         }
         binding.selectAccountSpiner.adapter = accounts
     }
@@ -148,16 +137,16 @@ class EditExpensesFragment : Fragment() {
     private fun initCategoriesData() {
         categoriesAdapter = CategorySmallCardsAdapter()
         val recyclerViewCategories = binding.categories
+
         mHomeViewModel.readAllCategories.observe(viewLifecycleOwner) { categories ->
             categoriesAdapter.setData(categories.toTypedArray())
-            args.transactionModel.category?.let { categoriesAdapter.setInitPosition(it) }
         }
         recyclerViewCategories.adapter = categoriesAdapter
         recyclerViewCategories.layoutManager = GridLayoutManager(requireContext(), 3)
         recyclerViewCategories.itemAnimator = DefaultItemAnimator()
     }
 
-    private fun updateData() {
+    private fun insertDataToDatabase() {
         val amount = binding.amountText.text.toString().trim()
         val accountPosition = binding.selectAccountSpiner.selectedItemPosition
         val category = categoriesAdapter.getSelectedCategory()
@@ -174,11 +163,11 @@ class EditExpensesFragment : Fragment() {
         } else {
             val amountTransfer = amount.toDouble()
             val accountModel = mHomeViewModel.readAllAccounts.value?.get(accountPosition)
-            accountModel?.minusAmount(amountTransfer)
+            accountModel?.plusAmount(amountTransfer)
 
             val transaction = ExpensesIncomeModel(
-                id = args.transactionModel.id,
-                type = TransactionType.EXPENSES,
+                id = 0,
+                type = TransactionType.INCOME,
                 amount = amountTransfer,
                 date = date.date,
                 note = note,
@@ -186,10 +175,10 @@ class EditExpensesFragment : Fragment() {
                 category = category
             )
             //insert transaction
-            mHomeViewModel.updateTransaction(transaction, oldModel)
+            mHomeViewModel.addExpensesIncome(transaction)
             //update account
             mHomeViewModel.updateAccount(accountModel)
-            Toast.makeText(requireContext(), "Transaction successfully updated!", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), "Transaction successfully added!", Toast.LENGTH_LONG)
                 .show()
             findNavController().popBackStack()
         }

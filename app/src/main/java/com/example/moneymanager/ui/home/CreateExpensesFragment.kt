@@ -19,13 +19,13 @@ import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.model.enums.TransactionType
 import com.example.moneymanager.utils.DateItems
 import com.example.sp_v2.R
-import com.example.sp_v2.databinding.FragmentEditExpensesBinding
+import com.example.sp_v2.databinding.FragmentEditExpensesIncomeBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class CreateExpensesFragment : Fragment() {
 
-    private var _binding: FragmentEditExpensesBinding? = null
+    private var _binding: FragmentEditExpensesIncomeBinding? = null
     private val binding get() = _binding!!
     private var selectedDate: String = ""
     private lateinit var dateCardAdapter: DateCardsAdapter
@@ -36,7 +36,7 @@ class CreateExpensesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentEditExpensesBinding.inflate(inflater, container, false)
+        _binding = FragmentEditExpensesIncomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
         mHomeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]

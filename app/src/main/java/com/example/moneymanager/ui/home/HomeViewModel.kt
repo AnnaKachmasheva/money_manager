@@ -12,6 +12,7 @@ import com.example.moneymanager.model.AccountModel
 import com.example.moneymanager.model.CategoryModel
 import com.example.moneymanager.model.ExpensesIncomeModel
 import com.example.moneymanager.model.TransferModel
+import com.example.moneymanager.model.enums.TransactionType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -25,6 +26,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     val totalTransferAmount: LiveData<Double>
     val totalExpencesAmount: LiveData<Double>
+    val totalIncomeAmount: LiveData<Double>
 
     private val repository: TransactionRepository
     private val repositoryAccount: AccountRepository
@@ -42,6 +44,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
         totalTransferAmount = repository.totalTransferAmount
         totalExpencesAmount = repository.totalExpencesAmount
+        totalIncomeAmount = repository.totalIncomeAmount
 
         repositoryAccount = AccountRepository(accountDao)
         readAllAccounts = repositoryAccount.readAllData
@@ -126,11 +129,65 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     // expenses and income
-
     fun addExpensesIncome(expensesIncomeModel: ExpensesIncomeModel) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addExpensesIncome(expensesIncomeModel)
         }
     }
 
+    fun getExpensesByCategoryId(id: Int?): LiveData<List<ExpensesIncomeModel>> {
+        return repository.getExpensesByCategoryId(id)
+    }
+
+    fun deleteTransaction(model: ExpensesIncomeModel) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteTransaction(model)
+
+            val accountOld = model.account
+            if (model.type == TransactionType.EXPENSES)
+                accountOld?.plusAmount(model.amount)
+            if (model.type == TransactionType.INCOME)
+                accountOld?.minusAmount(model.amount)
+
+            if (accountOld != null) {
+                repositoryAccount.updateAccount(accountOld)
+            }
+        }
+    }
+
+    fun updateTransaction(
+        expensesIncomeModelNew: ExpensesIncomeModel,
+        expensesIncomeModelOld: ExpensesIncomeModel
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateTransaction(expensesIncomeModelNew)
+
+            if (expensesIncomeModelNew.account?.id!! == expensesIncomeModelOld.account?.id!!) {
+                val account = expensesIncomeModelOld.account
+                if (expensesIncomeModelNew.amount > expensesIncomeModelOld.amount)
+                    account.minusAmount(expensesIncomeModelNew.amount - expensesIncomeModelOld.amount)
+                else if (expensesIncomeModelNew.amount < expensesIncomeModelOld.amount)
+                    account.plusAmount(expensesIncomeModelOld.amount - expensesIncomeModelNew.amount)
+                repositoryAccount.updateAccount(account)
+            } else {
+                val oldAccount = expensesIncomeModelOld.account
+                val oldAmount = expensesIncomeModelOld.amount
+                val newAccount = expensesIncomeModelNew.account
+                val newAmount = expensesIncomeModelNew.amount
+
+                if (expensesIncomeModelNew.type == TransactionType.EXPENSES) {
+                    oldAccount.plusAmount(oldAmount)
+                    newAccount.minusAmount(newAmount)
+                } else {
+                    oldAccount.minusAmount(oldAmount)
+                    newAccount.plusAmount(newAmount)
+                }
+
+                repositoryAccount.updateAccount(oldAccount)
+                repositoryAccount.updateAccount(newAccount)
+
+            }
+        }
+
+    }
 }

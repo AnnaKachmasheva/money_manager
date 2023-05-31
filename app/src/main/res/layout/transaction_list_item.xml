@@ -15,11 +15,12 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/iconTransactionByCategory"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_row="0"
             android:layout_columnWeight="1"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="@dimen/text_margin_16"
             android:layout_marginRight="@dimen/text_margin_16"
             android:contentDescription="@string/flag"
@@ -27,7 +28,7 @@
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/categoryName"
+            android:id="@+id/categoryNameTransactionByCategory"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:text="category"
@@ -36,7 +37,7 @@
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
-            android:id="@+id/percent"
+            android:id="@+id/amountTransactionByCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
@@ -46,7 +47,7 @@
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
-            android:id="@+id/count"
+            android:id="@+id/currencyTransactionByCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"

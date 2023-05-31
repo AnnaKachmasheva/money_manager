@@ -19,7 +19,7 @@ import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.Locale
 
-class ExpensesFragment : Fragment(), TransactionClickListener {
+class IncomesFragment : Fragment(), TransactionClickListener {
 
     private var _binding: FragmentExpencesIncomeBinding? = null
     private val binding get() = _binding!!
@@ -42,13 +42,13 @@ class ExpensesFragment : Fragment(), TransactionClickListener {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.itemAnimator = DefaultItemAnimator()
-        mHomeViewModel.readAllDataExpenses.observe(viewLifecycleOwner) { expences ->
-            adapter.setData(expences)
+        mHomeViewModel.readAllDataIncome.observe(viewLifecycleOwner) { income ->
+            adapter.setData(income)
         }
 
-        mHomeViewModel.totalExpencesAmount.observe(viewLifecycleOwner) { amount ->
+        mHomeViewModel.totalIncomeAmount.observe(viewLifecycleOwner) { income ->
             val transfersAmount = binding.axpensesAmount
-            transfersAmount.text = prepareAmount(amount ?: 0.0)
+            transfersAmount.text = prepareAmount(income ?: 0.0)
         }
 
         val button = binding.addButton

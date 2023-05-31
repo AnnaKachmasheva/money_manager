@@ -24,7 +24,7 @@ import com.example.sp_v2.databinding.FragmentEditExpensesIncomeBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class EditExpensesFragment : Fragment() {
+class EditIncomeFragment : Fragment() {
 
     private var _binding: FragmentEditExpensesIncomeBinding? = null
     private val binding get() = _binding!!
@@ -129,7 +129,7 @@ class EditExpensesFragment : Fragment() {
 
 
     private fun initAccountsData() {
-        val accounts = this@EditExpensesFragment.context?.let {
+        val accounts = this@EditIncomeFragment.context?.let {
             ArrayAdapter<Any>(
                 it,
                 android.R.layout.simple_spinner_item
@@ -174,11 +174,11 @@ class EditExpensesFragment : Fragment() {
         } else {
             val amountTransfer = amount.toDouble()
             val accountModel = mHomeViewModel.readAllAccounts.value?.get(accountPosition)
-            accountModel?.minusAmount(amountTransfer)
+            accountModel?.plusAmount(amountTransfer)
 
             val transaction = ExpensesIncomeModel(
                 id = args.transactionModel.id,
-                type = TransactionType.EXPENSES,
+                type = TransactionType.INCOME,
                 amount = amountTransfer,
                 date = date.date,
                 note = note,

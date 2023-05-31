@@ -20,14 +20,17 @@
             android:id="@+id/action_nav_home_to_expensesFragment"
             app:destination="@id/expensesFragment" />
         <action
-            android:id="@+id/action_nav_home_to_incomeFragment"
-            app:destination="@id/incomeFragment" />
-        <action
             android:id="@+id/action_nav_home_to_transferFragment"
             app:destination="@id/transferFragment" />
         <action
             android:id="@+id/action_nav_home_to_transfersFragment"
             app:destination="@id/transfersFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_transactionsByCategoryFragment"
+            app:destination="@id/transactionsByCategoryFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_incomesFragment"
+            app:destination="@id/incomesFragment" />
     </fragment>
 
     <fragment
@@ -175,11 +178,17 @@
         android:id="@+id/expensesFragment"
         android:name="com.example.moneymanager.ui.home.ExpensesFragment"
         android:label="fragment_expences"
-        tools:layout="@layout/fragment_expences" >
+        tools:layout="@layout/fragment_expences_income" />
+    <fragment
+        android:id="@+id/incomesFragment"
+        android:name="com.example.moneymanager.ui.home.IncomesFragment"
+        android:label="IncomesFragment"
+        tools:layout="@layout/fragment_expences_income">
         <action
-            android:id="@+id/action_expensesFragment_to_transactionsByCategoryFragment"
+            android:id="@+id/action_incomesFragment_to_transactionsByCategoryFragment"
             app:destination="@id/transactionsByCategoryFragment" />
     </fragment>
+
 
     <fragment
         android:id="@+id/transactionsByCategoryFragment"
@@ -187,21 +196,39 @@
         android:label="Transactions by category"
         tools:layout="@layout/fragment_transactions_by_category">
         <argument
-            android:name="transactionModels"
-            app:argType="com.example.moneymanager.model.ExpensesIncomeModel[]" />
-        <argument
             android:name="totalCategory"
             app:argType="long" />
         <argument
-            android:name="nameCategory"
-            app:argType="string" />
+            android:name="categoryModel"
+            app:argType="com.example.moneymanager.model.CategoryModel" />
+        <action
+            android:id="@+id/action_transactionsByCategoryFragment_to_incomeExpensesFragment"
+            app:destination="@id/incomeExpensesFragment" />
+        <action
+            android:id="@+id/action_transactionsByCategoryFragment_to_editIncomeFragment"
+            app:destination="@id/editIncomeFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/incomeFragment"
-        android:name="com.example.moneymanager.ui.home.IncomeFragment"
-        android:label="fragment_income"
-        tools:layout="@layout/fragment_income" />
+        android:id="@+id/incomeExpensesFragment"
+        android:name="com.example.moneymanager.ui.home.IncomeExpensesFragment"
+        tools:layout="@layout/fragment_tincome_expemses_details"
+        android:label="Transaction details" >
+        <argument
+            android:name="transactionModel"
+            app:argType="com.example.moneymanager.model.ExpensesIncomeModel" />
+        <action
+            android:id="@+id/action_incomeExpensesFragment_to_editExpensesFragment"
+            app:destination="@id/editExpensesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editExpensesFragment"
+        android:name="com.example.moneymanager.ui.home.EditExpensesFragment"
+        android:label="Edit transaction"
+        tools:layout="@layout/fragment_edit_expenses_income">
+        <argument
+            android:name="transactionModel"
+            app:argType="com.example.moneymanager.model.ExpensesIncomeModel" />
+    </fragment>
 
     <fragment
         android:id="@+id/transfersFragment"
@@ -278,6 +305,10 @@
             android:id="@+id/action_transferFragment_to_editTransferFragment"
             app:destination="@id/editTransferFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editIncomeFragment"
+        android:name="com.example.moneymanager.ui.home.EditIncomeFragment"
+        android:label="EditIncomeFragment" />
 
 
 </navigation>
